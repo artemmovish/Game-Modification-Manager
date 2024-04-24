@@ -1,4 +1,5 @@
 #include "Launcher.h"
+#include "ControlPanel.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace std;
@@ -13,3 +14,5 @@ void main() {
     // Project1 имя решения, Form1h имя формы
     Application::Run(% form);
 }
+
+

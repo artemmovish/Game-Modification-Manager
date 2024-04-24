@@ -19,9 +19,7 @@ namespace Project1 {
 		ControlPanel(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
+			down->Start();
 		}
 
 	protected:
@@ -42,6 +40,10 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^ butSet;
 	private: System::Windows::Forms::Button^ butVolPlus;
 	private: System::Windows::Forms::Button^ butImagePlus;
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::Windows::Forms::Timer^ up;
+	private: System::Windows::Forms::Timer^ down;
+	private: System::ComponentModel::IContainer^ components;
 	protected:
 
 	protected:
@@ -53,7 +55,7 @@ namespace Project1 {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -62,6 +64,7 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ControlPanel::typeid));
 			this->butImageMinus = (gcnew System::Windows::Forms::Button());
 			this->butVolMinus = (gcnew System::Windows::Forms::Button());
@@ -70,6 +73,9 @@ namespace Project1 {
 			this->butSet = (gcnew System::Windows::Forms::Button());
 			this->butVolPlus = (gcnew System::Windows::Forms::Button());
 			this->butImagePlus = (gcnew System::Windows::Forms::Button());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->up = (gcnew System::Windows::Forms::Timer(this->components));
+			this->down = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// butImageMinus
@@ -82,6 +88,7 @@ namespace Project1 {
 			this->butImageMinus->Name = L"butImageMinus";
 			this->butImageMinus->Size = System::Drawing::Size(52, 52);
 			this->butImageMinus->TabIndex = 7;
+			this->toolTip1->SetToolTip(this->butImageMinus, L"Предыдущая картинка");
 			this->butImageMinus->UseVisualStyleBackColor = true;
 			// 
 			// butVolMinus
@@ -94,6 +101,7 @@ namespace Project1 {
 			this->butVolMinus->Name = L"butVolMinus";
 			this->butVolMinus->Size = System::Drawing::Size(52, 52);
 			this->butVolMinus->TabIndex = 8;
+			this->toolTip1->SetToolTip(this->butVolMinus, L"Звук -");
 			this->butVolMinus->UseVisualStyleBackColor = true;
 			// 
 			// butClose
@@ -106,6 +114,7 @@ namespace Project1 {
 			this->butClose->Name = L"butClose";
 			this->butClose->Size = System::Drawing::Size(52, 52);
 			this->butClose->TabIndex = 9;
+			this->toolTip1->SetToolTip(this->butClose, L"Закрыть");
 			this->butClose->UseVisualStyleBackColor = true;
 			this->butClose->Click += gcnew System::EventHandler(this, &ControlPanel::butClose_Click);
 			// 
@@ -119,7 +128,9 @@ namespace Project1 {
 			this->butMain->Name = L"butMain";
 			this->butMain->Size = System::Drawing::Size(52, 52);
 			this->butMain->TabIndex = 10;
+			this->toolTip1->SetToolTip(this->butMain, L"развернуть");
 			this->butMain->UseVisualStyleBackColor = true;
+			this->butMain->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ControlPanel::butMain_MouseClick);
 			// 
 			// butSet
 			// 
@@ -131,6 +142,7 @@ namespace Project1 {
 			this->butSet->Name = L"butSet";
 			this->butSet->Size = System::Drawing::Size(52, 52);
 			this->butSet->TabIndex = 11;
+			this->toolTip1->SetToolTip(this->butSet, L"Настройки");
 			this->butSet->UseVisualStyleBackColor = true;
 			// 
 			// butVolPlus
@@ -143,6 +155,7 @@ namespace Project1 {
 			this->butVolPlus->Name = L"butVolPlus";
 			this->butVolPlus->Size = System::Drawing::Size(52, 52);
 			this->butVolPlus->TabIndex = 12;
+			this->toolTip1->SetToolTip(this->butVolPlus, L"Звук +");
 			this->butVolPlus->UseVisualStyleBackColor = true;
 			// 
 			// butImagePlus
@@ -155,18 +168,29 @@ namespace Project1 {
 			this->butImagePlus->Name = L"butImagePlus";
 			this->butImagePlus->Size = System::Drawing::Size(52, 52);
 			this->butImagePlus->TabIndex = 13;
+			this->toolTip1->SetToolTip(this->butImagePlus, L"Следующая картинка");
 			this->butImagePlus->UseVisualStyleBackColor = true;
+			// 
+			// up
+			// 
+			this->up->Interval = 15;
+			this->up->Tick += gcnew System::EventHandler(this, &ControlPanel::up_Tick);
+			// 
+			// down
+			// 
+			this->down->Interval = 15;
+			this->down->Tick += gcnew System::EventHandler(this, &ControlPanel::down_Tick);
 			// 
 			// ControlPanel
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->butImagePlus);
-			this->Controls->Add(this->butVolPlus);
-			this->Controls->Add(this->butSet);
 			this->Controls->Add(this->butMain);
+			this->Controls->Add(this->butSet);
 			this->Controls->Add(this->butClose);
 			this->Controls->Add(this->butVolMinus);
+			this->Controls->Add(this->butVolPlus);
+			this->Controls->Add(this->butImagePlus);
 			this->Controls->Add(this->butImageMinus);
 			this->Name = L"ControlPanel";
 			this->Size = System::Drawing::Size(410, 58);
@@ -174,6 +198,17 @@ namespace Project1 {
 
 		}
 #pragma endregion
+		bool clickBut = false;
+
+
+
+
 	private: System::Void butClose_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void up_Tick(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void down_Tick(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void butMain_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 };
 }

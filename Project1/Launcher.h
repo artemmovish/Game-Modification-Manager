@@ -18,11 +18,17 @@ namespace Project1 {
 		Launcher(void)
 		{
 			InitializeComponent();
+			//
+			// Scroll panelGameMod
+			//
 			panelGameMod->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-
+			//
+			// ControlPanel
+			//
 			ControlPanel^ controlPanel = gcnew ControlPanel();
 			controlPanel->Anchor = static_cast<AnchorStyles>(AnchorStyles::None);
 			panelManegement->Controls->Add(controlPanel, 1, 0);
+			
 		}
 
 	protected:
@@ -50,11 +56,23 @@ namespace Project1 {
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TextBox^ textName;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
+	private: System::Windows::Forms::Button^ butChange;
+
+	private: System::Windows::Forms::Button^ butSave;
+
+
+
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::ComponentModel::IContainer^ components;
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -63,6 +81,7 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Launcher::typeid));
 			this->panelGame = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->button10 = (gcnew System::Windows::Forms::Button());
@@ -75,13 +94,22 @@ namespace Project1 {
 			this->textDict = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textName = (gcnew System::Windows::Forms::TextBox());
+			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->butSave = (gcnew System::Windows::Forms::Button());
+			this->butChange = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panelManegement = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->panelGame->SuspendLayout();
 			this->panelGameMod->SuspendLayout();
 			this->PanelPrew->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelDict->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
+			this->tableLayoutPanel2->SuspendLayout();
+			this->panelManegement->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelGame
@@ -90,7 +118,6 @@ namespace Project1 {
 			this->panelGame->Controls->Add(this->button10);
 			this->panelGame->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panelGame->Location = System::Drawing::Point(0, 0);
-			this->panelGame->MinimumSize = System::Drawing::Size(200, 600);
 			this->panelGame->Name = L"panelGame";
 			this->panelGame->Size = System::Drawing::Size(200, 600);
 			this->panelGame->TabIndex = 1;
@@ -154,7 +181,8 @@ namespace Project1 {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::PanWest;
 			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(3, 3);
@@ -173,6 +201,7 @@ namespace Project1 {
 			this->PanelDict->Controls->Add(this->textExe, 0, 1);
 			this->PanelDict->Controls->Add(this->textDict, 0, 0);
 			this->PanelDict->Controls->Add(this->tableLayoutPanel1, 1, 0);
+			this->PanelDict->Controls->Add(this->button1, 1, 1);
 			this->PanelDict->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelDict->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
@@ -224,12 +253,14 @@ namespace Project1 {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->textName, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 0, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(523, 4);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 47.51381F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 52.48619F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 53.37078F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 46.62922F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(181, 178);
 			this->tableLayoutPanel1->TabIndex = 2;
 			// 
@@ -246,9 +277,72 @@ namespace Project1 {
 			this->textName->Multiline = true;
 			this->textName->Name = L"textName";
 			this->textName->ReadOnly = true;
-			this->textName->Size = System::Drawing::Size(175, 78);
+			this->textName->Size = System::Drawing::Size(175, 88);
 			this->textName->TabIndex = 1;
 			this->textName->Text = L"НАЗВАНИЕ ИГРЫ";
+			// 
+			// tableLayoutPanel2
+			// 
+			this->tableLayoutPanel2->ColumnCount = 2;
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				49.99765F)));
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50.00236F)));
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				20)));
+			this->tableLayoutPanel2->Controls->Add(this->butSave, 0, 0);
+			this->tableLayoutPanel2->Controls->Add(this->butChange, 1, 0);
+			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel2->Location = System::Drawing::Point(3, 97);
+			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
+			this->tableLayoutPanel2->RowCount = 1;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel2->Size = System::Drawing::Size(175, 78);
+			this->tableLayoutPanel2->TabIndex = 2;
+			// 
+			// butSave
+			// 
+			this->butSave->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butSave.BackgroundImage")));
+			this->butSave->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butSave->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->butSave->FlatAppearance->BorderSize = 0;
+			this->butSave->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butSave->Location = System::Drawing::Point(3, 3);
+			this->butSave->Name = L"butSave";
+			this->butSave->Size = System::Drawing::Size(81, 72);
+			this->butSave->TabIndex = 12;
+			this->toolTip1->SetToolTip(this->butSave, L"Сохранить");
+			this->butSave->UseVisualStyleBackColor = true;
+			// 
+			// butChange
+			// 
+			this->butChange->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butChange.BackgroundImage")));
+			this->butChange->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butChange->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->butChange->FlatAppearance->BorderSize = 0;
+			this->butChange->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butChange->Location = System::Drawing::Point(90, 3);
+			this->butChange->Name = L"butChange";
+			this->butChange->Size = System::Drawing::Size(82, 72);
+			this->butChange->TabIndex = 13;
+			this->toolTip1->SetToolTip(this->butChange, L"Изменить");
+			this->butChange->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
+				static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->ForeColor = System::Drawing::Color::Silver;
+			this->button1->Location = System::Drawing::Point(523, 189);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(181, 44);
+			this->button1->TabIndex = 3;
+			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// panelManegement
 			// 
@@ -261,6 +355,8 @@ namespace Project1 {
 				37.5F)));
 			this->panelManegement->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				31.25F)));
+			this->panelManegement->Controls->Add(this->button2, 0, 0);
+			this->panelManegement->Controls->Add(this->button3, 2, 0);
 			this->panelManegement->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->panelManegement->Location = System::Drawing::Point(0, 600);
 			this->panelManegement->Name = L"panelManegement";
@@ -269,6 +365,32 @@ namespace Project1 {
 			this->panelManegement->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 65)));
 			this->panelManegement->Size = System::Drawing::Size(1114, 66);
 			this->panelManegement->TabIndex = 4;
+			// 
+			// button2
+			// 
+			this->button2->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
+			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Location = System::Drawing::Point(9, 8);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(330, 50);
+			this->button2->TabIndex = 0;
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			this->button3->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
+			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Location = System::Drawing::Point(774, 8);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(330, 50);
+			this->button3->TabIndex = 1;
+			this->button3->UseVisualStyleBackColor = true;
 			// 
 			// Launcher
 			// 
@@ -281,6 +403,7 @@ namespace Project1 {
 			this->Controls->Add(this->panelGameMod);
 			this->Controls->Add(this->panelGame);
 			this->Controls->Add(this->panelManegement);
+			this->MinimumSize = System::Drawing::Size(1130, 705);
 			this->Name = L"Launcher";
 			this->Text = L"Launcher";
 			this->panelGame->ResumeLayout(false);
@@ -291,6 +414,8 @@ namespace Project1 {
 			this->PanelDict->PerformLayout();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
+			this->tableLayoutPanel2->ResumeLayout(false);
+			this->panelManegement->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
