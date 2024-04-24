@@ -127,14 +127,21 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ControlPanel.cpp" />
     <ClCompile Include="Launcher.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ControlPanel.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Launcher.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ControlPanel.resx">
+      <DependentUpon>ControlPanel.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.h</DependentUpon>
     </EmbeddedResource>

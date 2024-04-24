@@ -4,15 +4,24 @@
     <Filter Include="Главное меню">
       <UniqueIdentifier>{29df7812-bbde-497f-8e31-6e5640e9c58d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Главное меню\Элементы">
+      <UniqueIdentifier>{4abe207a-2631-4e0c-a203-f5bf496dd326}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
       <Filter>Главное меню</Filter>
     </ClCompile>
+    <ClCompile Include="ControlPanel.cpp">
+      <Filter>Главное меню\Элементы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
       <Filter>Главное меню</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlPanel.h">
+      <Filter>Главное меню\Элементы</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
