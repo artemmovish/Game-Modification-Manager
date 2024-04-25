@@ -1,5 +1,6 @@
 #include "Launcher.h"
 #include "ControlPanel.h"
+#include "IconGame.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace std;
@@ -54,5 +55,11 @@ System::Void Project1::Launcher::click_butImageMinus(System::Object^ sender, Sys
 
 System::Void Project1::Launcher::click_butImagePlus(System::Object^ sender, System::EventArgs^ e)
 {
+    return System::Void();
+}
+
+System::Void Project1::Launcher::butAddGame_Click(System::Object^ sender, System::EventArgs^ e)
+{
+   
     return System::Void();
 }

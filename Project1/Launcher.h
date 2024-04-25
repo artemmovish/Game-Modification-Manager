@@ -65,7 +65,8 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^ butStart;
 
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
-	private: System::Windows::Forms::Button^ butChange;
+	private: System::Windows::Forms::Button^ butDel;
+
 
 	private: System::Windows::Forms::Button^ butSave;
 
@@ -77,11 +78,15 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^ butAddGameMod;
 	private: System::Windows::Forms::ContextMenuStrip^ MenuStripPrew;
 
-	private: System::Windows::Forms::ToolStripMenuItem^ äîáàâèòüToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ óäàëèòüÈçîáğàæåíèåToolStripMenuItem;
+
+
 	private: System::Windows::Forms::FolderBrowserDialog^ DialogFolder;
 	private: System::Windows::Forms::OpenFileDialog^ DialogExe;
 	private: System::Windows::Forms::OpenFileDialog^ DialogImage;
+	private: System::Windows::Forms::Button^ butChange;
+
+	private: System::Windows::Forms::ToolStripMenuItem^ èçìåíèòüÈçîáğàæåíèåToolStripMenuItem;
+
 
 
 
@@ -106,16 +111,16 @@ namespace Project1 {
 			this->PanelPrew = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Prew = (gcnew System::Windows::Forms::PictureBox());
 			this->MenuStripPrew = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->äîáàâèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->óäàëèòüÈçîáğàæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->èçìåíèòüÈçîáğàæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->PanelDict = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textExe = (gcnew System::Windows::Forms::TextBox());
 			this->textDict = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textName = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->butSave = (gcnew System::Windows::Forms::Button());
 			this->butChange = (gcnew System::Windows::Forms::Button());
+			this->butSave = (gcnew System::Windows::Forms::Button());
+			this->butDel = (gcnew System::Windows::Forms::Button());
 			this->butStart = (gcnew System::Windows::Forms::Button());
 			this->panelManegement = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->butAddGame = (gcnew System::Windows::Forms::Button());
@@ -185,25 +190,15 @@ namespace Project1 {
 			// 
 			// MenuStripPrew
 			// 
-			this->MenuStripPrew->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->äîáàâèòüToolStripMenuItem,
-					this->óäàëèòüÈçîáğàæåíèåToolStripMenuItem
-			});
+			this->MenuStripPrew->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->èçìåíèòüÈçîáğàæåíèåToolStripMenuItem });
 			this->MenuStripPrew->Name = L"contextMenuStrip1";
-			this->MenuStripPrew->Size = System::Drawing::Size(204, 48);
+			this->MenuStripPrew->Size = System::Drawing::Size(206, 26);
 			// 
-			// äîáàâèòüToolStripMenuItem
+			// èçìåíèòüÈçîáğàæåíèåToolStripMenuItem
 			// 
-			this->äîáàâèòüToolStripMenuItem->Name = L"äîáàâèòüToolStripMenuItem";
-			this->äîáàâèòüToolStripMenuItem->Size = System::Drawing::Size(203, 22);
-			this->äîáàâèòüToolStripMenuItem->Text = L"Äîáàâèòü èçîáğàæåíèå";
-			this->äîáàâèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &Launcher::äîáàâèòüToolStripMenuItem_Click);
-			// 
-			// óäàëèòüÈçîáğàæåíèåToolStripMenuItem
-			// 
-			this->óäàëèòüÈçîáğàæåíèåToolStripMenuItem->Name = L"óäàëèòüÈçîáğàæåíèåToolStripMenuItem";
-			this->óäàëèòüÈçîáğàæåíèåToolStripMenuItem->Size = System::Drawing::Size(203, 22);
-			this->óäàëèòüÈçîáğàæåíèåToolStripMenuItem->Text = L"Óäàëèòü èçîáğàæåíèå";
+			this->èçìåíèòüÈçîáğàæåíèåToolStripMenuItem->Name = L"èçìåíèòüÈçîáğàæåíèåToolStripMenuItem";
+			this->èçìåíèòüÈçîáğàæåíèåToolStripMenuItem->Size = System::Drawing::Size(205, 22);
+			this->èçìåíèòüÈçîáğàæåíèåToolStripMenuItem->Text = L"Èçìåíèòü èçîáğàæåíèå";
 			// 
 			// PanelDict
 			// 
@@ -271,8 +266,8 @@ namespace Project1 {
 			this->tableLayoutPanel1->Location = System::Drawing::Point(523, 4);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 53.37078F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 46.62922F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 61.79775F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 38.20225F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(181, 178);
 			this->tableLayoutPanel1->TabIndex = 2;
@@ -290,64 +285,83 @@ namespace Project1 {
 			this->textName->Multiline = true;
 			this->textName->Name = L"textName";
 			this->textName->ReadOnly = true;
-			this->textName->Size = System::Drawing::Size(175, 88);
+			this->textName->Size = System::Drawing::Size(175, 103);
 			this->textName->TabIndex = 1;
 			this->textName->Text = L"ÍÀÇÂÀÍÈÅ ÈÃĞÛ";
 			// 
 			// tableLayoutPanel2
 			// 
-			this->tableLayoutPanel2->ColumnCount = 2;
+			this->tableLayoutPanel2->ColumnCount = 3;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				49.99765F)));
+				33.33176F)));
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				50.00236F)));
-			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				20)));
+				33.3349F)));
+			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				33.33333F)));
+			this->tableLayoutPanel2->Controls->Add(this->butChange, 0, 0);
 			this->tableLayoutPanel2->Controls->Add(this->butSave, 0, 0);
-			this->tableLayoutPanel2->Controls->Add(this->butChange, 1, 0);
+			this->tableLayoutPanel2->Controls->Add(this->butDel, 1, 0);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel2->Location = System::Drawing::Point(3, 97);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(3, 112);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 1;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(175, 78);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(175, 63);
 			this->tableLayoutPanel2->TabIndex = 2;
-			// 
-			// butSave
-			// 
-			this->butSave->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butSave.BackgroundImage")));
-			this->butSave->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->butSave->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->butSave->FlatAppearance->BorderSize = 0;
-			this->butSave->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->butSave->Location = System::Drawing::Point(3, 3);
-			this->butSave->Name = L"butSave";
-			this->butSave->Size = System::Drawing::Size(81, 72);
-			this->butSave->TabIndex = 12;
-			this->toolTip1->SetToolTip(this->butSave, L"Ñîõğàíèòü");
-			this->butSave->UseVisualStyleBackColor = true;
-			this->butSave->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butSave_MouseClick);
 			// 
 			// butChange
 			// 
 			this->butChange->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butChange.BackgroundImage")));
 			this->butChange->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->butChange->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->butChange->Enabled = false;
 			this->butChange->FlatAppearance->BorderSize = 0;
 			this->butChange->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->butChange->Location = System::Drawing::Point(90, 3);
+			this->butChange->Location = System::Drawing::Point(61, 3);
 			this->butChange->Name = L"butChange";
-			this->butChange->Size = System::Drawing::Size(82, 72);
-			this->butChange->TabIndex = 13;
+			this->butChange->Size = System::Drawing::Size(52, 57);
+			this->butChange->TabIndex = 14;
 			this->toolTip1->SetToolTip(this->butChange, L"Èçìåíèòü");
 			this->butChange->UseVisualStyleBackColor = true;
-			this->butChange->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butChange_MouseClick);
+			// 
+			// butSave
+			// 
+			this->butSave->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butSave.BackgroundImage")));
+			this->butSave->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butSave->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->butSave->Enabled = false;
+			this->butSave->FlatAppearance->BorderSize = 0;
+			this->butSave->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butSave->Location = System::Drawing::Point(3, 3);
+			this->butSave->Name = L"butSave";
+			this->butSave->Size = System::Drawing::Size(52, 57);
+			this->butSave->TabIndex = 12;
+			this->toolTip1->SetToolTip(this->butSave, L"Ñîõğàíèòü");
+			this->butSave->UseVisualStyleBackColor = true;
+			this->butSave->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butSave_MouseClick);
+			// 
+			// butDel
+			// 
+			this->butDel->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butDel.BackgroundImage")));
+			this->butDel->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butDel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->butDel->Enabled = false;
+			this->butDel->FlatAppearance->BorderSize = 0;
+			this->butDel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butDel->Location = System::Drawing::Point(119, 3);
+			this->butDel->Name = L"butDel";
+			this->butDel->Size = System::Drawing::Size(53, 57);
+			this->butDel->TabIndex = 13;
+			this->toolTip1->SetToolTip(this->butDel, L"Óäàëèòü");
+			this->butDel->UseVisualStyleBackColor = true;
+			this->butDel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butChange_MouseClick);
 			// 
 			// butStart
 			// 
 			this->butStart->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->butStart->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butStart.BackgroundImage")));
 			this->butStart->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butStart->Enabled = false;
 			this->butStart->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
 			this->butStart->FlatAppearance->BorderSize = 0;
@@ -393,12 +407,14 @@ namespace Project1 {
 			this->butAddGame->Size = System::Drawing::Size(330, 50);
 			this->butAddGame->TabIndex = 0;
 			this->butAddGame->UseVisualStyleBackColor = true;
+			this->butAddGame->Click += gcnew System::EventHandler(this, &Launcher::butAddGame_Click);
 			// 
 			// butAddGameMod
 			// 
 			this->butAddGameMod->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->butAddGameMod->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butAddGameMod.BackgroundImage")));
 			this->butAddGameMod->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butAddGameMod->Enabled = false;
 			this->butAddGameMod->FlatAppearance->BorderSize = 0;
 			this->butAddGameMod->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->butAddGameMod->Location = System::Drawing::Point(774, 8);
@@ -436,14 +452,25 @@ namespace Project1 {
 #pragma endregion
 
 		bool StatusChange = false;
-		int indexImage = 0;
-
-
-
+	public:	void activateButton(bool activ, int index)
+		{
+			if (index == 0)
+			{
+				butSave->Enabled = activ;
+				butChange->Enabled = activ;
+				butDel->Enabled = activ;
+			}
+			else if (index == 1) { butSave->Enabled = activ; }
+			else if (index == 2) { butChange->Enabled = activ; }
+			else if (index == 3) { butDel->Enabled = activ; }
+			else { MessageBox::Show("Íåò èíäåêñà äëÿ ğåæèìà"); }
+		}
 private: System::Void butChange_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 private: System::Void butSave_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 private: System::Void äîáàâèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

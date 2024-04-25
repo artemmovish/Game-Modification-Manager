@@ -15,12 +15,18 @@
     <ClCompile Include="ControlPanel.cpp">
       <Filter>Главное меню\Элементы</Filter>
     </ClCompile>
+    <ClCompile Include="IconGame.cpp">
+      <Filter>Главное меню\Элементы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
       <Filter>Главное меню</Filter>
     </ClInclude>
     <ClInclude Include="ControlPanel.h">
+      <Filter>Главное меню\Элементы</Filter>
+    </ClInclude>
+    <ClInclude Include="IconGame.h">
       <Filter>Главное меню\Элементы</Filter>
     </ClInclude>
   </ItemGroup>

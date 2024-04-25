@@ -128,10 +128,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ControlPanel.cpp" />
+    <ClCompile Include="IconGame.cpp" />
     <ClCompile Include="Launcher.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ControlPanel.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="IconGame.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Launcher.h">
@@ -141,6 +145,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ControlPanel.resx">
       <DependentUpon>ControlPanel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconGame.resx">
+      <DependentUpon>IconGame.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.h</DependentUpon>
