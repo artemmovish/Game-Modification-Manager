@@ -92,3 +92,17 @@ System::Void Project1::ControlPanel::butMain_MouseClick(System::Object^ sender, 
 	}
     return System::Void();
 }
+
+System::Void Project1::ControlPanel::butImageMinus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	clickbutImageMinus(sender, e);
+	return System::Void();
+}
+
+System::Void Project1::ControlPanel::butImagePlus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	clickbutImagePlus(sender, e);
+	return System::Void();
+}
+
+

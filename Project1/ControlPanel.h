@@ -16,6 +16,8 @@ namespace Project1 {
 	public ref class ControlPanel : public System::Windows::Forms::UserControl
 	{
 	public:
+		event EventHandler^ clickbutImagePlus;
+		event EventHandler^ clickbutImageMinus;
 		ControlPanel(void)
 		{
 			InitializeComponent();
@@ -90,6 +92,7 @@ namespace Project1 {
 			this->butImageMinus->TabIndex = 7;
 			this->toolTip1->SetToolTip(this->butImageMinus, L"Предыдущая картинка");
 			this->butImageMinus->UseVisualStyleBackColor = true;
+			this->butImageMinus->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ControlPanel::butImageMinus_MouseClick);
 			// 
 			// butVolMinus
 			// 
@@ -170,6 +173,7 @@ namespace Project1 {
 			this->butImagePlus->TabIndex = 13;
 			this->toolTip1->SetToolTip(this->butImagePlus, L"Следующая картинка");
 			this->butImagePlus->UseVisualStyleBackColor = true;
+			this->butImagePlus->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ControlPanel::butImagePlus_MouseClick);
 			// 
 			// up
 			// 
@@ -210,5 +214,9 @@ namespace Project1 {
 private: System::Void down_Tick(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void butMain_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+
+
+private: System::Void butImageMinus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+private: System::Void butImagePlus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 };
 }

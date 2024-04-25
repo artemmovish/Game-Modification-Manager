@@ -1,5 +1,7 @@
 #pragma once
 #include "ControlPanel.h"
+#include <vector>
+#include <cliext/list>
 namespace Project1 {
 
 	using namespace System;
@@ -8,7 +10,9 @@ namespace Project1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
+	using namespace System::Data::OleDb;
+	using namespace System::IO;
 	/// <summary>
 	/// —‚Ó‰Í‡ ‰Îˇ Launcher
 	/// </summary>
@@ -27,8 +31,9 @@ namespace Project1 {
 			//
 			ControlPanel^ controlPanel = gcnew ControlPanel();
 			controlPanel->Anchor = static_cast<AnchorStyles>(AnchorStyles::None);
+			controlPanel->clickbutImageMinus += gcnew EventHandler(this, &Launcher::click_butImageMinus);
+			controlPanel->clickbutImagePlus += gcnew EventHandler(this, &Launcher::click_butImagePlus);
 			panelManegement->Controls->Add(controlPanel, 1, 0);
-			
 		}
 
 	protected:
@@ -50,13 +55,15 @@ namespace Project1 {
 	private: System::Windows::Forms::TableLayoutPanel^ PanelDict;
 	private: System::Windows::Forms::TextBox^ textDict;
 	private: System::Windows::Forms::TableLayoutPanel^ panelManegement;
-	private: System::Windows::Forms::Button^ button10;
-	private: System::Windows::Forms::Button^ button9;
+
+
 	private: System::Windows::Forms::TextBox^ textExe;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TextBox^ textName;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::PictureBox^ Prew;
+
+	private: System::Windows::Forms::Button^ butStart;
+
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::Button^ butChange;
 
@@ -65,8 +72,19 @@ namespace Project1 {
 
 
 	private: System::Windows::Forms::ToolTip^ toolTip1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ butAddGame;
+
+	private: System::Windows::Forms::Button^ butAddGameMod;
+	private: System::Windows::Forms::ContextMenuStrip^ MenuStripPrew;
+
+	private: System::Windows::Forms::ToolStripMenuItem^ ‰Ó·‡‚ËÚ¸ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem;
+	private: System::Windows::Forms::FolderBrowserDialog^ DialogFolder;
+	private: System::Windows::Forms::OpenFileDialog^ DialogExe;
+	private: System::Windows::Forms::OpenFileDialog^ DialogImage;
+
+
+
 	private: System::ComponentModel::IContainer^ components;
 	private:
 		/// <summary>
@@ -84,11 +102,12 @@ namespace Project1 {
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Launcher::typeid));
 			this->panelGame = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->panelGameMod = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->PanelPrew = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->Prew = (gcnew System::Windows::Forms::PictureBox());
+			this->MenuStripPrew = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->‰Ó·‡‚ËÚ¸ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->PanelDict = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textExe = (gcnew System::Windows::Forms::TextBox());
 			this->textDict = (gcnew System::Windows::Forms::TextBox());
@@ -97,15 +116,17 @@ namespace Project1 {
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->butSave = (gcnew System::Windows::Forms::Button());
 			this->butChange = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->butStart = (gcnew System::Windows::Forms::Button());
 			this->panelManegement = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->butAddGame = (gcnew System::Windows::Forms::Button());
+			this->butAddGameMod = (gcnew System::Windows::Forms::Button());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->panelGame->SuspendLayout();
-			this->panelGameMod->SuspendLayout();
+			this->DialogFolder = (gcnew System::Windows::Forms::FolderBrowserDialog());
+			this->DialogExe = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->DialogImage = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->PanelPrew->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Prew))->BeginInit();
+			this->MenuStripPrew->SuspendLayout();
 			this->PanelDict->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
@@ -115,32 +136,15 @@ namespace Project1 {
 			// panelGame
 			// 
 			this->panelGame->AutoScroll = true;
-			this->panelGame->Controls->Add(this->button10);
 			this->panelGame->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panelGame->Location = System::Drawing::Point(0, 0);
 			this->panelGame->Name = L"panelGame";
 			this->panelGame->Size = System::Drawing::Size(200, 600);
 			this->panelGame->TabIndex = 1;
 			// 
-			// button10
-			// 
-			this->button10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(23)), static_cast<System::Int32>(static_cast<System::Byte>(11)),
-				static_cast<System::Int32>(static_cast<System::Byte>(11)));
-			this->button10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button10->ForeColor = System::Drawing::Color::Silver;
-			this->button10->Location = System::Drawing::Point(3, 3);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(170, 170);
-			this->button10->TabIndex = 4;
-			this->button10->Text = L"button10";
-			this->button10->UseVisualStyleBackColor = false;
-			// 
 			// panelGameMod
 			// 
 			this->panelGameMod->AutoScroll = true;
-			this->panelGameMod->Controls->Add(this->button9);
 			this->panelGameMod->Dock = System::Windows::Forms::DockStyle::Right;
 			this->panelGameMod->FlowDirection = System::Windows::Forms::FlowDirection::RightToLeft;
 			this->panelGameMod->Location = System::Drawing::Point(914, 0);
@@ -148,25 +152,11 @@ namespace Project1 {
 			this->panelGameMod->Size = System::Drawing::Size(200, 600);
 			this->panelGameMod->TabIndex = 2;
 			// 
-			// button9
-			// 
-			this->button9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->button9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->button9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button9->Location = System::Drawing::Point(27, 3);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(170, 170);
-			this->button9->TabIndex = 5;
-			this->button9->Text = L"button9";
-			this->button9->UseVisualStyleBackColor = false;
-			// 
 			// PanelPrew
 			// 
 			this->PanelPrew->ColumnCount = 1;
 			this->PanelPrew->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->PanelPrew->Controls->Add(this->pictureBox1, 0, 0);
+			this->PanelPrew->Controls->Add(this->Prew, 0, 0);
 			this->PanelPrew->Controls->Add(this->PanelDict, 0, 1);
 			this->PanelPrew->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelPrew->Location = System::Drawing::Point(200, 0);
@@ -178,19 +168,42 @@ namespace Project1 {
 			this->PanelPrew->Size = System::Drawing::Size(714, 600);
 			this->PanelPrew->TabIndex = 3;
 			// 
-			// pictureBox1
+			// Prew
 			// 
-			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::PanWest;
-			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(3, 3);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(708, 351);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
+			this->Prew->BackColor = System::Drawing::Color::Transparent;
+			this->Prew->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->Prew->ContextMenuStrip = this->MenuStripPrew;
+			this->Prew->Cursor = System::Windows::Forms::Cursors::PanWest;
+			this->Prew->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->Prew->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Prew.Image")));
+			this->Prew->Location = System::Drawing::Point(3, 3);
+			this->Prew->Name = L"Prew";
+			this->Prew->Size = System::Drawing::Size(708, 351);
+			this->Prew->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->Prew->TabIndex = 0;
+			this->Prew->TabStop = false;
+			// 
+			// MenuStripPrew
+			// 
+			this->MenuStripPrew->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->‰Ó·‡‚ËÚ¸ToolStripMenuItem,
+					this->Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem
+			});
+			this->MenuStripPrew->Name = L"contextMenuStrip1";
+			this->MenuStripPrew->Size = System::Drawing::Size(204, 48);
+			// 
+			// ‰Ó·‡‚ËÚ¸ToolStripMenuItem
+			// 
+			this->‰Ó·‡‚ËÚ¸ToolStripMenuItem->Name = L"‰Ó·‡‚ËÚ¸ToolStripMenuItem";
+			this->‰Ó·‡‚ËÚ¸ToolStripMenuItem->Size = System::Drawing::Size(203, 22);
+			this->‰Ó·‡‚ËÚ¸ToolStripMenuItem->Text = L"ƒÓ·‡‚ËÚ¸ ËÁÓ·‡ÊÂÌËÂ";
+			this->‰Ó·‡‚ËÚ¸ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Launcher::‰Ó·‡‚ËÚ¸ToolStripMenuItem_Click);
+			// 
+			// Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem
+			// 
+			this->Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem->Name = L"Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem";
+			this->Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem->Size = System::Drawing::Size(203, 22);
+			this->Û‰‡ÎËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem->Text = L"”‰‡ÎËÚ¸ ËÁÓ·‡ÊÂÌËÂ";
 			// 
 			// PanelDict
 			// 
@@ -201,7 +214,7 @@ namespace Project1 {
 			this->PanelDict->Controls->Add(this->textExe, 0, 1);
 			this->PanelDict->Controls->Add(this->textDict, 0, 0);
 			this->PanelDict->Controls->Add(this->tableLayoutPanel1, 1, 0);
-			this->PanelDict->Controls->Add(this->button1, 1, 1);
+			this->PanelDict->Controls->Add(this->butStart, 1, 1);
 			this->PanelDict->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelDict->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
@@ -313,6 +326,7 @@ namespace Project1 {
 			this->butSave->TabIndex = 12;
 			this->toolTip1->SetToolTip(this->butSave, L"—Óı‡ÌËÚ¸");
 			this->butSave->UseVisualStyleBackColor = true;
+			this->butSave->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butSave_MouseClick);
 			// 
 			// butChange
 			// 
@@ -327,22 +341,23 @@ namespace Project1 {
 			this->butChange->TabIndex = 13;
 			this->toolTip1->SetToolTip(this->butChange, L"»ÁÏÂÌËÚ¸");
 			this->butChange->UseVisualStyleBackColor = true;
+			this->butChange->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butChange_MouseClick);
 			// 
-			// button1
+			// butStart
 			// 
-			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
-			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
+			this->butStart->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->butStart->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butStart.BackgroundImage")));
+			this->butStart->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butStart->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(33)),
 				static_cast<System::Int32>(static_cast<System::Byte>(33)), static_cast<System::Int32>(static_cast<System::Byte>(33)));
-			this->button1->FlatAppearance->BorderSize = 0;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->ForeColor = System::Drawing::Color::Silver;
-			this->button1->Location = System::Drawing::Point(523, 189);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(181, 44);
-			this->button1->TabIndex = 3;
-			this->button1->UseVisualStyleBackColor = true;
+			this->butStart->FlatAppearance->BorderSize = 0;
+			this->butStart->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butStart->ForeColor = System::Drawing::Color::Silver;
+			this->butStart->Location = System::Drawing::Point(523, 189);
+			this->butStart->Name = L"butStart";
+			this->butStart->Size = System::Drawing::Size(181, 44);
+			this->butStart->TabIndex = 3;
+			this->butStart->UseVisualStyleBackColor = true;
 			// 
 			// panelManegement
 			// 
@@ -355,8 +370,8 @@ namespace Project1 {
 				37.5F)));
 			this->panelManegement->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				31.25F)));
-			this->panelManegement->Controls->Add(this->button2, 0, 0);
-			this->panelManegement->Controls->Add(this->button3, 2, 0);
+			this->panelManegement->Controls->Add(this->butAddGame, 0, 0);
+			this->panelManegement->Controls->Add(this->butAddGameMod, 2, 0);
 			this->panelManegement->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->panelManegement->Location = System::Drawing::Point(0, 600);
 			this->panelManegement->Name = L"panelManegement";
@@ -366,31 +381,31 @@ namespace Project1 {
 			this->panelManegement->Size = System::Drawing::Size(1114, 66);
 			this->panelManegement->TabIndex = 4;
 			// 
-			// button2
+			// butAddGame
 			// 
-			this->button2->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
-			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(9, 8);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(330, 50);
-			this->button2->TabIndex = 0;
-			this->button2->UseVisualStyleBackColor = true;
+			this->butAddGame->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->butAddGame->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butAddGame.BackgroundImage")));
+			this->butAddGame->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butAddGame->FlatAppearance->BorderSize = 0;
+			this->butAddGame->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butAddGame->Location = System::Drawing::Point(9, 8);
+			this->butAddGame->Name = L"butAddGame";
+			this->butAddGame->Size = System::Drawing::Size(330, 50);
+			this->butAddGame->TabIndex = 0;
+			this->butAddGame->UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// butAddGameMod
 			// 
-			this->button3->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
-			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->button3->FlatAppearance->BorderSize = 0;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Location = System::Drawing::Point(774, 8);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(330, 50);
-			this->button3->TabIndex = 1;
-			this->button3->UseVisualStyleBackColor = true;
+			this->butAddGameMod->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->butAddGameMod->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butAddGameMod.BackgroundImage")));
+			this->butAddGameMod->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butAddGameMod->FlatAppearance->BorderSize = 0;
+			this->butAddGameMod->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butAddGameMod->Location = System::Drawing::Point(774, 8);
+			this->butAddGameMod->Name = L"butAddGameMod";
+			this->butAddGameMod->Size = System::Drawing::Size(330, 50);
+			this->butAddGameMod->TabIndex = 1;
+			this->butAddGameMod->UseVisualStyleBackColor = true;
 			// 
 			// Launcher
 			// 
@@ -406,10 +421,9 @@ namespace Project1 {
 			this->MinimumSize = System::Drawing::Size(1130, 705);
 			this->Name = L"Launcher";
 			this->Text = L"Launcher";
-			this->panelGame->ResumeLayout(false);
-			this->panelGameMod->ResumeLayout(false);
 			this->PanelPrew->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Prew))->EndInit();
+			this->MenuStripPrew->ResumeLayout(false);
 			this->PanelDict->ResumeLayout(false);
 			this->PanelDict->PerformLayout();
 			this->tableLayoutPanel1->ResumeLayout(false);
@@ -421,9 +435,15 @@ namespace Project1 {
 		}
 #pragma endregion
 
+		bool StatusChange = false;
+		int indexImage = 0;
 
 
 
-
+private: System::Void butChange_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+private: System::Void butSave_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+private: System::Void ‰Ó·‡‚ËÚ¸ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
+private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
 };
 }
