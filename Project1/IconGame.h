@@ -13,15 +13,17 @@ namespace Project1 {
 	/// <summary>
 	/// Сводка для IconGame
 	/// </summary>
+	/// 
+	public delegate void SendGameName(String^ str);
+
 	public ref class IconGame : public System::Windows::Forms::UserControl
 	{
 	public:
+		event SendGameName^ clickIconGame;
 		IconGame(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
+			Icon->Image = icon;
 		}
 
 	protected:
@@ -63,8 +65,8 @@ namespace Project1 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(IconGame::typeid));
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->Icon = (gcnew System::Windows::Forms::PictureBox());
 			this->NameGame = (gcnew System::Windows::Forms::TextBox());
+			this->Icon = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Icon))->BeginInit();
 			this->SuspendLayout();
@@ -85,17 +87,6 @@ namespace Project1 {
 			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 197);
 			this->tableLayoutPanel1->TabIndex = 0;
 			// 
-			// Icon
-			// 
-			this->Icon->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->Icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Icon.Image")));
-			this->Icon->Location = System::Drawing::Point(3, 3);
-			this->Icon->Name = L"Icon";
-			this->Icon->Size = System::Drawing::Size(169, 158);
-			this->Icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->Icon->TabIndex = 0;
-			this->Icon->TabStop = false;
-			// 
 			// NameGame
 			// 
 			this->NameGame->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)),
@@ -110,7 +101,19 @@ namespace Project1 {
 			this->NameGame->ReadOnly = true;
 			this->NameGame->Size = System::Drawing::Size(169, 27);
 			this->NameGame->TabIndex = 1;
-			this->NameGame->Text = L"12345678901234567890";
+			this->NameGame->Text = L"Кликни на меня";
+			// 
+			// Icon
+			// 
+			this->Icon->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->Icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Icon.Image")));
+			this->Icon->Location = System::Drawing::Point(3, 3);
+			this->Icon->Name = L"Icon";
+			this->Icon->Size = System::Drawing::Size(169, 158);
+			this->Icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->Icon->TabIndex = 0;
+			this->Icon->TabStop = false;
+			this->Icon->Click += gcnew System::EventHandler(this, &IconGame::Icon_Click);
 			// 
 			// IconGame
 			// 
@@ -126,81 +129,15 @@ namespace Project1 {
 			this->ResumeLayout(false);
 
 		}
+
+
 #pragma endregion
-		public: Image^ prew;
-			  String^ name;
-			  String^ dict;
-			  String^ pathExe;
-			  String^ pathFolder;
-			  int Id;
+		public: Image^ icon = Image::FromFile("Ресурсы\\Кнопки\\Icon.png");
 
-			  void ChangeInfo()
-			  {
-				  NameGame->Text = name;
-			  }
 
-			  void loadGame(String^ str)
-			  {
-				  name = str;
-				  // Создание строки подключения к базе данных
-				  String^ connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы//Games.accdb;";
-
-				  // Создание и открытие соединения с базой данных
-				  OleDbConnection^ connection = gcnew OleDbConnection(connString);
-				  connection->Open();
-
-				  // Подготовка SQL запроса
-				  String^ query = "SELECT GameDict, GamePathExe, GamePathFolder, Id FROM InfoGame WHERE GameName = ?";
-
-				  // Создание объекта команды и передача параметров
-				  OleDbCommand^ command = gcnew OleDbCommand(query, connection);
-				  command->Parameters->AddWithValue("@GameName", str);
-
-				  try
-				  {
-					  // Выполнение запроса и чтение результатов
-					  OleDbDataReader^ reader = command->ExecuteReader();
-					  if (reader->Read())
-					  {
-						  dict = safe_cast<String^>(reader["GameDict"]);
-						  pathExe = safe_cast<String^>(reader["GamePathExe"]);
-						  pathFolder = safe_cast<String^>(reader["GamePathFolder"]);
-						  Id = safe_cast<int>(reader["Id"]);
-						  String^ iconPath;
-
-						  if (File::Exists("Game\\" + name + "\\Icon.gif"))
-						  {
-							  iconPath = "Game\\" + name + "\\Icon.gif";
-						  }
-						  else if (File::Exists("Game\\" + name + "\\Icon.png"))
-						  {
-							  iconPath = "Game\\" + name + "\\Icon.png";
-						  }
-						  else if (File::Exists("Game\\" + name + "\\Icon.jpg"))
-						  {
-							  iconPath = "Game\\" + name + "\\Icon.jpg";
-						  }
-						  else
-						  {
-							  // Handle the case when none of the icon files exist
-						  }
-						  // Load the icon image
-						  Icon->Image = Image::FromFile(iconPath);
-					  }
-					  reader->Close();
-
-				  }
-				  catch (Exception^ ex)
-				  {
-					  // Обработка ошибок при выполнении запроса
-					  Console::WriteLine("Error: " + ex->Message);
-				  }
-				  finally
-				  {
-					  // Закрытие соединения с базой данных
-					  connection->Close();
-				  }
-				  ChangeInfo();
-			  }
-	};
+private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ str = NameGame->Text;
+	clickIconGame(NameGame->Text);
+}
+};
 }

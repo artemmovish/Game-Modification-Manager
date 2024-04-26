@@ -57,7 +57,7 @@ namespace Project1 {
 	private: System::Windows::Forms::TableLayoutPanel^ panelManegement;
 
 
-	private: System::Windows::Forms::TextBox^ textExe;
+
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TextBox^ textName;
 	private: System::Windows::Forms::PictureBox^ Prew;
@@ -87,6 +87,8 @@ namespace Project1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ изменитьPrewToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ изменитьIconToolStripMenuItem;
 	private: System::Diagnostics::Process^ process1;
+	private: System::Windows::Forms::TextBox^ textExe;
+
 
 
 
@@ -197,23 +199,25 @@ namespace Project1 {
 			// 
 			// MenuStripPrew
 			// 
+			this->MenuStripPrew->BackColor = System::Drawing::Color::DimGray;
 			this->MenuStripPrew->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->изменитьPrewToolStripMenuItem,
 					this->изменитьIconToolStripMenuItem
 			});
 			this->MenuStripPrew->Name = L"contextMenuStrip1";
-			this->MenuStripPrew->Size = System::Drawing::Size(158, 48);
+			this->MenuStripPrew->ShowImageMargin = false;
+			this->MenuStripPrew->Size = System::Drawing::Size(133, 48);
 			// 
 			// изменитьPrewToolStripMenuItem
 			// 
 			this->изменитьPrewToolStripMenuItem->Name = L"изменитьPrewToolStripMenuItem";
-			this->изменитьPrewToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->изменитьPrewToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->изменитьPrewToolStripMenuItem->Text = L"Изменить Prew";
 			// 
 			// изменитьIconToolStripMenuItem
 			// 
 			this->изменитьIconToolStripMenuItem->Name = L"изменитьIconToolStripMenuItem";
-			this->изменитьIconToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->изменитьIconToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->изменитьIconToolStripMenuItem->Text = L"Изменить Icon";
 			// 
 			// PanelDict
@@ -253,6 +257,7 @@ namespace Project1 {
 			this->textExe->Size = System::Drawing::Size(512, 44);
 			this->textExe->TabIndex = 1;
 			this->textExe->Text = L"ПУТЬ К .EXE";
+			this->textExe->Click += gcnew System::EventHandler(this, &Launcher::textExe_Click);
 			// 
 			// textDict
 			// 
@@ -339,6 +344,7 @@ namespace Project1 {
 			this->butChange->TabIndex = 14;
 			this->toolTip1->SetToolTip(this->butChange, L"Изменить");
 			this->butChange->UseVisualStyleBackColor = true;
+			this->butChange->Click += gcnew System::EventHandler(this, &Launcher::butChange_Click);
 			// 
 			// butSave
 			// 
@@ -354,7 +360,7 @@ namespace Project1 {
 			this->butSave->TabIndex = 12;
 			this->toolTip1->SetToolTip(this->butSave, L"Сохранить");
 			this->butSave->UseVisualStyleBackColor = true;
-			this->butSave->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butSave_MouseClick);
+			this->butSave->Click += gcnew System::EventHandler(this, &Launcher::butSave_Click);
 			// 
 			// butDel
 			// 
@@ -370,7 +376,7 @@ namespace Project1 {
 			this->butDel->TabIndex = 13;
 			this->toolTip1->SetToolTip(this->butDel, L"Удалить");
 			this->butDel->UseVisualStyleBackColor = true;
-			this->butDel->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Launcher::butChange_MouseClick);
+			this->butDel->Click += gcnew System::EventHandler(this, &Launcher::butDel_Click);
 			// 
 			// butStart
 			// 
@@ -388,6 +394,7 @@ namespace Project1 {
 			this->butStart->Size = System::Drawing::Size(181, 44);
 			this->butStart->TabIndex = 3;
 			this->butStart->UseVisualStyleBackColor = true;
+			this->butStart->Click += gcnew System::EventHandler(this, &Launcher::butStart_Click);
 			// 
 			// panelManegement
 			// 
@@ -439,6 +446,10 @@ namespace Project1 {
 			this->butAddGameMod->TabIndex = 1;
 			this->butAddGameMod->UseVisualStyleBackColor = true;
 			// 
+			// DialogExe
+			// 
+			this->DialogExe->Filter = L"\"Исполняемые файлы и ярлыки (*.exe; *.lnk)|*.exe;*.lnk|Все файлы (*.*)|*.*\";";
+			// 
 			// process1
 			// 
 			this->process1->StartInfo->Domain = L"";
@@ -478,9 +489,10 @@ namespace Project1 {
 
 		}
 #pragma endregion
+		bool StatusChange = false; 
 
-		bool StatusChange = false;
-	public:	void activateButton(bool activ, int index)
+
+void activateButton(bool activ, int index)
 		{
 			if (index == 0)
 			{
@@ -493,14 +505,113 @@ namespace Project1 {
 			else if (index == 3) { butDel->Enabled = activ; }
 			else { MessageBox::Show("Нет индекса для режима"); }
 		}
-private: System::Void butChange_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-private: System::Void butSave_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+			
+void GetData(String^ gameName) {
+			  // Строка подключения к базе данных Access
+			  String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+			  // Создание объекта для подключения к базе данных
+			  OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+
+			  try {
+				  // Открытие соединения
+				  connection->Open();
+
+				  // SQL запрос для извлечения данных из таблицы InfoGame
+				  String^ query = "SELECT GameDict, GamePathExe FROM InfoGame WHERE GameName = ?";
+
+				  // Создание команды с параметром
+				  OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+				  command->Parameters->AddWithValue("@GameName", gameName);
+
+				  // Выполнение запроса и получение результата
+				  OleDbDataReader^ reader = command->ExecuteReader();
+
+				  // Перебор результатов запроса
+				  while (reader->Read()) {
+					  // Получение данных из каждой строки результата
+					  int id = reader->GetInt32(0);
+					  textDict->Text = reader->GetString(1);
+					  textExe->Text =  reader->GetString(2);
+					  textName->Text = gameName;
+				  }
+
+				  // Закрытие ридера
+				  reader->Close();
+			  }
+			  catch (Exception^ e) {
+				  // Обработка исключений
+				  MessageBox::Show("Ошибка: " + e->Message, "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			  }
+			  finally {
+				  // Закрытие соединения, даже если произошла ошибка
+				  if (connection->State == ConnectionState::Open) {
+					  connection->Close();
+				  }
+			  }
+		  }
+void SaveData()
+{
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы\\Games.accdb;Persist Security Info=False;";
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+	try
+	{
+		connection->Open();
+
+		// Проверяем, существует ли игра с заданным именем
+		String^ queryCheckExistence = "SELECT COUNT(*) FROM InfoGame WHERE GameName = ?";
+		OleDbCommand^ commandCheckExistence = gcnew OleDbCommand(queryCheckExistence, connection);
+		commandCheckExistence->Parameters->AddWithValue("?", textName->Text);
+		int count = Convert::ToInt32(commandCheckExistence->ExecuteScalar());
+
+		if (count > 0)
+		{
+			// Если игра существует, выполняем запрос на обновление
+			String^ queryUpdate = "UPDATE InfoGame SET GameDict = ?, GamePathExe = ?, Status = ? WHERE GameName = ?";
+			OleDbCommand^ commandUpdate = gcnew OleDbCommand(queryUpdate, connection);
+			commandUpdate->Parameters->AddWithValue("?", textDict->Text);
+			commandUpdate->Parameters->AddWithValue("?", textExe->Text);
+			commandUpdate->Parameters->AddWithValue("?", 0); // Значение для столбца Status, если необходимо обновить
+			commandUpdate->Parameters->AddWithValue("?", textName->Text);
+			commandUpdate->ExecuteNonQuery();
+			MessageBox::Show("Данные обновлены успешно.");
+		}
+		else
+		{
+			// Если игра не существует, выполняем запрос на вставку
+			String^ queryInsert = "INSERT INTO InfoGame (GameDict, GamePathExe, GameName, Status) VALUES (?, ?, ?, ?)";
+			OleDbCommand^ commandInsert = gcnew OleDbCommand(queryInsert, connection);
+			commandInsert->Parameters->AddWithValue("?", textDict->Text);
+			commandInsert->Parameters->AddWithValue("?", textExe->Text);
+			commandInsert->Parameters->AddWithValue("?", textName->Text);
+			commandInsert->Parameters->AddWithValue("?", 0); // Значение для столбца Status
+			commandInsert->ExecuteNonQuery();
+			MessageBox::Show("Данные сохранены успешно.");
+		}
+	}
+	catch (OleDbException^ ex)
+	{
+		MessageBox::Show("Произошла ошибка при сохранении данных: " + ex->Message);
+	}
+	finally
+	{
+		connection->Close();
+	}
+}
+
+
 private: System::Void добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void click_IconGame(String^ name);
 
 
+private: System::Void butChange_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void textExe_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
