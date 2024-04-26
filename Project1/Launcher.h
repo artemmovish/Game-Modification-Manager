@@ -84,8 +84,13 @@ namespace Project1 {
 	private: System::Windows::Forms::OpenFileDialog^ DialogExe;
 	private: System::Windows::Forms::OpenFileDialog^ DialogImage;
 	private: System::Windows::Forms::Button^ butChange;
+	private: System::Windows::Forms::ToolStripMenuItem^ ËÁÏÂÌËÚ¸PrewToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ËÁÏÂÌËÚ¸IconToolStripMenuItem;
+	private: System::Diagnostics::Process^ process1;
 
-	private: System::Windows::Forms::ToolStripMenuItem^ ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem;
+
+
+
 
 
 
@@ -111,7 +116,8 @@ namespace Project1 {
 			this->PanelPrew = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Prew = (gcnew System::Windows::Forms::PictureBox());
 			this->MenuStripPrew = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ËÁÏÂÌËÚ¸PrewToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ËÁÏÂÌËÚ¸IconToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->PanelDict = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textExe = (gcnew System::Windows::Forms::TextBox());
 			this->textDict = (gcnew System::Windows::Forms::TextBox());
@@ -129,6 +135,7 @@ namespace Project1 {
 			this->DialogFolder = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->DialogExe = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->DialogImage = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->process1 = (gcnew System::Diagnostics::Process());
 			this->PanelPrew->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Prew))->BeginInit();
 			this->MenuStripPrew->SuspendLayout();
@@ -190,15 +197,24 @@ namespace Project1 {
 			// 
 			// MenuStripPrew
 			// 
-			this->MenuStripPrew->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem });
+			this->MenuStripPrew->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ËÁÏÂÌËÚ¸PrewToolStripMenuItem,
+					this->ËÁÏÂÌËÚ¸IconToolStripMenuItem
+			});
 			this->MenuStripPrew->Name = L"contextMenuStrip1";
-			this->MenuStripPrew->Size = System::Drawing::Size(206, 26);
+			this->MenuStripPrew->Size = System::Drawing::Size(158, 48);
 			// 
-			// ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem
+			// ËÁÏÂÌËÚ¸PrewToolStripMenuItem
 			// 
-			this->ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem->Name = L"ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem";
-			this->ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem->Size = System::Drawing::Size(205, 22);
-			this->ËÁÏÂÌËÚ¸»ÁÓ·‡ÊÂÌËÂToolStripMenuItem->Text = L"»ÁÏÂÌËÚ¸ ËÁÓ·‡ÊÂÌËÂ";
+			this->ËÁÏÂÌËÚ¸PrewToolStripMenuItem->Name = L"ËÁÏÂÌËÚ¸PrewToolStripMenuItem";
+			this->ËÁÏÂÌËÚ¸PrewToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->ËÁÏÂÌËÚ¸PrewToolStripMenuItem->Text = L"»ÁÏÂÌËÚ¸ Prew";
+			// 
+			// ËÁÏÂÌËÚ¸IconToolStripMenuItem
+			// 
+			this->ËÁÏÂÌËÚ¸IconToolStripMenuItem->Name = L"ËÁÏÂÌËÚ¸IconToolStripMenuItem";
+			this->ËÁÏÂÌËÚ¸IconToolStripMenuItem->Size = System::Drawing::Size(157, 22);
+			this->ËÁÏÂÌËÚ¸IconToolStripMenuItem->Text = L"»ÁÏÂÌËÚ¸ Icon";
 			// 
 			// PanelDict
 			// 
@@ -423,6 +439,18 @@ namespace Project1 {
 			this->butAddGameMod->TabIndex = 1;
 			this->butAddGameMod->UseVisualStyleBackColor = true;
 			// 
+			// process1
+			// 
+			this->process1->StartInfo->Domain = L"";
+			this->process1->StartInfo->FileName = L"\"C:\\Users\\aorus\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\MediaGet.ln"
+				L"k\"";
+			this->process1->StartInfo->LoadUserProfile = false;
+			this->process1->StartInfo->Password = nullptr;
+			this->process1->StartInfo->StandardErrorEncoding = nullptr;
+			this->process1->StartInfo->StandardOutputEncoding = nullptr;
+			this->process1->StartInfo->UserName = L"";
+			this->process1->SynchronizingObject = this;
+			// 
 			// Launcher
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -471,6 +499,8 @@ private: System::Void ‰Ó·‡‚ËÚ¸ToolStripMenuItem_Click(System::Object^ sender, Sy
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs^ e);
+
+
 
 };
 }

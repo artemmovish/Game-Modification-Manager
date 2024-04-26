@@ -60,6 +60,8 @@ System::Void Project1::Launcher::click_butImagePlus(System::Object^ sender, Syst
 
 System::Void Project1::Launcher::butAddGame_Click(System::Object^ sender, System::EventArgs^ e)
 {
-   
+    IconGame^ game = gcnew IconGame();
+    game->loadGame("Шаблон");
+    panelGame->Controls->Add(game);
     return System::Void();
 }

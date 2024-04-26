@@ -6,8 +6,8 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
-
+using namespace System::Data::OleDb;
+using namespace System::IO;
 namespace Project1 {
 
 	/// <summary>
@@ -37,7 +37,11 @@ namespace Project1 {
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::PictureBox^ Icon;
-	private: System::Windows::Forms::Label^ NameGame;
+	private: System::Windows::Forms::TextBox^ NameGame;
+
+
+
+
 
 	protected:
 
@@ -57,9 +61,10 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(IconGame::typeid));
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->Icon = (gcnew System::Windows::Forms::PictureBox());
-			this->NameGame = (gcnew System::Windows::Forms::Label());
+			this->NameGame = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Icon))->BeginInit();
 			this->SuspendLayout();
@@ -69,40 +74,43 @@ namespace Project1 {
 			this->tableLayoutPanel1->ColumnCount = 1;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel1->Controls->Add(this->Icon, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->NameGame, 0, 1);
+			this->tableLayoutPanel1->Controls->Add(this->Icon, 0, 0);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 2;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 82.03883F)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 17.96116F)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 206);
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 83.24873F)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.75127F)));
+			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 197);
 			this->tableLayoutPanel1->TabIndex = 0;
 			// 
 			// Icon
 			// 
 			this->Icon->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->Icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Icon.Image")));
 			this->Icon->Location = System::Drawing::Point(3, 3);
 			this->Icon->Name = L"Icon";
-			this->Icon->Size = System::Drawing::Size(169, 163);
+			this->Icon->Size = System::Drawing::Size(169, 158);
 			this->Icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Icon->TabIndex = 0;
 			this->Icon->TabStop = false;
 			// 
 			// NameGame
 			// 
-			this->NameGame->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->NameGame->AutoSize = true;
-			this->NameGame->BackColor = System::Drawing::Color::Transparent;
-			this->NameGame->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->NameGame->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)),
+				static_cast<System::Int32>(static_cast<System::Byte>(35)));
+			this->NameGame->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->NameGame->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->NameGame->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->NameGame->ForeColor = System::Drawing::Color::Silver;
-			this->NameGame->Location = System::Drawing::Point(6, 177);
+			this->NameGame->Location = System::Drawing::Point(3, 167);
 			this->NameGame->Name = L"NameGame";
-			this->NameGame->Size = System::Drawing::Size(162, 20);
+			this->NameGame->ReadOnly = true;
+			this->NameGame->Size = System::Drawing::Size(169, 27);
 			this->NameGame->TabIndex = 1;
-			this->NameGame->Text = L"12345678901234567";
+			this->NameGame->Text = L"12345678901234567890";
 			// 
 			// IconGame
 			// 
@@ -111,7 +119,7 @@ namespace Project1 {
 			this->BackColor = System::Drawing::Color::Transparent;
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Name = L"IconGame";
-			this->Size = System::Drawing::Size(175, 206);
+			this->Size = System::Drawing::Size(175, 197);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Icon))->EndInit();
@@ -119,6 +127,80 @@ namespace Project1 {
 
 		}
 #pragma endregion
+		public: Image^ prew;
+			  String^ name;
+			  String^ dict;
+			  String^ pathExe;
+			  String^ pathFolder;
+			  int Id;
 
+			  void ChangeInfo()
+			  {
+				  NameGame->Text = name;
+			  }
+
+			  void loadGame(String^ str)
+			  {
+				  name = str;
+				  // Создание строки подключения к базе данных
+				  String^ connString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы//Games.accdb;";
+
+				  // Создание и открытие соединения с базой данных
+				  OleDbConnection^ connection = gcnew OleDbConnection(connString);
+				  connection->Open();
+
+				  // Подготовка SQL запроса
+				  String^ query = "SELECT GameDict, GamePathExe, GamePathFolder, Id FROM InfoGame WHERE GameName = ?";
+
+				  // Создание объекта команды и передача параметров
+				  OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+				  command->Parameters->AddWithValue("@GameName", str);
+
+				  try
+				  {
+					  // Выполнение запроса и чтение результатов
+					  OleDbDataReader^ reader = command->ExecuteReader();
+					  if (reader->Read())
+					  {
+						  dict = safe_cast<String^>(reader["GameDict"]);
+						  pathExe = safe_cast<String^>(reader["GamePathExe"]);
+						  pathFolder = safe_cast<String^>(reader["GamePathFolder"]);
+						  Id = safe_cast<int>(reader["Id"]);
+						  String^ iconPath;
+
+						  if (File::Exists("Game\\" + name + "\\Icon.gif"))
+						  {
+							  iconPath = "Game\\" + name + "\\Icon.gif";
+						  }
+						  else if (File::Exists("Game\\" + name + "\\Icon.png"))
+						  {
+							  iconPath = "Game\\" + name + "\\Icon.png";
+						  }
+						  else if (File::Exists("Game\\" + name + "\\Icon.jpg"))
+						  {
+							  iconPath = "Game\\" + name + "\\Icon.jpg";
+						  }
+						  else
+						  {
+							  // Handle the case when none of the icon files exist
+						  }
+						  // Load the icon image
+						  Icon->Image = Image::FromFile(iconPath);
+					  }
+					  reader->Close();
+
+				  }
+				  catch (Exception^ ex)
+				  {
+					  // Обработка ошибок при выполнении запроса
+					  Console::WriteLine("Error: " + ex->Message);
+				  }
+				  finally
+				  {
+					  // Закрытие соединения с базой данных
+					  connection->Close();
+				  }
+				  ChangeInfo();
+			  }
 	};
 }

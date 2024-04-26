@@ -30,4 +30,7 @@
       <Filter>Главное меню\Элементы</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Ресурсы\Games.accdb" />
+  </ItemGroup>
 </Project>
