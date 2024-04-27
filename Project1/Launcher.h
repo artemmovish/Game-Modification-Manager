@@ -39,6 +39,10 @@ namespace Project1 {
 			// MenuStripImage
 			//
 			MenuStripPrew->Enabled = false;
+			//
+			// Загрузка игр
+			//
+			LoadGame();
 		}
 
 	protected:
@@ -93,14 +97,6 @@ namespace Project1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ изменитьIconToolStripMenuItem;
 	private: System::Diagnostics::Process^ process1;
 	private: System::Windows::Forms::TextBox^ textExe;
-
-
-
-
-
-
-
-
 
 	private: System::ComponentModel::IContainer^ components;
 	private:
@@ -210,19 +206,19 @@ namespace Project1 {
 			});
 			this->MenuStripPrew->Name = L"contextMenuStrip1";
 			this->MenuStripPrew->ShowImageMargin = false;
-			this->MenuStripPrew->Size = System::Drawing::Size(156, 70);
+			this->MenuStripPrew->Size = System::Drawing::Size(133, 48);
 			// 
 			// изменитьPrewToolStripMenuItem
 			// 
 			this->изменитьPrewToolStripMenuItem->Name = L"изменитьPrewToolStripMenuItem";
-			this->изменитьPrewToolStripMenuItem->Size = System::Drawing::Size(155, 22);
+			this->изменитьPrewToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->изменитьPrewToolStripMenuItem->Text = L"Изменить Prew";
 			this->изменитьPrewToolStripMenuItem->Click += gcnew System::EventHandler(this, &Launcher::изменитьPrewToolStripMenuItem_Click);
 			// 
 			// изменитьIconToolStripMenuItem
 			// 
 			this->изменитьIconToolStripMenuItem->Name = L"изменитьIconToolStripMenuItem";
-			this->изменитьIconToolStripMenuItem->Size = System::Drawing::Size(155, 22);
+			this->изменитьIconToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->изменитьIconToolStripMenuItem->Text = L"Изменить Icon";
 			this->изменитьIconToolStripMenuItem->Click += gcnew System::EventHandler(this, &Launcher::изменитьIconToolStripMenuItem_Click);
 			// 
@@ -500,7 +496,7 @@ namespace Project1 {
 		}
 #pragma endregion
 		bool StatusChange = false; 
-
+		String^ OldName;
 
 void activateButton(bool activ, int index)
 		{
@@ -540,9 +536,8 @@ void GetData(String^ gameName) {
 				  // Перебор результатов запроса
 				  while (reader->Read()) {
 					  // Получение данных из каждой строки результата
-					  int id = reader->GetInt32(0);
-					  textDict->Text = reader->GetString(1);
-					  textExe->Text =  reader->GetString(2);
+					  textDict->Text = reader->GetString(0);
+					  textExe->Text =  reader->GetString(1);
 					  textName->Text = gameName;
 				  }
 
@@ -574,7 +569,7 @@ void LoadGame()
 		connection->Open();
 
 		 //SQL запрос для извлечения данных из таблицы InfoGame
-		String^ query = "SELECT GameName, GameStatus FROM InfoGame";
+		String^ query = "SELECT GameName, Status FROM InfoGame";
 		// Создание команды для выполнения SQL запроса
 		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
 
@@ -586,9 +581,13 @@ void LoadGame()
 
 			if (reader->GetInt32(1) == 0)
 			{
-				IconGame^ game = gcnew IconGame();
-				game->LoadGame(reader->GetString(0)); // Название игры
-				panelGame->Controls->Add(game);
+				if (reader->GetString(0) != "Шаблон")
+				{
+					IconGame^ game = gcnew IconGame();
+					game->LoadGame(reader->GetString(0)); // Название игры
+					game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
+					panelGame->Controls->Add(game);
+				}
 			}
 			else
 			{
@@ -603,8 +602,8 @@ void LoadGame()
 		connection->Close();
 	}
 	catch (Exception^ ex) {
-		 //Обработка исключения, например, вывод сообщения об ошибке
-		Console::WriteLine("Ошибка при выполнении запроса: " + ex->Message);
+		// Вывод сообщения об ошибке в виде окна сообщения
+		MessageBox::Show("Ошибка при выполнении запроса: " + ex->Message, "Ошибка");
 	}
 }
 
@@ -666,11 +665,36 @@ void SaveData()
 				// Сохраняем изображение в файл с соответствующим форматом
 				image->Save(fileName, format);
 
-				MessageBox::Show("Изображение успешно сохранено!");
+				MessageBox::Show("Изображение успешно сохранено!");	
 			}
 			else
 			{
 				MessageBox::Show("Нет изображения для сохранения!");
+			}
+
+			// Ищем игру
+			IconGame^ gameChange = nullptr;
+			for each (IconGame ^ control in panelGame->Controls)
+			{
+				if (control->NameGame->Text == textName->Text)
+				{
+					gameChange = control;
+					break; // Нашли элемент, можно выйти из цикла
+				}
+			}
+			if (gameChange->getIcon() != nullptr)
+			{
+				// Получаем изображение из pictureBox
+				Image^ image = gameChange->getIcon();
+
+				// Генерируем уникальное имя файла
+				String^ fileName = pathGame + "\\icon.gif";
+
+				// Получаем формат изображения
+				Imaging::ImageFormat^ format = image->RawFormat;
+
+				// Сохраняем изображение в файл с соответствующим форматом
+				image->Save(fileName, format);
 			}
 
 		}
@@ -701,5 +725,7 @@ private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void textExe_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void изменитьPrewToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void изменитьIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+
+
 };
 }

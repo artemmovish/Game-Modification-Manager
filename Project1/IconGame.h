@@ -100,7 +100,7 @@ namespace Project1 {
 			this->NameGame->ReadOnly = true;
 			this->NameGame->Size = System::Drawing::Size(169, 27);
 			this->NameGame->TabIndex = 1;
-			this->NameGame->Text = L"Кликни на меня";
+			this->NameGame->Text = L"Шаблон";
 			// 
 			// Icon
 			// 
@@ -134,29 +134,39 @@ namespace Project1 {
 
 		public:
 			void LoadGame(String^ name)
-		{
-			// Установка названия игры в элемент управления NameGame
-			NameGame->Text = name;
-
-			try
 			{
-				Icon->Image = Image::FromFile("Game\\" + name + "\\icon.png");
-			}
-			catch (System::IO::FileNotFoundException^)
-			{
-				try
+				// Установка названия игры в элемент управления NameGame
+				NameGame->Text = name;
+				if (name != "Шаблон")
 				{
-					Icon->Image = Image::FromFile("Game\\" + name + "\\icon.gif");
-				}
-				catch (System::IO::FileNotFoundException^)
-				{
-					Icon->Image = Image::FromFile("Game\\" + name + "\\icon.jpg");
+					try
+					{
+						Icon->Image = Image::FromFile("Game\\" + name + "\\icon.png");
+					}
+					catch (System::IO::FileNotFoundException^)
+					{
+						try
+						{
+							Icon->Image = Image::FromFile("Game\\" + name + "\\icon.gif");
+						}
+						catch (System::IO::FileNotFoundException^)
+						{
+							Icon->Image = Image::FromFile("Game\\" + name + "\\icon.jpg");
+						}
+					}
 				}
 			}
-		}
 			  void loadImage(String^ path)
 			  {
 				  Icon->Image = Image::FromFile(path);
+			  }
+			  Image^ getIcon()
+			  {
+				  return Icon->Image;
+			  }
+			  void setName(String^ name)
+			  {
+				  NameGame->Text = name;
 			  }
 private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ str = NameGame->Text;
