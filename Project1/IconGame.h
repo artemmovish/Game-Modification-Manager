@@ -15,7 +15,7 @@ namespace Project1 {
 	/// </summary>
 	/// 
 	public delegate void SendGameName(String^ str);
-
+	
 	public ref class IconGame : public System::Windows::Forms::UserControl
 	{
 	public:
@@ -23,7 +23,6 @@ namespace Project1 {
 		IconGame(void)
 		{
 			InitializeComponent();
-			Icon->Image = icon;
 		}
 
 	protected:
@@ -39,7 +38,7 @@ namespace Project1 {
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::PictureBox^ Icon;
-	private: System::Windows::Forms::TextBox^ NameGame;
+	public: System::Windows::Forms::TextBox^ NameGame;
 
 
 
@@ -132,9 +131,33 @@ namespace Project1 {
 
 
 #pragma endregion
-		public: Image^ icon = Image::FromFile("Ресурсы\\Кнопки\\Icon.png");
 
+		public:
+			void LoadGame(String^ name)
+		{
+			// Установка названия игры в элемент управления NameGame
+			NameGame->Text = name;
 
+			try
+			{
+				Icon->Image = Image::FromFile("Game\\" + name + "\\icon.png");
+			}
+			catch (System::IO::FileNotFoundException^)
+			{
+				try
+				{
+					Icon->Image = Image::FromFile("Game\\" + name + "\\icon.gif");
+				}
+				catch (System::IO::FileNotFoundException^)
+				{
+					Icon->Image = Image::FromFile("Game\\" + name + "\\icon.jpg");
+				}
+			}
+		}
+			  void loadImage(String^ path)
+			  {
+				  Icon->Image = Image::FromFile(path);
+			  }
 private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ str = NameGame->Text;
 	clickIconGame(NameGame->Text);

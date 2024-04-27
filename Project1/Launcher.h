@@ -2,6 +2,7 @@
 #include "ControlPanel.h"
 #include <vector>
 #include <cliext/list>
+#include "IconGame.h"
 namespace Project1 {
 
 	using namespace System;
@@ -34,6 +35,10 @@ namespace Project1 {
 			controlPanel->clickbutImageMinus += gcnew EventHandler(this, &Launcher::click_butImageMinus);
 			controlPanel->clickbutImagePlus += gcnew EventHandler(this, &Launcher::click_butImagePlus);
 			panelManegement->Controls->Add(controlPanel, 1, 0);
+			//
+			// MenuStripImage
+			//
+			MenuStripPrew->Enabled = false;
 		}
 
 	protected:
@@ -80,7 +85,7 @@ namespace Project1 {
 
 
 
-	private: System::Windows::Forms::FolderBrowserDialog^ DialogFolder;
+
 	private: System::Windows::Forms::OpenFileDialog^ DialogExe;
 	private: System::Windows::Forms::OpenFileDialog^ DialogImage;
 	private: System::Windows::Forms::Button^ butChange;
@@ -134,7 +139,6 @@ namespace Project1 {
 			this->butAddGame = (gcnew System::Windows::Forms::Button());
 			this->butAddGameMod = (gcnew System::Windows::Forms::Button());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
-			this->DialogFolder = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->DialogExe = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->DialogImage = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->process1 = (gcnew System::Diagnostics::Process());
@@ -206,19 +210,21 @@ namespace Project1 {
 			});
 			this->MenuStripPrew->Name = L"contextMenuStrip1";
 			this->MenuStripPrew->ShowImageMargin = false;
-			this->MenuStripPrew->Size = System::Drawing::Size(133, 48);
+			this->MenuStripPrew->Size = System::Drawing::Size(156, 70);
 			// 
 			// изменитьPrewToolStripMenuItem
 			// 
 			this->изменитьPrewToolStripMenuItem->Name = L"изменитьPrewToolStripMenuItem";
-			this->изменитьPrewToolStripMenuItem->Size = System::Drawing::Size(132, 22);
+			this->изменитьPrewToolStripMenuItem->Size = System::Drawing::Size(155, 22);
 			this->изменитьPrewToolStripMenuItem->Text = L"Изменить Prew";
+			this->изменитьPrewToolStripMenuItem->Click += gcnew System::EventHandler(this, &Launcher::изменитьPrewToolStripMenuItem_Click);
 			// 
 			// изменитьIconToolStripMenuItem
 			// 
 			this->изменитьIconToolStripMenuItem->Name = L"изменитьIconToolStripMenuItem";
-			this->изменитьIconToolStripMenuItem->Size = System::Drawing::Size(132, 22);
+			this->изменитьIconToolStripMenuItem->Size = System::Drawing::Size(155, 22);
 			this->изменитьIconToolStripMenuItem->Text = L"Изменить Icon";
+			this->изменитьIconToolStripMenuItem->Click += gcnew System::EventHandler(this, &Launcher::изменитьIconToolStripMenuItem_Click);
 			// 
 			// PanelDict
 			// 
@@ -450,6 +456,10 @@ namespace Project1 {
 			// 
 			this->DialogExe->Filter = L"\"Исполняемые файлы и ярлыки (*.exe; *.lnk)|*.exe;*.lnk|Все файлы (*.*)|*.*\";";
 			// 
+			// DialogImage
+			// 
+			this->DialogImage->Filter = L"\"Изображения (*.jpg; *.png; *.gif)|*.jpg;*.png;*.gif|Все файлы (*.*)|*.*\";";
+			// 
 			// process1
 			// 
 			this->process1->StartInfo->Domain = L"";
@@ -550,6 +560,55 @@ void GetData(String^ gameName) {
 				  }
 			  }
 		  }
+
+void LoadGame()
+{
+	 //Строка подключения к базе данных Access
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+	 //Создание объекта для подключения к базе данных
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+
+	try {
+		 //Открытие соединения
+		connection->Open();
+
+		 //SQL запрос для извлечения данных из таблицы InfoGame
+		String^ query = "SELECT GameName, GameStatus FROM InfoGame";
+		// Создание команды для выполнения SQL запроса
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+
+		// Создание объекта для чтения данных из базы
+		OleDbDataReader^ reader = command->ExecuteReader();
+
+		// Перебор результатов запроса
+		while (reader->Read()) {
+
+			if (reader->GetInt32(1) == 0)
+			{
+				IconGame^ game = gcnew IconGame();
+				game->LoadGame(reader->GetString(0)); // Название игры
+				panelGame->Controls->Add(game);
+			}
+			else
+			{
+
+			}
+
+			 //Дальнейшая обработка данных, например, загрузка игры или отображение информации
+		}
+
+		 //Закрытие объектов чтения и соединения
+		reader->Close();
+		connection->Close();
+	}
+	catch (Exception^ ex) {
+		 //Обработка исключения, например, вывод сообщения об ошибке
+		Console::WriteLine("Ошибка при выполнении запроса: " + ex->Message);
+	}
+}
+
+
 void SaveData()
 {
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы\\Games.accdb;Persist Security Info=False;";
@@ -587,6 +646,33 @@ void SaveData()
 			commandInsert->Parameters->AddWithValue("?", 0); // Значение для столбца Status
 			commandInsert->ExecuteNonQuery();
 			MessageBox::Show("Данные сохранены успешно.");
+
+			//Создание папки с игрой
+			String^ pathGame = "Game\\" + textName->Text;
+			Directory::CreateDirectory(pathGame);
+
+			// Проверяем, есть ли изображение в pictureBox
+			if (Prew->Image != nullptr)
+			{
+				// Получаем изображение из pictureBox
+				Image^ image = Prew->Image;
+
+				// Генерируем уникальное имя файла
+				String^ fileName = pathGame + "\\prew.gif"; 
+
+				// Получаем формат изображения
+				Imaging::ImageFormat^ format = image->RawFormat;
+
+				// Сохраняем изображение в файл с соответствующим форматом
+				image->Save(fileName, format);
+
+				MessageBox::Show("Изображение успешно сохранено!");
+			}
+			else
+			{
+				MessageBox::Show("Нет изображения для сохранения!");
+			}
+
 		}
 	}
 	catch (OleDbException^ ex)
@@ -613,5 +699,7 @@ private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void textExe_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void изменитьPrewToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void изменитьIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

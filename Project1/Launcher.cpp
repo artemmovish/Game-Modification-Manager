@@ -56,6 +56,8 @@ System::Void Project1::Launcher::click_IconGame(String^ name)
     {
         this->Text = "Launcher - ðåæèì èçìåíåíèÿ";
 
+        MenuStripPrew->Enabled = true;
+
         StatusChange = true;
         textName->ReadOnly = false;
         textName->ForeColor = Drawing::Color::White;
@@ -81,6 +83,8 @@ System::Void Project1::Launcher::butChange_Click(System::Object^ sender, System:
     {
         this->Text = "Launcher - ðåæèì èçìåíåíèÿ";
 
+        MenuStripPrew->Enabled = true;
+
         StatusChange = true;
         textName->ReadOnly = false;
         textName->ForeColor = Drawing::Color::White;
@@ -98,6 +102,8 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
     if (StatusChange)
     {
         this->Text = "Launcher";
+
+        MenuStripPrew->Enabled = false;
 
         StatusChange = false;
         textName->ReadOnly = true;
@@ -126,7 +132,7 @@ System::Void Project1::Launcher::textExe_Click(System::Object^ sender, System::E
 {
     if (StatusChange)
     {
-        if (DialogExe->ShowDialog() == DialogResult)
+        if (DialogExe->ShowDialog() == System::Windows::Forms::DialogResult::OK)
         {
             textExe->Text = DialogExe->FileName;
         }
@@ -134,6 +140,32 @@ System::Void Project1::Launcher::textExe_Click(System::Object^ sender, System::E
     return System::Void();
 }
 
+System::Void Project1::Launcher::èçìåíèòüPrewToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (DialogImage->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+    {
+        Prew->Image = Image::FromFile(DialogImage->FileName);
+    }
+    return System::Void();
+}
+
+System::Void Project1::Launcher::èçìåíèòüIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    IconGame^ gameChange = nullptr;
+    for each (IconGame ^ control in panelGame->Controls)
+    {
+        if (control->NameGame->Text == textName->Text)
+        {
+            gameChange = control;
+            break; // Íàøëè ýëåìåíò, ìîæíî âûéòè èç öèêëà
+        }
+    }
+    if (DialogImage->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+    {
+        gameChange->loadImage(DialogImage->FileName);
+    }
+    return System::Void();
+}
 
 
 
