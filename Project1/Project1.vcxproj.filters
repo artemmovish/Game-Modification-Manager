@@ -7,6 +7,9 @@
     <Filter Include="Главное меню\Элементы">
       <UniqueIdentifier>{4abe207a-2631-4e0c-a203-f5bf496dd326}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Создание сборки">
+      <UniqueIdentifier>{5b8f015d-30a6-4b1c-a1a9-dff434dde71b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -18,6 +21,9 @@
     <ClCompile Include="IconGame.cpp">
       <Filter>Главное меню\Элементы</Filter>
     </ClCompile>
+    <ClCompile Include="AddMod.cpp">
+      <Filter>Создание сборки</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
@@ -28,6 +34,9 @@
     </ClInclude>
     <ClInclude Include="IconGame.h">
       <Filter>Главное меню\Элементы</Filter>
+    </ClInclude>
+    <ClInclude Include="AddMod.h">
+      <Filter>Создание сборки</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

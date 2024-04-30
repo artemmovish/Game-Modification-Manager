@@ -141,25 +141,25 @@ namespace Project1 {
 				{
 					try
 					{
-						Icon->Image = Image::FromFile("Game\\" + name + "\\icon.png");
+						Icon->Image = Image::FromFile("Game\\" + name + "\\iconOld.png");
 					}
 					catch (System::IO::FileNotFoundException^)
 					{
 						try
 						{
-							Icon->Image = Image::FromFile("Game\\" + name + "\\icon.gif");
+							Icon->Image = Image::FromFile("Game\\" + name + "\\iconOld.gif");
 						}
 						catch (System::IO::FileNotFoundException^)
 						{
-							Icon->Image = Image::FromFile("Game\\" + name + "\\icon.jpg");
+							Icon->Image = Image::FromFile("Game\\" + name + "\\iconOld.jpg");
 						}
 					}
 				}
 			}
-			  void loadImage(String^ path)
-			  {
-				  Icon->Image = Image::FromFile(path);
-			  }
+			void loadImage(String^ path)
+			{
+				Icon->Image = Image::FromFile(path);
+			}
 			  Image^ getIcon()
 			  {
 				  return Icon->Image;
@@ -168,6 +168,7 @@ namespace Project1 {
 			  {
 				  NameGame->Text = name;
 			  }
+
 private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ str = NameGame->Text;
 	clickIconGame(NameGame->Text);

@@ -48,24 +48,34 @@ System::Void Project1::Launcher::butAddGame_Click(System::Object^ sender, System
 // клик на иконку игры
 System::Void Project1::Launcher::click_IconGame(String^ name)
 {
+    pathNewIcon = "";
+    pathNewPrew = "";
     GetData(name);
-    try
-    {
-        Prew->Image = Image::FromFile("Game\\" + name + "\\prew.png");
-    }
-    catch (System::IO::FileNotFoundException^)
+    if (name != "Шаблон")
     {
         try
         {
-            Prew->Image = Image::FromFile("Game\\" + name + "\\prew.gif");
+            Prew->Image = Image::FromFile("Game\\" + name + "\\prewOld.png");
         }
         catch (System::IO::FileNotFoundException^)
         {
-            Prew->Image = Image::FromFile("Game\\" + name + "\\prew.jpg");
+            try
+            {
+                Prew->Image = Image::FromFile("Game\\" + name + "\\prewOld.gif");
+            }
+            catch (System::IO::FileNotFoundException^)
+            {
+                Prew->Image = Image::FromFile("Game\\" + name + "\\prewOld.jpg");
+            }
         }
+    }
+    else
+    {
+        Prew->Image = Image::FromFile("C:\\Учебный процесс\\Курсовая\\Kursach_Dizain\\Project1\\Ресурсы\\Кнопки\\Modification-Manager-27-04-2024.png");
     }
     activateButton(true, 0);
     OldName = name;
+    StatusDel = false;
     return System::Void();
 }
 
@@ -114,17 +124,12 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
         }
         else
         {
-            IconGame^ gameChange = nullptr;
-            for each (IconGame ^ control in panelGame->Controls)
-            {
-                if (control->NameGame->Text == OldName)
-                {
-                    gameChange = control;
-                    break; // Нашли элемент, можно выйти из цикла
-                }
-            }
+            IconGame^ gameChange = SearchGame(OldName);
+            
             gameChange->setName(textName->Text);
+            SaveImage();
             SaveData();
+            Application::Restart();
         }
     }
     
@@ -132,10 +137,24 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
 }
 System::Void Project1::Launcher::butDel_Click(System::Object^ sender, System::EventArgs^ e)
 {
+    if (textName->Text != "Шаблон")
+    {
+        if (MessageBox::Show("Вы уверены, что хотите удалить?", "Подтверждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+            MessageBox::Show("Удаление произойдет после сохранения");
+            StatusDel = true;
+        }
+    }
+    else
+    {
+        MessageBox::Show("Шаблон нельзя удалить");
+    }
     return System::Void();
 }
 System::Void Project1::Launcher::butStart_Click(System::Object^ sender, System::EventArgs^ e)
 {
+    process1->StartInfo->FileName = textExe->Text;
+    process1->StartInfo->WorkingDirectory = Path::GetDirectoryName(textExe->Text);
+    process1->Start();
     return System::Void();
 }
 System::Void Project1::Launcher::textExe_Click(System::Object^ sender, System::EventArgs^ e)
@@ -156,23 +175,17 @@ System::Void Project1::Launcher::изменитьPrewToolStripMenuItem_Click(System::Obj
     if (DialogImage->ShowDialog() == System::Windows::Forms::DialogResult::OK)
     {
         Prew->Image = Image::FromFile(DialogImage->FileName);
+        pathNewPrew = DialogImage->FileName;
     }
     return System::Void();
 }
 System::Void Project1::Launcher::изменитьIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    IconGame^ gameChange = nullptr;
-    for each (IconGame ^ control in panelGame->Controls)
-    {
-        if (control->NameGame->Text == OldName)
-        {
-            gameChange = control;
-            break; // Нашли элемент, можно выйти из цикла
-        }
-    }
+    IconGame^ gameChange = SearchGame(OldName);
     if (DialogImage->ShowDialog() == System::Windows::Forms::DialogResult::OK)
     {
         gameChange->loadImage(DialogImage->FileName);
+        pathNewIcon = DialogImage->FileName;
     }
     return System::Void();
 }

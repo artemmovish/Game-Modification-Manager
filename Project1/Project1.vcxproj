@@ -127,11 +127,15 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddMod.cpp" />
     <ClCompile Include="ControlPanel.cpp" />
     <ClCompile Include="IconGame.cpp" />
     <ClCompile Include="Launcher.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddMod.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ControlPanel.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -143,6 +147,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddMod.resx">
+      <DependentUpon>AddMod.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlPanel.resx">
       <DependentUpon>ControlPanel.h</DependentUpon>
     </EmbeddedResource>

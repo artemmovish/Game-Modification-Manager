@@ -391,9 +391,9 @@ namespace Project1 {
 			this->butStart->FlatAppearance->BorderSize = 0;
 			this->butStart->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->butStart->ForeColor = System::Drawing::Color::Silver;
-			this->butStart->Location = System::Drawing::Point(523, 189);
+			this->butStart->Location = System::Drawing::Point(526, 193);
 			this->butStart->Name = L"butStart";
-			this->butStart->Size = System::Drawing::Size(181, 44);
+			this->butStart->Size = System::Drawing::Size(175, 35);
 			this->butStart->TabIndex = 3;
 			this->butStart->UseVisualStyleBackColor = true;
 			this->butStart->Click += gcnew System::EventHandler(this, &Launcher::butStart_Click);
@@ -496,7 +496,26 @@ namespace Project1 {
 		}
 #pragma endregion
 		bool StatusChange = false; 
+		bool StatusDel;
 		String^ OldName;
+		String^ pathNewPrew;
+		String^ pathNewIcon;
+
+IconGame^ SearchGame(String^ name)
+{
+	IconGame^ gameChange = nullptr;
+	for each (IconGame ^ control in panelGame->Controls)
+	{
+		if (control->NameGame->Text == name)
+		{
+			gameChange = control;
+			break; // Нашли элемент, можно выйти из цикла
+		}
+	}
+	return gameChange;
+}
+
+
 
 void activateButton(bool activ, int index)
 		{
@@ -505,10 +524,12 @@ void activateButton(bool activ, int index)
 				butSave->Enabled = activ;
 				butChange->Enabled = activ;
 				butDel->Enabled = activ;
+				butStart->Enabled = activ;
 			}
 			else if (index == 1) { butSave->Enabled = activ; }
 			else if (index == 2) { butChange->Enabled = activ; }
 			else if (index == 3) { butDel->Enabled = activ; }
+			else if (index == 4) { butStart->Enabled = activ; }
 			else { MessageBox::Show("Нет индекса для режима"); }
 		}
 			
@@ -558,18 +579,23 @@ void GetData(String^ gameName) {
 
 void LoadGame()
 {
-	 //Строка подключения к базе данных Access
+	// Строка подключения к базе данных Access
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
 
-	 //Создание объекта для подключения к базе данных
+	// Создание объекта для подключения к базе данных
 	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
 
 	try {
-		 //Открытие соединения
+		// Открытие соединения
 		connection->Open();
 
-		 //SQL запрос для извлечения данных из таблицы InfoGame
-		String^ query = "SELECT GameName, Status FROM InfoGame";
+		// Удаление записей со статусом -1
+		String^ deleteQuery = "DELETE FROM InfoGame WHERE Status_ = -1";
+		OleDbCommand^ deleteCommand = gcnew OleDbCommand(deleteQuery, connection);
+		deleteCommand->ExecuteNonQuery();
+
+		// SQL запрос для извлечения данных из таблицы InfoGame
+		String^ query = "SELECT GameName, Status_, OldName FROM InfoGame";
 		// Создание команды для выполнения SQL запроса
 		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
 
@@ -578,11 +604,55 @@ void LoadGame()
 
 		// Перебор результатов запроса
 		while (reader->Read()) {
-
+			// Ваш существующий код обработки данных
 			if (reader->GetInt32(1) == 0)
 			{
 				if (reader->GetString(0) != "Шаблон")
 				{
+					String^ n = reader->GetString(0);
+					String^ o = reader->GetString(2);
+					if (n != o)
+					{
+						// Укажите путь к каталогу, который вы хотите переименовать
+						String^ oldDirectoryName = "Game\\" + reader->GetString(2);
+						// Укажите новое имя для каталога
+						String^ newDirectoryName = "Game\\" + reader->GetString(0);
+						try
+						{
+							// Проверяем, существует ли исходный каталог
+							if (Directory::Exists(oldDirectoryName))
+							{
+								// Переименовываем каталог
+								Directory::Move(oldDirectoryName, newDirectoryName);
+								Console::WriteLine("Каталог успешно переименован.");
+							}
+						}
+						catch (Exception^ e)
+						{
+							//MessageBox::Show("Ошибка при переименовании каталога: " + e->Message);
+						}
+					}
+					String^ pathGame = "Game\\" + reader->GetString(0) + "\\";
+					try {
+						// Копируем файл prew.gif
+						if (File::Exists(pathGame + "prew.gif")) {
+							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif", true); // Перезаписываем существующую копию
+						}
+						else {
+							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif");
+						}
+
+						// Копируем файл icon.gif
+						if (File::Exists(pathGame + "icon.gif")) {
+							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif", true); // Перезаписываем существующую копию
+						}
+						else {
+							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif");
+						}
+					}
+					catch (IOException^ e) {
+						MessageBox::Show("Ошибка при копировании файла: " + e->Message);
+					}
 					IconGame^ game = gcnew IconGame();
 					game->LoadGame(reader->GetString(0)); // Название игры
 					game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
@@ -593,11 +663,9 @@ void LoadGame()
 			{
 
 			}
-
-			 //Дальнейшая обработка данных, например, загрузка игры или отображение информации
 		}
 
-		 //Закрытие объектов чтения и соединения
+		// Закрытие объектов чтения и соединения
 		reader->Close();
 		connection->Close();
 	}
@@ -607,6 +675,51 @@ void LoadGame()
 	}
 }
 
+void SaveImage()
+{	
+	//Создание папки с игрой
+	String^ pathGame = "Game\\" + textName->Text;
+	Directory::CreateDirectory(pathGame);
+
+	// Проверяем, есть ли изображение в pictureBox
+	if (Prew->Image != nullptr)
+	{
+		// Получаем изображение из pictureBox
+		Image^ image = Prew->Image;
+
+		// Генерируем уникальное имя файла
+		String^ fileName = pathGame + "\\prew.gif";
+
+		// Получаем формат изображения
+		Imaging::ImageFormat^ format = image->RawFormat;
+
+		// Сохраняем изображение в файл с соответствующим форматом
+		image->Save(fileName, format);
+
+		//Prew->Image = Image::FromFile(fileName);
+	}
+	else
+	{
+		MessageBox::Show("Нет изображения для сохранения!");
+	}
+
+	// Ищем игру
+	IconGame^ gameChange = SearchGame(textName->Text);
+	if (gameChange->getIcon() != nullptr)
+	{
+		// Получаем изображение из pictureBox
+		Image^ image = gameChange->getIcon();
+
+		// Генерируем уникальное имя файла
+		String^ fileName = pathGame + "\\icon.gif";
+
+		// Получаем формат изображения
+		Imaging::ImageFormat^ format = image->RawFormat;
+
+		// Сохраняем изображение в файл с соответствующим форматом
+		image->Save(fileName, format);
+	}
+}
 
 void SaveData()
 {
@@ -619,25 +732,41 @@ void SaveData()
 		// Проверяем, существует ли игра с заданным именем
 		String^ queryCheckExistence = "SELECT COUNT(*) FROM InfoGame WHERE GameName = ?";
 		OleDbCommand^ commandCheckExistence = gcnew OleDbCommand(queryCheckExistence, connection);
-		commandCheckExistence->Parameters->AddWithValue("?", textName->Text);
+		commandCheckExistence->Parameters->AddWithValue("?", OldName);
 		int count = Convert::ToInt32(commandCheckExistence->ExecuteScalar());
 
-		if (count > 0)
+		if (count > 0 && OldName != "Шаблон")
 		{
 			// Если игра существует, выполняем запрос на обновление
-			String^ queryUpdate = "UPDATE InfoGame SET GameDict = ?, GamePathExe = ?, Status = ? WHERE GameName = ?";
+			String^ queryUpdate = "UPDATE InfoGame SET GameDict = GD, GamePathExe = PE, Status_ = S, GameName = GM, OldName = OM WHERE GameName = ?";
 			OleDbCommand^ commandUpdate = gcnew OleDbCommand(queryUpdate, connection);
-			commandUpdate->Parameters->AddWithValue("?", textDict->Text);
-			commandUpdate->Parameters->AddWithValue("?", textExe->Text);
-			commandUpdate->Parameters->AddWithValue("?", 0); // Значение для столбца Status, если необходимо обновить
-			commandUpdate->Parameters->AddWithValue("?", textName->Text);
-			commandUpdate->ExecuteNonQuery();
+			commandUpdate->Parameters->AddWithValue("GD", textDict->Text);
+			commandUpdate->Parameters->AddWithValue("PE", textExe->Text);
+			if (StatusDel) // Значение для столбца Status, если необходимо обновить
+			{
+				commandUpdate->Parameters->AddWithValue("S", -1); 
+			}
+			else
+			{
+				commandUpdate->Parameters->AddWithValue("S", 0);
+			}
+			commandUpdate->Parameters->AddWithValue("GM", textName->Text);
+			if (textName->Text != OldName)
+			{
+				commandUpdate->Parameters->AddWithValue("OM", OldName);
+			}
+			else
+			{
+				commandUpdate->Parameters->AddWithValue("OM", "");
+			}
+			commandUpdate->Parameters->AddWithValue("?", OldName);
 			MessageBox::Show("Данные обновлены успешно.");
+			commandUpdate->ExecuteNonQuery();
 		}
-		else
+		else if (textName->Text != "Шаблон")
 		{
 			// Если игра не существует, выполняем запрос на вставку
-			String^ queryInsert = "INSERT INTO InfoGame (GameDict, GamePathExe, GameName, Status) VALUES (?, ?, ?, ?)";
+			String^ queryInsert = "INSERT INTO InfoGame (GameDict, GamePathExe, GameName, Status_) VALUES (?, ?, ?, ?)";
 			OleDbCommand^ commandInsert = gcnew OleDbCommand(queryInsert, connection);
 			commandInsert->Parameters->AddWithValue("?", textDict->Text);
 			commandInsert->Parameters->AddWithValue("?", textExe->Text);
@@ -645,59 +774,8 @@ void SaveData()
 			commandInsert->Parameters->AddWithValue("?", 0); // Значение для столбца Status
 			commandInsert->ExecuteNonQuery();
 			MessageBox::Show("Данные сохранены успешно.");
-
-			//Создание папки с игрой
-			String^ pathGame = "Game\\" + textName->Text;
-			Directory::CreateDirectory(pathGame);
-
-			// Проверяем, есть ли изображение в pictureBox
-			if (Prew->Image != nullptr)
-			{
-				// Получаем изображение из pictureBox
-				Image^ image = Prew->Image;
-
-				// Генерируем уникальное имя файла
-				String^ fileName = pathGame + "\\prew.gif"; 
-
-				// Получаем формат изображения
-				Imaging::ImageFormat^ format = image->RawFormat;
-
-				// Сохраняем изображение в файл с соответствующим форматом
-				image->Save(fileName, format);
-
-				MessageBox::Show("Изображение успешно сохранено!");	
-			}
-			else
-			{
-				MessageBox::Show("Нет изображения для сохранения!");
-			}
-
-			// Ищем игру
-			IconGame^ gameChange = nullptr;
-			for each (IconGame ^ control in panelGame->Controls)
-			{
-				if (control->NameGame->Text == textName->Text)
-				{
-					gameChange = control;
-					break; // Нашли элемент, можно выйти из цикла
-				}
-			}
-			if (gameChange->getIcon() != nullptr)
-			{
-				// Получаем изображение из pictureBox
-				Image^ image = gameChange->getIcon();
-
-				// Генерируем уникальное имя файла
-				String^ fileName = pathGame + "\\icon.gif";
-
-				// Получаем формат изображения
-				Imaging::ImageFormat^ format = image->RawFormat;
-
-				// Сохраняем изображение в файл с соответствующим форматом
-				image->Save(fileName, format);
-			}
-
 		}
+		else { MessageBox::Show("нельзя изменять шаблон."); }
 	}
 	catch (OleDbException^ ex)
 	{
