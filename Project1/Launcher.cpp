@@ -1,6 +1,7 @@
 #include "Launcher.h"
 #include "ControlPanel.h"
 #include "IconGame.h"
+#include "AddMod.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace std;
@@ -48,8 +49,6 @@ System::Void Project1::Launcher::butAddGame_Click(System::Object^ sender, System
 // êëèê íà èêîíêó èãðû
 System::Void Project1::Launcher::click_IconGame(String^ name)
 {
-    pathNewIcon = "";
-    pathNewPrew = "";
     GetData(name);
     if (name != "Øàáëîí")
     {
@@ -76,6 +75,7 @@ System::Void Project1::Launcher::click_IconGame(String^ name)
     activateButton(true, 0);
     OldName = name;
     StatusDel = false;
+    butAddGame->Enabled = true;
     return System::Void();
 }
 
@@ -175,7 +175,6 @@ System::Void Project1::Launcher::èçìåíèòüPrewToolStripMenuItem_Click(System::Obj
     if (DialogImage->ShowDialog() == System::Windows::Forms::DialogResult::OK)
     {
         Prew->Image = Image::FromFile(DialogImage->FileName);
-        pathNewPrew = DialogImage->FileName;
     }
     return System::Void();
 }
@@ -185,10 +184,27 @@ System::Void Project1::Launcher::èçìåíèòüIconToolStripMenuItem_Click(System::Obj
     if (DialogImage->ShowDialog() == System::Windows::Forms::DialogResult::OK)
     {
         gameChange->loadImage(DialogImage->FileName);
-        pathNewIcon = DialogImage->FileName;
     }
     return System::Void();
 }
 
+// Äîáàâèòü ìîä
+System::Void Project1::Launcher::butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (textName->Text == "Øàáëîí" || textName->Text == "ÍÀÇÂÀÍÈÅ ÈÃÐÛ")
+    {
+        MessageBox::Show("Âûáåðåòå èãðó");
+    }
+    else if (StatusChange)
+    {
+        MessageBox::Show("Ñîõðàíèòå èçìåíåíèÿ èãðû");
+    }
+    else
+    {
+        AddMod^ mod = gcnew AddMod();
+        mod->nameGame = textName->Text;
+        mod->Show();
+    }
+}
 
 

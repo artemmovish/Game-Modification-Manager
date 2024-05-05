@@ -10,6 +10,9 @@
     <Filter Include="Создание сборки">
       <UniqueIdentifier>{5b8f015d-30a6-4b1c-a1a9-dff434dde71b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Создание сборки\Элементы">
+      <UniqueIdentifier>{baa65c8f-724f-4275-9daf-d61d5edb2787}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -24,6 +27,12 @@
     <ClCompile Include="AddMod.cpp">
       <Filter>Создание сборки</Filter>
     </ClCompile>
+    <ClCompile Include="FolderMod.cpp">
+      <Filter>Создание сборки\Элементы</Filter>
+    </ClCompile>
+    <ClCompile Include="IconMod.cpp">
+      <Filter>Главное меню\Элементы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
@@ -37,6 +46,12 @@
     </ClInclude>
     <ClInclude Include="AddMod.h">
       <Filter>Создание сборки</Filter>
+    </ClInclude>
+    <ClInclude Include="FolderMod.h">
+      <Filter>Создание сборки\Элементы</Filter>
+    </ClInclude>
+    <ClInclude Include="IconMod.h">
+      <Filter>Главное меню\Элементы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

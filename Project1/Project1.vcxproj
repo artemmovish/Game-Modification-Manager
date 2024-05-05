@@ -129,7 +129,9 @@
   <ItemGroup>
     <ClCompile Include="AddMod.cpp" />
     <ClCompile Include="ControlPanel.cpp" />
+    <ClCompile Include="FolderMod.cpp" />
     <ClCompile Include="IconGame.cpp" />
+    <ClCompile Include="IconMod.cpp" />
     <ClCompile Include="Launcher.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +141,13 @@
     <ClInclude Include="ControlPanel.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="FolderMod.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="IconGame.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="IconMod.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Launcher.h">
@@ -152,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPanel.resx">
       <DependentUpon>ControlPanel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FolderMod.resx">
+      <DependentUpon>FolderMod.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IconGame.resx">
       <DependentUpon>IconGame.h</DependentUpon>

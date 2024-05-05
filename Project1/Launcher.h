@@ -439,7 +439,6 @@ namespace Project1 {
 			this->butAddGameMod->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->butAddGameMod->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butAddGameMod.BackgroundImage")));
 			this->butAddGameMod->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->butAddGameMod->Enabled = false;
 			this->butAddGameMod->FlatAppearance->BorderSize = 0;
 			this->butAddGameMod->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->butAddGameMod->Location = System::Drawing::Point(774, 8);
@@ -447,6 +446,7 @@ namespace Project1 {
 			this->butAddGameMod->Size = System::Drawing::Size(330, 50);
 			this->butAddGameMod->TabIndex = 1;
 			this->butAddGameMod->UseVisualStyleBackColor = true;
+			this->butAddGameMod->Click += gcnew System::EventHandler(this, &Launcher::butAddGameMod_Click);
 			// 
 			// DialogExe
 			// 
@@ -479,6 +479,7 @@ namespace Project1 {
 			this->Controls->Add(this->panelGameMod);
 			this->Controls->Add(this->panelGame);
 			this->Controls->Add(this->panelManegement);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MinimumSize = System::Drawing::Size(1130, 705);
 			this->Name = L"Launcher";
 			this->Text = L"Launcher";
@@ -498,8 +499,6 @@ namespace Project1 {
 		bool StatusChange = false; 
 		bool StatusDel;
 		String^ OldName;
-		String^ pathNewPrew;
-		String^ pathNewIcon;
 
 IconGame^ SearchGame(String^ name)
 {
@@ -514,8 +513,6 @@ IconGame^ SearchGame(String^ name)
 	}
 	return gameChange;
 }
-
-
 
 void activateButton(bool activ, int index)
 		{
@@ -787,13 +784,108 @@ void SaveData()
 	}
 }
 
+void LoadMod()
+{
+	// Строка подключения к базе данных Access
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
 
+	// Создание объекта для подключения к базе данных
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+
+	try {
+		// Открытие соединения
+		connection->Open();
+
+		// Удаление записей со статусом -1
+		String^ deleteQuery = "DELETE FROM InfoGame WHERE Status_ = -1";
+		OleDbCommand^ deleteCommand = gcnew OleDbCommand(deleteQuery, connection);
+		deleteCommand->ExecuteNonQuery();
+
+		// SQL запрос для извлечения данных из таблицы InfoGame
+		String^ query = "SELECT GameName, Status_, OldName FROM InfoGame";
+		// Создание команды для выполнения SQL запроса
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+
+		// Создание объекта для чтения данных из базы
+		OleDbDataReader^ reader = command->ExecuteReader();
+
+		// Перебор результатов запроса
+		while (reader->Read()) {
+			// Ваш существующий код обработки данных
+			if (reader->GetInt32(1) == 0)
+			{
+				if (reader->GetString(0) != "Шаблон")
+				{
+					String^ n = reader->GetString(0);
+					String^ o = reader->GetString(2);
+					if (n != o)
+					{
+						// Укажите путь к каталогу, который вы хотите переименовать
+						String^ oldDirectoryName = "Game\\" + reader->GetString(2);
+						// Укажите новое имя для каталога
+						String^ newDirectoryName = "Game\\" + reader->GetString(0);
+						try
+						{
+							// Проверяем, существует ли исходный каталог
+							if (Directory::Exists(oldDirectoryName))
+							{
+								// Переименовываем каталог
+								Directory::Move(oldDirectoryName, newDirectoryName);
+								Console::WriteLine("Каталог успешно переименован.");
+							}
+						}
+						catch (Exception^ e)
+						{
+							//MessageBox::Show("Ошибка при переименовании каталога: " + e->Message);
+						}
+					}
+					String^ pathGame = "Game\\" + reader->GetString(0) + "\\";
+					try {
+						// Копируем файл prew.gif
+						if (File::Exists(pathGame + "prew.gif")) {
+							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif", true); // Перезаписываем существующую копию
+						}
+						else {
+							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif");
+						}
+
+						// Копируем файл icon.gif
+						if (File::Exists(pathGame + "icon.gif")) {
+							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif", true); // Перезаписываем существующую копию
+						}
+						else {
+							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif");
+						}
+					}
+					catch (IOException^ e) {
+						MessageBox::Show("Ошибка при копировании файла: " + e->Message);
+					}
+					IconGame^ game = gcnew IconGame();
+					game->LoadGame(reader->GetString(0)); // Название игры
+					game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
+					panelGame->Controls->Add(game);
+				}
+			}
+			else
+			{
+
+			}
+		}
+
+		// Закрытие объектов чтения и соединения
+		reader->Close();
+		connection->Close();
+	}
+	catch (Exception^ ex) {
+		// Вывод сообщения об ошибке в виде окна сообщения
+		MessageBox::Show("Ошибка при выполнении запроса: " + ex->Message, "Ошибка");
+	}
+}
 private: System::Void добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_IconGame(String^ name);
-
 
 private: System::Void butChange_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e);
@@ -804,6 +896,6 @@ private: System::Void textExe_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void изменитьPrewToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void изменитьIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 
-
+private: System::Void butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
