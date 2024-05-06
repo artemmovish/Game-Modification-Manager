@@ -27,7 +27,7 @@ System::Void Project1::Launcher::добавитьToolStripMenuItem_Click(System::Object^
     return System::Void();
 }
 
-// изменить изображения
+// изменить трек
 System::Void Project1::Launcher::click_butImageMinus(System::Object^ sender, System::EventArgs^ e)
 {
     return System::Void();
@@ -100,6 +100,10 @@ System::Void Project1::Launcher::butChange_Click(System::Object^ sender, System:
         textExe->ReadOnly = false;
         textExe->ForeColor = Drawing::Color::White;
     }
+    if (textName->Text == "Шаблон")
+    {
+        StatusChange = false;
+    }
     return System::Void();
 }
 System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::EventArgs^ e)
@@ -126,25 +130,29 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
         }
         else
         {
-            IconGame^ gameChange = SearchGame(OldName);
-            
-            gameChange->setName(textName->Text);
-            SaveImage();
-            SaveData();
+            UpdateData();
             Application::Restart();
         }
     }
-    
+    else
+    {
+        if (textName->Text == "Шаблон")
+        {
+            MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
+        }
+        else if (OldName == "Шаблон")
+        {
+            SaveData();
+        }
+    }
     return System::Void();
 }
 System::Void Project1::Launcher::butDel_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    if (textName->Text != "Шаблон")
+    if (textName->Text != "Шаблон" && OldName != "Шаблон")
     {
         if (MessageBox::Show("Вы уверены, что хотите удалить?", "Подтверждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
-            MessageBox::Show("Удаление произойдет после сохранения");
-            StatusDel = true;
-            butDel->Enabled = true;
+            DeleteGame();
         }
     }
     else

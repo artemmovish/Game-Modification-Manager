@@ -37,7 +37,7 @@ namespace Project1 {
 			}
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::PictureBox^ Icon;
+	public: System::Windows::Forms::PictureBox^ Icon;
 	public: System::Windows::Forms::TextBox^ NameGame;
 
 

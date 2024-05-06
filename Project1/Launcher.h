@@ -43,8 +43,12 @@ namespace Project1 {
 			//
 			// Удаление хлама 
 			//
-			DeleteMod();
-			DeleteGame();
+			LoadDeleteMod();
+			LoadDeleteGame();
+			//
+			// Модификация
+			// 
+			LoadModifyGame();
 			//
 			// Загрузка игр
 			//
@@ -598,7 +602,59 @@ void GetData(String^ gameName) {
 			  }
 		  }
 
-void LoadGame()
+void CopyFile(String^ sourcePath, String^ destPath) {
+
+
+	try {
+		// Проверяем, существует ли файл исходного пути
+		if (!File::Exists(sourcePath)) {
+			Console::WriteLine("Файл не существует: " + sourcePath);
+			return;
+		}
+
+		// Принудительно копируем файл, перезаписывая целевой файл, если он существует
+		File::Copy(sourcePath, destPath, true);
+
+		Console::WriteLine("Файл успешно скопирован из " + sourcePath + " в " + destPath);
+	}
+	catch (Exception^ e) {
+		Console::WriteLine("Ошибка при копировании файла: " + e->Message);
+	}
+}
+
+void DeleteGame()
+{
+	IconGame^ game = SearchGame(textName->Text);
+	delete game;
+
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+	try
+	{
+		OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+		connection->Open();
+
+		// SQL запрос для обновления данных
+		String^ query = "UPDATE InfoGame SET Status_ = ? WHERE GameName = ?";
+
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+
+		// Параметры для подстановки в запрос
+		command->Parameters->Add(gcnew OleDbParameter("@param1", OleDbType::Integer));
+		command->Parameters->Add(gcnew OleDbParameter("@param2", OleDbType::VarChar));
+		// Значения для параметров
+		command->Parameters["@param1"]->Value = -1;
+		command->Parameters["@param2"]->Value = textName->Text;
+		command->ExecuteNonQuery();
+		connection->Close();
+		MessageBox::Show("Игра удалена");
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show("Ошибка: " + ex->Message);
+	}
+}
+
+System::Void SaveData()
 {
 	// Строка подключения к базе данных Access
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
@@ -606,12 +662,90 @@ void LoadGame()
 	// Создание объекта для подключения к базе данных
 	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
 
-	try {
+	// Запрос
+	try
+	{
+		// Открытие соединения
+		connection->Open();
+
+		// SQL запрос для вставки данных
+		String^ query = "INSERT INTO InfoGame (GameName, GameDict, GamePathExe) VALUES (?, ?, ?)";
+
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+
+		// Параметры для подстановки в запрос
+		command->Parameters->Add(gcnew OleDbParameter("@param1", textName->Text));
+		command->Parameters->Add(gcnew OleDbParameter("@param2", textDict->Text));
+		command->Parameters->Add(gcnew OleDbParameter("@param3", textExe->Text));
+
+		// Выполнение запроса
+		command->ExecuteNonQuery();
+
+		MessageBox::Show("Игра добавлена в список");
+	}
+	catch (Exception^ ex)
+	{
+		// Обработка ошибок, например, запись в лог или отображение сообщения об ошибке
+		MessageBox::Show("Ошибка(SaveData) при выполнение запроса: " + ex->Message);
+	}
+	finally
+	{
+		// Закрытие соединения в блоке finally
+		if (connection->State == ConnectionState::Open)
+		{
+			connection->Close();
+		}
+	}
+
+	try
+	{
+		String^ folderPath = "Game\\" + textName->Text;
+		// Создание папки, если она не существует
+		if (!Directory::Exists(folderPath))
+		{
+			Directory::CreateDirectory(folderPath);
+		}
+
+		// Генерация уникального имени файла на основе временной метки
+		String^ fileName = folderPath + "\\" + "prew.gif";
+		String^ fileNameOld = folderPath + "\\" + "prewOld.gif";
+
+		// Сохранение изображения в файл для prew
+		Prew->Image->Save(fileName, System::Drawing::Imaging::ImageFormat::Gif);
+		Prew->Image->Save(fileNameOld, System::Drawing::Imaging::ImageFormat::Gif);
+
+		IconGame^ game = SearchGame("Шаблон");
+		// Сохранение изображения в файл для icon
+		fileName = folderPath + "\\" + "icon.gif";
+		fileNameOld = folderPath + "\\" + "iconOld.gif";
+
+		// Сохранение изображения в файл для icon
+		game->Icon->Image->Save(fileName, System::Drawing::Imaging::ImageFormat::Gif);
+		game->Icon->Image->Save(fileNameOld, System::Drawing::Imaging::ImageFormat::Gif);
+		game->NameGame->Text = textName->Text;
+	}
+	catch (Exception^ ex)
+	{
+		// Обработка ошибок, например, запись в лог или отображение сообщения об ошибке
+		MessageBox::Show("Ошибка(SaveData) при сохранение изображения: " + ex->Message);
+	}
+}
+
+void LoadGame()
+{
+	// Строка подключения к базе данных Access
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+	// Создание объекта для подключения к базе данных
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+	try
+	{
 		// Открытие соединения
 		connection->Open();
 
 		// SQL запрос для извлечения данных из таблицы InfoGame
-		String^ query = "SELECT GameName, Status_, OldName FROM InfoGame";
+		String^ query = "SELECT GameName FROM InfoGame";
+
 		// Создание команды для выполнения SQL запроса
 		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
 
@@ -619,193 +753,158 @@ void LoadGame()
 		OleDbDataReader^ reader = command->ExecuteReader();
 
 		// Перебор результатов запроса
-		while (reader->Read()) {
-			// Ваш существующий код обработки данных
-			if (reader->GetInt32(1) == 0)
+		while (reader->Read())
+		{
+			if (reader->GetString(0) == "Шаблон")
 			{
-				if (reader->GetString(0) != "Шаблон")
-				{
-					String^ n = reader->GetString(0);
-					String^ o;
-					
-					if (n != o)
-					{
-						// Укажите путь к каталогу, который вы хотите переименовать
-						String^ oldDirectoryName = "Game\\" + reader->GetString(2);
-						// Укажите новое имя для каталога
-						String^ newDirectoryName = "Game\\" + reader->GetString(0);
-						try
-						{
-							// Проверяем, существует ли исходный каталог
-							if (Directory::Exists(oldDirectoryName))
-							{
-								// Переименовываем каталог
-								Directory::Move(oldDirectoryName, newDirectoryName);
-								Console::WriteLine("Каталог успешно переименован.");
-							}
-						}
-						catch (Exception^ e)
-						{
-							//MessageBox::Show("Ошибка при переименовании каталога: " + e->Message);
-						}
-					}
-					String^ pathGame = "Game\\" + reader->GetString(0) + "\\";
-					try {
-						// Копируем файл prew.gif
-						if (File::Exists(pathGame + "prew.gif")) {
-							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif", true); // Перезаписываем существующую копию
-						}
-						else {
-							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif");
-						}
-
-						// Копируем файл icon.gif
-						if (File::Exists(pathGame + "icon.gif")) {
-							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif", true); // Перезаписываем существующую копию
-						}
-						else {
-							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif");
-						}
-					}
-					catch (IOException^ e) {
-						MessageBox::Show("Ошибка при копировании файла: " + e->Message);
-					}
-					
-					IconGame^ game = gcnew IconGame();
-					game->LoadGame(reader->GetString(0)); // Название игры
-					game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
-					panelGame->Controls->Add(game);
-				}
+				continue;
 			}
-			else
-			{
+			String^ pathGame = "Game\\" + reader->GetString(0);
 
-			}
+			CopyFile(pathGame + "\\icon.gif", pathGame + "\\iconOld.gif");
+			CopyFile(pathGame + "\\prew.gif", pathGame + "\\prewOld.gif");
+			IconGame^ game = gcnew IconGame();
+			game->LoadGame(reader->GetString(0)); // Название игры
+			game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
+			panelGame->Controls->Add(game);
 		}
-
-		// Закрытие объектов чтения и соединения
-		reader->Close();
-		connection->Close();
 	}
 	catch (Exception^ ex) {
+
 		// Вывод сообщения об ошибке в виде окна сообщения
 		MessageBox::Show("Ошибка(LoadGame) при выполнении запроса: " + ex->Message, "Ошибка");
 	}
 }
 
-void SaveImage()
-{	
-	//Создание папки с игрой
-	String^ pathGame = "Game\\" + textName->Text;
-	Directory::CreateDirectory(pathGame);
-
-	// Проверяем, есть ли изображение в pictureBox
-	if (Prew->Image != nullptr)
-	{
-		// Получаем изображение из pictureBox
-		Image^ image = Prew->Image;
-
-		// Генерируем уникальное имя файла
-		String^ fileName = pathGame + "\\prew.gif";
-
-		// Получаем формат изображения
-		Imaging::ImageFormat^ format = image->RawFormat;
-
-		// Сохраняем изображение в файл с соответствующим форматом
-		image->Save(fileName, format);
-
-		//Prew->Image = Image::FromFile(fileName);
-	}
-	else
-	{
-		MessageBox::Show("Нет изображения для сохранения!");
-	}
-
-	// Ищем игру
-	IconGame^ gameChange = SearchGame(textName->Text);
-	if (gameChange->getIcon() != nullptr)
-	{
-		// Получаем изображение из pictureBox
-		Image^ image = gameChange->getIcon();
-
-		// Генерируем уникальное имя файла
-		String^ fileName = pathGame + "\\icon.gif";
-
-		// Получаем формат изображения
-		Imaging::ImageFormat^ format = image->RawFormat;
-
-		// Сохраняем изображение в файл с соответствующим форматом
-		image->Save(fileName, format);
-	}
-}
-
-void SaveData()
+void LoadModifyGame()
 {
-	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы\\Games.accdb;Persist Security Info=False;";
+	// Строка подключения к базе данных Access
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+	// Создание объекта для подключения к базе данных
 	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+
 	try
 	{
+		// Открытие соединения
 		connection->Open();
 
-		// Проверяем, существует ли игра с заданным именем
-		String^ queryCheckExistence = "SELECT COUNT(*) FROM InfoGame WHERE GameName = ?";
-		OleDbCommand^ commandCheckExistence = gcnew OleDbCommand(queryCheckExistence, connection);
-		commandCheckExistence->Parameters->AddWithValue("?", OldName);
-		int count = Convert::ToInt32(commandCheckExistence->ExecuteScalar());
+		// SQL запрос для извлечения данных из таблицы InfoGame
+		String^ query = "SELECT GameName, OldName FROM InfoGame WHERE Status_ = 1";
+		// Создание команды для выполнения SQL запроса
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
 
-		if (count > 0 && OldName != "Шаблон")
+		// Создание объекта для чтения данных из базы
+		OleDbDataReader^ reader = command->ExecuteReader();
+
+		// Перебор результатов запроса
+		while (reader->Read())
 		{
-			// Если игра существует, выполняем запрос на обновление
-			String^ queryUpdate = "UPDATE InfoGame SET GameDict = GD, GamePathExe = PE, Status_ = S, GameName = GM, OldName = OM WHERE GameName = ?";
-			OleDbCommand^ commandUpdate = gcnew OleDbCommand(queryUpdate, connection);
-			commandUpdate->Parameters->AddWithValue("GD", textDict->Text);
-			commandUpdate->Parameters->AddWithValue("PE", textExe->Text);
-			if (StatusDel) // Значение для столбца Status, если необходимо обновить
+			String^ n = reader->IsDBNull(0) ? nullptr : reader->GetString(0);
+			String^ o = reader->IsDBNull(1) ? nullptr : reader->GetString(1);
+			String^ directoryPath = "Game\\" + o;
+			String^ newName = n;
+			try
 			{
-				commandUpdate->Parameters->AddWithValue("S", -1); 
+				// Проверяем, существует ли папка
+				if (Directory::Exists(directoryPath))
+				{
+					if (n != o)
+					{
+						// Получаем полный путь к папке
+						String^ newPath = Path::Combine(Path::GetDirectoryName(directoryPath), newName);
+
+						// Переименовываем папку
+						Directory::Move(directoryPath, newPath);
+					}
+				}
+				else
+				{
+					MessageBox::Show("Папки не существует(ModifyGame)");
+				}
 			}
-			else
+
+
+			catch (Exception^ e)
 			{
-				commandUpdate->Parameters->AddWithValue("S", 0);
+				MessageBox::Show("Ошибка(ModifyGame): " + e->Message);
 			}
-			commandUpdate->Parameters->AddWithValue("GM", textName->Text);
-			if (textName->Text != OldName)
-			{
-				commandUpdate->Parameters->AddWithValue("OM", OldName);
-			}
-			else
-			{
-				commandUpdate->Parameters->AddWithValue("OM", "");
-			}
-			commandUpdate->Parameters->AddWithValue("?", OldName);
-			MessageBox::Show("Данные обновлены успешно.");
-			commandUpdate->ExecuteNonQuery();
 		}
-		else if (textName->Text != "Шаблон")
-		{
-			// Если игра не существует, выполняем запрос на вставку
-			String^ queryInsert = "INSERT INTO InfoGame (GameDict, GamePathExe, GameName, Status_) VALUES (?, ?, ?, ?)";
-			OleDbCommand^ commandInsert = gcnew OleDbCommand(queryInsert, connection);
-			commandInsert->Parameters->AddWithValue("?", textDict->Text);
-			commandInsert->Parameters->AddWithValue("?", textExe->Text);
-			commandInsert->Parameters->AddWithValue("?", textName->Text);
-			commandInsert->Parameters->AddWithValue("?", 0); // Значение для столбца Status
-			commandInsert->ExecuteNonQuery();
-			MessageBox::Show("Данные сохранены успешно.");
-		}
-		else { MessageBox::Show("нельзя изменять шаблон."); }
+		query = "UPDATE InfoGame SET Status_ = 0 WHERE Status_ = 1";
+		command = gcnew OleDbCommand(query, connection);
+		command->ExecuteReader();
 	}
-	catch (OleDbException^ ex)
-	{
-		MessageBox::Show("Произошла ошибка(SaveData) при сохранении данных: " + ex->Message);
+	catch (Exception^ ex) {
+
+		// Вывод сообщения об ошибке в виде окна сообщения
+		MessageBox::Show("Ошибка(LoadGame) при выполнении запроса: " + ex->Message, "Ошибка");
 	}
-	finally
+
+}
+
+void UpdateData()
+{
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+	try
 	{
+		OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+		connection->Open();
+
+		// SQL запрос для обновления данных
+		String^ query = "UPDATE InfoGame SET GameName = ?, GameDict = ?, GamePAthExe = ?, OldName = ?, Status_ = ? WHERE GameName = ?";
+
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+
+		// Параметры для подстановки в запрос
+		command->Parameters->Add(gcnew OleDbParameter("@param1", OleDbType::VarChar));
+		command->Parameters->Add(gcnew OleDbParameter("@param2", OleDbType::VarChar));
+		command->Parameters->Add(gcnew OleDbParameter("@param3", OleDbType::VarChar));
+		command->Parameters->Add(gcnew OleDbParameter("@param4", OleDbType::VarChar));
+		command->Parameters->Add(gcnew OleDbParameter("@param5", OleDbType::Integer));
+		command->Parameters->Add(gcnew OleDbParameter("@param6", OleDbType::VarChar));
+
+		// Значения для параметров
+		command->Parameters["@param1"]->Value = textName->Text;
+		command->Parameters["@param2"]->Value = textDict->Text; 
+		command->Parameters["@param3"]->Value = textExe->Text;
+		command->Parameters["@param4"]->Value = OldName;
+		command->Parameters["@param5"]->Value = 1;
+		command->Parameters["@param6"]->Value = OldName; // Замените на ваше условие
+
+		// Выполнение запроса
+		command->ExecuteNonQuery();
+
 		connection->Close();
+		MessageBox::Show("Данные успешно обновлены.");
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show("Ошибка: " + ex->Message);
+	}
+	try
+	{
+		String^ folderPath = "Game\\" + OldName;
+
+		// Генерация уникального имени файла на основе временной метки
+		String^ fileName = folderPath + "\\" + "prew.gif";
+
+		// Сохранение изображения в файл для prew
+		Prew->Image->Save(fileName, System::Drawing::Imaging::ImageFormat::Gif);
+
+		IconGame^ game = SearchGame(OldName);
+		// Сохранение изображения в файл для icon
+		fileName = folderPath + "\\" + "icon.gif";
+		// Сохранение изображения в файл для icon
+		game->Icon->Image->Save(fileName, System::Drawing::Imaging::ImageFormat::Gif);
+	}
+	catch (Exception^ ex)
+	{
+		// Обработка ошибок, например, запись в лог или отображение сообщения об ошибке
+		MessageBox::Show("Ошибка(SaveData) при сохранение изображения: " + ex->Message);
 	}
 }
 
-void DeleteGame()
+void LoadDeleteGame()
 {
 	// Строка подключения к базе данных Access
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
@@ -846,7 +945,7 @@ void DeleteGame()
 	}
 }
 
-void DeleteMod()
+void LoadDeleteMod()
 {
 	// Строка подключения к базе данных Access
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
@@ -868,12 +967,12 @@ void DeleteMod()
 		// Перебор результатов запроса
 		while (reader->Read())
 		{
-			if (reader->GetInt32(0) == 1)
+			if (reader->GetInt32(0) == -1)
 			{
 				DeleteDirectory("Game\\" + reader->GetString(2) + "\\" + reader->GetString(1));
 			}
 		}
-		query = "DELETE FROM InfoMod WHERE Status = 1";
+		query = "DELETE FROM InfoMod WHERE Status = -1";
 		command = gcnew OleDbCommand(query, connection);
 		reader = command->ExecuteReader();
 
@@ -928,6 +1027,7 @@ void LoadMod(String^ gameName)
 			connection->Close();
 	}
 }
+
 private: System::Void добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
