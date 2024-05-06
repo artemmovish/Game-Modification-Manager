@@ -39,10 +39,10 @@ namespace Project1 {
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ PanelPrew;
 	protected:
-	private: System::Windows::Forms::PictureBox^ Prew;
+	public: System::Windows::Forms::PictureBox^ Prew;
 	private: System::Windows::Forms::TableLayoutPanel^ PanelDict;
 	public: System::Windows::Forms::TextBox^ textExe;
-	private: System::Windows::Forms::TextBox^ textDict;
+	public: System::Windows::Forms::TextBox^ textDict;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	public: System::Windows::Forms::TextBox^ textName;
 	private:

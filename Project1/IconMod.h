@@ -1,5 +1,5 @@
 #pragma once
-
+#include "AddMod.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -37,7 +37,7 @@ namespace Project1 {
 			}
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
-	private: System::Windows::Forms::PictureBox^ Icon;
+	public: System::Windows::Forms::PictureBox^ Icon;
 	public: System::Windows::Forms::TextBox^ NameMod;
 
 
@@ -131,47 +131,18 @@ namespace Project1 {
 
 
 #pragma endregion
-
 	public:
-		void LoadMod(String^ name)
-		{
-			// Установка названия игры в элемент управления NameMod
-			NameMod->Text = name;
-			if (name != "Шаблон")
-			{
-				try
-				{
-					Icon->Image = Image::FromFile("Mod\\" + name + "\\iconOld.png");
-				}
-				catch (System::IO::FileNotFoundException^)
-				{
-					try
-					{
-						Icon->Image = Image::FromFile("Mod\\" + name + "\\iconOld.gif");
-					}
-					catch (System::IO::FileNotFoundException^)
-					{
-						Icon->Image = Image::FromFile("Mod\\" + name + "\\iconOld.jpg");
-					}
-				}
-			}
-		}
-		void loadImage(String^ path)
-		{
-			Icon->Image = Image::FromFile(path);
-		}
-		Image^ getIcon()
-		{
-			return Icon->Image;
-		}
-		void setName(String^ name)
-		{
-			NameMod->Text = name;
-		}
+		String^ gameName;
+		String^ pathMod;
 
+		void LoadInfo(String^ nameG, String^ nameM, Image^ icon)
+		{
+			gameName = nameG;
+			Icon->Image = icon;
+			NameMod->Text = nameM;
+		}
 	private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ str = NameMod->Text;
-		clickIconMod(NameMod->Text);
+
 	}
-	};
+};
 }

@@ -76,6 +76,8 @@ System::Void Project1::Launcher::click_IconGame(String^ name)
     OldName = name;
     StatusDel = false;
     butAddGame->Enabled = true;
+    panelGameMod->Controls->Clear();
+    LoadMod(name);
     return System::Void();
 }
 
@@ -142,6 +144,7 @@ System::Void Project1::Launcher::butDel_Click(System::Object^ sender, System::Ev
         if (MessageBox::Show("Вы уверены, что хотите удалить?", "Подтверждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
             MessageBox::Show("Удаление произойдет после сохранения");
             StatusDel = true;
+            butDel->Enabled = true;
         }
     }
     else

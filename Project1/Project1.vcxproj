@@ -167,6 +167,9 @@
     <EmbeddedResource Include="IconGame.resx">
       <DependentUpon>IconGame.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IconMod.resx">
+      <DependentUpon>IconMod.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.h</DependentUpon>
     </EmbeddedResource>

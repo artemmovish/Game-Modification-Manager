@@ -3,6 +3,7 @@
 #include <vector>
 #include <cliext/list>
 #include "IconGame.h"
+#include "IconMod.h"
 namespace Project1 {
 
 	using namespace System;
@@ -40,9 +41,15 @@ namespace Project1 {
 			//
 			MenuStripPrew->Enabled = false;
 			//
+			// Удаление хлама 
+			//
+			DeleteMod();
+			DeleteGame();
+			//
 			// Загрузка игр
 			//
 			LoadGame();
+			
 		}
 
 	protected:
@@ -500,6 +507,23 @@ namespace Project1 {
 		bool StatusDel;
 		String^ OldName;
 
+		void DeleteDirectory(String^ targetDir) {
+			// Удаляем все файлы в папке
+			cli::array<String^>^ files = Directory::GetFiles(targetDir);
+			for each (String ^ file in files) {
+				File::Delete(file);
+			}
+
+			// Удаляем все подпапки в папке
+			cli::array<String^>^ subDirs = Directory::GetDirectories(targetDir);
+			for each (String ^ subDir in subDirs) {
+				DeleteDirectory(subDir); // Рекурсивный вызов для удаления подпапок и их содержимого
+			}
+
+			// Удаляем саму папку
+			Directory::Delete(targetDir);
+		}
+
 IconGame^ SearchGame(String^ name)
 {
 	IconGame^ gameChange = nullptr;
@@ -527,7 +551,7 @@ void activateButton(bool activ, int index)
 			else if (index == 2) { butChange->Enabled = activ; }
 			else if (index == 3) { butDel->Enabled = activ; }
 			else if (index == 4) { butStart->Enabled = activ; }
-			else { MessageBox::Show("Нет индекса для режима"); }
+			else { MessageBox::Show("Нет индекса для смена режима"); }
 		}
 			
 void GetData(String^ gameName) {
@@ -564,7 +588,7 @@ void GetData(String^ gameName) {
 			  }
 			  catch (Exception^ e) {
 				  // Обработка исключений
-				  MessageBox::Show("Ошибка: " + e->Message, "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				  MessageBox::Show("Ошибка(LoadGame): " + e->Message, "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			  }
 			  finally {
 				  // Закрытие соединения, даже если произошла ошибка
@@ -586,11 +610,6 @@ void LoadGame()
 		// Открытие соединения
 		connection->Open();
 
-		// Удаление записей со статусом -1
-		String^ deleteQuery = "DELETE FROM InfoGame WHERE Status_ = -1";
-		OleDbCommand^ deleteCommand = gcnew OleDbCommand(deleteQuery, connection);
-		deleteCommand->ExecuteNonQuery();
-
 		// SQL запрос для извлечения данных из таблицы InfoGame
 		String^ query = "SELECT GameName, Status_, OldName FROM InfoGame";
 		// Создание команды для выполнения SQL запроса
@@ -607,7 +626,8 @@ void LoadGame()
 				if (reader->GetString(0) != "Шаблон")
 				{
 					String^ n = reader->GetString(0);
-					String^ o = reader->GetString(2);
+					String^ o;
+					
 					if (n != o)
 					{
 						// Укажите путь к каталогу, который вы хотите переименовать
@@ -650,6 +670,7 @@ void LoadGame()
 					catch (IOException^ e) {
 						MessageBox::Show("Ошибка при копировании файла: " + e->Message);
 					}
+					
 					IconGame^ game = gcnew IconGame();
 					game->LoadGame(reader->GetString(0)); // Название игры
 					game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
@@ -668,7 +689,7 @@ void LoadGame()
 	}
 	catch (Exception^ ex) {
 		// Вывод сообщения об ошибке в виде окна сообщения
-		MessageBox::Show("Ошибка при выполнении запроса: " + ex->Message, "Ошибка");
+		MessageBox::Show("Ошибка(LoadGame) при выполнении запроса: " + ex->Message, "Ошибка");
 	}
 }
 
@@ -776,7 +797,7 @@ void SaveData()
 	}
 	catch (OleDbException^ ex)
 	{
-		MessageBox::Show("Произошла ошибка при сохранении данных: " + ex->Message);
+		MessageBox::Show("Произошла ошибка(SaveData) при сохранении данных: " + ex->Message);
 	}
 	finally
 	{
@@ -784,7 +805,7 @@ void SaveData()
 	}
 }
 
-void LoadMod()
+void DeleteGame()
 {
 	// Строка подключения к базе данных Access
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
@@ -796,81 +817,24 @@ void LoadMod()
 		// Открытие соединения
 		connection->Open();
 
-		// Удаление записей со статусом -1
-		String^ deleteQuery = "DELETE FROM InfoGame WHERE Status_ = -1";
-		OleDbCommand^ deleteCommand = gcnew OleDbCommand(deleteQuery, connection);
-		deleteCommand->ExecuteNonQuery();
-
 		// SQL запрос для извлечения данных из таблицы InfoGame
-		String^ query = "SELECT GameName, Status_, OldName FROM InfoGame";
+		String^ query = "SELECT Status_, GameName FROM InfoGame";
 		// Создание команды для выполнения SQL запроса
 		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
-
 		// Создание объекта для чтения данных из базы
 		OleDbDataReader^ reader = command->ExecuteReader();
 
 		// Перебор результатов запроса
-		while (reader->Read()) {
-			// Ваш существующий код обработки данных
-			if (reader->GetInt32(1) == 0)
+		while (reader->Read())
+		{
+			if (reader->GetInt32(0) == -1)
 			{
-				if (reader->GetString(0) != "Шаблон")
-				{
-					String^ n = reader->GetString(0);
-					String^ o = reader->GetString(2);
-					if (n != o)
-					{
-						// Укажите путь к каталогу, который вы хотите переименовать
-						String^ oldDirectoryName = "Game\\" + reader->GetString(2);
-						// Укажите новое имя для каталога
-						String^ newDirectoryName = "Game\\" + reader->GetString(0);
-						try
-						{
-							// Проверяем, существует ли исходный каталог
-							if (Directory::Exists(oldDirectoryName))
-							{
-								// Переименовываем каталог
-								Directory::Move(oldDirectoryName, newDirectoryName);
-								Console::WriteLine("Каталог успешно переименован.");
-							}
-						}
-						catch (Exception^ e)
-						{
-							//MessageBox::Show("Ошибка при переименовании каталога: " + e->Message);
-						}
-					}
-					String^ pathGame = "Game\\" + reader->GetString(0) + "\\";
-					try {
-						// Копируем файл prew.gif
-						if (File::Exists(pathGame + "prew.gif")) {
-							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif", true); // Перезаписываем существующую копию
-						}
-						else {
-							File::Copy(pathGame + "prew.gif", pathGame + "prewOld.gif");
-						}
-
-						// Копируем файл icon.gif
-						if (File::Exists(pathGame + "icon.gif")) {
-							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif", true); // Перезаписываем существующую копию
-						}
-						else {
-							File::Copy(pathGame + "icon.gif", pathGame + "iconOld.gif");
-						}
-					}
-					catch (IOException^ e) {
-						MessageBox::Show("Ошибка при копировании файла: " + e->Message);
-					}
-					IconGame^ game = gcnew IconGame();
-					game->LoadGame(reader->GetString(0)); // Название игры
-					game->clickIconGame += gcnew SendGameName(this, &Launcher::click_IconGame);
-					panelGame->Controls->Add(game);
-				}
-			}
-			else
-			{
-
+				DeleteDirectory("Game\\" + reader->GetString(1));
 			}
 		}
+		query = "DELETE FROM InfoGame WHERE Status_ = -1";
+		command = gcnew OleDbCommand(query, connection);
+		reader = command->ExecuteReader();
 
 		// Закрытие объектов чтения и соединения
 		reader->Close();
@@ -878,7 +842,90 @@ void LoadMod()
 	}
 	catch (Exception^ ex) {
 		// Вывод сообщения об ошибке в виде окна сообщения
+		MessageBox::Show("Ошибка(DeleteMod) при выполнении запроса : " + ex->Message, "Ошибка");
+	}
+}
+
+void DeleteMod()
+{
+	// Строка подключения к базе данных Access
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+	// Создание объекта для подключения к базе данных
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+
+	try {
+		// Открытие соединения
+		connection->Open();
+
+		// SQL запрос для извлечения данных из таблицы InfoGame
+		String^ query = "SELECT Status, ModName, GameName FROM InfoMod";
+		// Создание команды для выполнения SQL запроса
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+		// Создание объекта для чтения данных из базы
+		OleDbDataReader^ reader = command->ExecuteReader();
+
+		// Перебор результатов запроса
+		while (reader->Read())
+		{
+			if (reader->GetInt32(0) == 1)
+			{
+				DeleteDirectory("Game\\" + reader->GetString(2) + "\\" + reader->GetString(1));
+			}
+		}
+		query = "DELETE FROM InfoMod WHERE Status = 1";
+		command = gcnew OleDbCommand(query, connection);
+		reader = command->ExecuteReader();
+
+		// Закрытие объектов чтения и соединения
+		reader->Close();
+		connection->Close();
+	}
+	catch (Exception^ ex) {
+		// Вывод сообщения об ошибке в виде окна сообщения
+		MessageBox::Show("Ошибка(DeleteMod) при выполнении запроса : " + ex->Message, "Ошибка");
+	}
+}
+
+void LoadMod(String^ gameName)
+{
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы\\Games.accdb;Persist Security Info=False;";
+
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+
+	try {
+		connection->Open();
+
+		String^ query = "SELECT ModName FROM InfoMod WHERE GameName = ?";
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+		command->Parameters->AddWithValue("?", gameName); // Параметризованный запрос
+
+		OleDbDataReader^ reader = command->ExecuteReader();
+
+		while (reader->Read())
+		{
+			IconMod^ mod = gcnew IconMod();
+			String^ modName = reader->GetString(0);
+			String^ iconPath = "Game\\" + gameName + "\\" + modName + "\\icon.gif";
+			if (File::Exists(iconPath)) // Проверка существования файла
+			{
+				mod->LoadInfo(gameName, modName, Image::FromFile(iconPath));
+				panelGameMod->Controls->Add(mod);
+			}
+			else
+			{
+				MessageBox::Show("Не удалось найти изображение для мода " + modName, "Ошибка");
+			}
+		}
+
+		reader->Close();
+	}
+	catch (OleDbException^ ex) {
 		MessageBox::Show("Ошибка при выполнении запроса: " + ex->Message, "Ошибка");
+	}
+	finally {
+		if (connection->State == ConnectionState::Open)
+			connection->Close();
 	}
 }
 private: System::Void добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
