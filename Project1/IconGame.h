@@ -83,7 +83,7 @@ namespace Project1 {
 			this->tableLayoutPanel1->RowCount = 2;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 83.24873F)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.75127F)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 197);
+			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 193);
 			this->tableLayoutPanel1->TabIndex = 0;
 			// 
 			// NameGame
@@ -95,7 +95,7 @@ namespace Project1 {
 			this->NameGame->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->NameGame->ForeColor = System::Drawing::Color::Silver;
-			this->NameGame->Location = System::Drawing::Point(3, 167);
+			this->NameGame->Location = System::Drawing::Point(3, 163);
 			this->NameGame->Name = L"NameGame";
 			this->NameGame->ReadOnly = true;
 			this->NameGame->Size = System::Drawing::Size(169, 27);
@@ -108,7 +108,7 @@ namespace Project1 {
 			this->Icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Icon.Image")));
 			this->Icon->Location = System::Drawing::Point(3, 3);
 			this->Icon->Name = L"Icon";
-			this->Icon->Size = System::Drawing::Size(169, 158);
+			this->Icon->Size = System::Drawing::Size(169, 154);
 			this->Icon->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->Icon->TabIndex = 0;
 			this->Icon->TabStop = false;
@@ -121,7 +121,7 @@ namespace Project1 {
 			this->BackColor = System::Drawing::Color::Transparent;
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Name = L"IconGame";
-			this->Size = System::Drawing::Size(175, 197);
+			this->Size = System::Drawing::Size(175, 193);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Icon))->EndInit();

@@ -150,7 +150,12 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
 System::Void Project1::Launcher::butDel_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (textName->Text != "Шаблон" && OldName != "Шаблон")
-    {
+    {   
+        if (StatusChange)
+        {
+            MessageBox::Show("Сохраните изменения, прежде чем удалить игру");
+            return System::Void();
+        }
         if (MessageBox::Show("Вы уверены, что хотите удалить?", "Подтверждение", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
             DeleteGame();
         }
