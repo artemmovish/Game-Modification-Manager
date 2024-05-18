@@ -153,6 +153,7 @@ namespace Project1 {
 			this->butDel->Text = L"Удалить";
 			this->butDel->UseVisualStyleBackColor = true;
 			this->butDel->Visible = false;
+			this->butDel->Click += gcnew System::EventHandler(this, &FolderControl::butDel_Click);
 			// 
 			// butSave
 			// 
@@ -287,7 +288,6 @@ private: System::Void butPath_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("No folder selected.");
 	}
 }
-
 private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (!status[0])
 	{
@@ -315,6 +315,10 @@ private: System::Void butOpen_Click(System::Object^ sender, System::EventArgs^ e
 	explorerProcess->StartInfo->FileName = "explorer.exe";
 	explorerProcess->StartInfo->Arguments = path;
 	explorerProcess->Start();
+}
+private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e) {
+	Directory::Delete(path, true);
+	delete this;
 }
 };
 }
