@@ -33,6 +33,7 @@
     <ClCompile Include="IconMod.cpp">
       <Filter>Главное меню\Элементы</Filter>
     </ClCompile>
+    <ClCompile Include="Установщик.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
@@ -53,6 +54,7 @@
     <ClInclude Include="IconMod.h">
       <Filter>Главное меню\Элементы</Filter>
     </ClInclude>
+    <ClInclude Include="Установщик.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Ресурсы\Games.accdb" />

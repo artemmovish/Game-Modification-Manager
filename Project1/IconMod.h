@@ -133,16 +133,55 @@ namespace Project1 {
 #pragma endregion
 	public:
 		String^ gameName;
-		String^ pathMod;
 
-		void LoadInfo(String^ nameG, String^ nameM, Image^ icon)
-		{
-			gameName = nameG;
-			Icon->Image = icon;
-			NameMod->Text = nameM;
-		}
+
 	private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
+		AddMod^ mod = gcnew AddMod();
+		mod->textName->Text = NameMod->Text;
+		try
+		{
+			mod->Prew->Image = Image::FromFile("Game\\" + gameName + "\\" + NameMod->Text + "\\prewOld.gif");
+			mod->Icon->Image = Image::FromFile("Game\\" + gameName + "\\" + NameMod->Text + "\\iconOld.gif");
+		}
+		catch (Exception^ ex)
+		{
+			// Вывод сообщения об ошибке в виде окна сообщения
+			MessageBox::Show("Ошибка(IconModClick) при выполнении установки картинок: " + ex->Message, "Ошибка");
+		}
 
+		// Строка подключения к базе данных Access
+		String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+		// Создание объекта для подключения к базе данных
+		OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+		try
+		{
+			// Открытие соединения
+			connection->Open();
+			// SQL запрос для извлечения данных из таблицы InfoGame
+			String^ query = "SELECT ModDict, ModPathExe FROM InfoMod WHERE ModName = ?";
+
+			// Создание команды для выполнения SQL запроса
+			OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+			command->Parameters->Add(gcnew OleDbParameter("@param1", NameMod->Text));
+
+			// Создание объекта для чтения данных из базы
+			OleDbDataReader^ reader = command->ExecuteReader();
+			reader->Read();
+			mod->textDict->Text = reader->GetString(0);
+			mod->textExe->Text = reader->GetString(1);
+			mod->nameGame = gameName;
+			delete mod->butSave;
+			mod->butStart->Enabled = true;
+			mod->butAddGameMod->Enabled = true;
+			mod->ShowDialog();
+		}
+		catch (Exception^ ex) {
+
+			// Вывод сообщения об ошибке в виде окна сообщения
+			MessageBox::Show("Ошибка(IconModClick) при выполнении запроса: " + ex->Message, "Ошибка");
+		}
+		connection->Close();
 	}
 };
 }

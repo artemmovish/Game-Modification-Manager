@@ -16,7 +16,6 @@ void main() {
     Application::Run(% form);
 }
 
-
 // Добавить картинку
 System::Void Project1::Launcher::добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
@@ -30,10 +29,28 @@ System::Void Project1::Launcher::добавитьToolStripMenuItem_Click(System::Object^
 // изменить трек
 System::Void Project1::Launcher::click_butImageMinus(System::Object^ sender, System::EventArgs^ e)
 {
+    targetPlay--;
+    soundPlayer = gcnew SoundPlayer(fileAudio[targetPlay % fileAudio->Length]);
+    soundPlayer->Play();
     return System::Void();
 }
 System::Void Project1::Launcher::click_butImagePlus(System::Object^ sender, System::EventArgs^ e)
 {
+    targetPlay++;
+    soundPlayer = gcnew SoundPlayer(fileAudio[targetPlay % fileAudio->Length]);
+    soundPlayer->Play();
+    return System::Void();
+}
+
+System::Void Project1::Launcher::click_butPlay(System::Object^ sender, System::EventArgs^ e)
+{
+    soundPlayer->Play();
+    return System::Void();
+}
+
+System::Void Project1::Launcher::click_butStop(System::Object^ sender, System::EventArgs^ e)
+{
+    soundPlayer->Stop();
     return System::Void();
 }
 
@@ -49,6 +66,20 @@ System::Void Project1::Launcher::butAddGame_Click(System::Object^ sender, System
 // клик на иконку игры
 System::Void Project1::Launcher::click_IconGame(String^ name)
 {
+    this->Text = "Launcher";
+
+    MenuStripPrew->Enabled = false;
+
+    StatusChange = false;
+    textName->ReadOnly = true;
+    textName->ForeColor = Drawing::Color::Silver;
+
+    textDict->ReadOnly = true;
+    textDict->ForeColor = Drawing::Color::Silver;
+
+    textExe->ReadOnly = true;
+    textExe->ForeColor = Drawing::Color::Silver;
+
     GetData(name);
     if (name != "Шаблон")
     {
@@ -70,14 +101,27 @@ System::Void Project1::Launcher::click_IconGame(String^ name)
     }
     else
     {
-        Prew->Image = Image::FromFile("C:\\Учебный процесс\\Курсовая\\Kursach_Dizain\\Project1\\Ресурсы\\Кнопки\\Modification-Manager-27-04-2024.png");
+        Prew->Image = Image::FromFile("Ресурсы\\Кнопки\\Modification-Manager-27-04-2024.png");
+        this->Text = "Launcher - режим изменения";
+
+        MenuStripPrew->Enabled = true;
+
+        StatusChange = true;
+        textName->ReadOnly = false;
+        textName->ForeColor = Drawing::Color::White;
+
+        textDict->ReadOnly = false;
+        textDict->ForeColor = Drawing::Color::White;
+
+        textExe->ReadOnly = false;
+        textExe->ForeColor = Drawing::Color::White;
     }
     activateButton(true, 0);
     OldName = name;
     StatusDel = false;
     butAddGame->Enabled = true;
     panelGameMod->Controls->Clear();
-    LoadMod(name);
+    LoadMod();
     return System::Void();
 }
 
@@ -99,6 +143,22 @@ System::Void Project1::Launcher::butChange_Click(System::Object^ sender, System:
 
         textExe->ReadOnly = false;
         textExe->ForeColor = Drawing::Color::White;
+    }
+    else
+    {
+        this->Text = "Launcher";
+
+        MenuStripPrew->Enabled = false;
+
+        StatusChange = false;
+        textName->ReadOnly = true;
+        textName->ForeColor = Drawing::Color::Silver;
+
+        textDict->ReadOnly = true;
+        textDict->ForeColor = Drawing::Color::Silver;
+
+        textExe->ReadOnly = true;
+        textExe->ForeColor = Drawing::Color::Silver;
     }
     if (textName->Text == "Шаблон")
     {
@@ -128,6 +188,10 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
         {
             MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
         }
+        else if (textName->Text == "" || textName->Text->Substring(0, 1) == " ")
+        {
+            MessageBox::Show("Нельзя задать пустое имя", "Сообщение");
+        }
         else
         {
             UpdateData();
@@ -139,6 +203,10 @@ System::Void Project1::Launcher::butSave_Click(System::Object^ sender, System::E
         if (textName->Text == "Шаблон")
         {
             MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
+        }
+        else if (textName->Text == "" || textName->Text->Substring(0, 1) == " ")
+        {
+            MessageBox::Show("Неверный формат имени");
         }
         else if (OldName == "Шаблон")
         {
@@ -168,14 +236,22 @@ System::Void Project1::Launcher::butDel_Click(System::Object^ sender, System::Ev
 }
 System::Void Project1::Launcher::butStart_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    process1->StartInfo->FileName = textExe->Text;
-    process1->StartInfo->WorkingDirectory = Path::GetDirectoryName(textExe->Text);
-    process1->Start();
+    try
+    {
+        process1->StartInfo->FileName = textExe->Text;
+        process1->StartInfo->WorkingDirectory = Path::GetDirectoryName(textExe->Text);
+        process1->Start();
+    }
+    catch (Exception^ ex)
+    {
+        MessageBox::Show("Возникла ошибка при запуске, измените путь к .exe файл");
+    }
+    
     return System::Void();
 }
 System::Void Project1::Launcher::textExe_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    if (StatusChange)
+    if (StatusChange|| OldName=="Шаблон")
     {
         if (DialogExe->ShowDialog() == System::Windows::Forms::DialogResult::OK)
         {
@@ -222,5 +298,3 @@ System::Void Project1::Launcher::butAddGameMod_Click(System::Object^ sender, Sys
         mod->Show();
     }
 }
-
-

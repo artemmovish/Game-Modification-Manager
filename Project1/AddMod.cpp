@@ -1,14 +1,6 @@
 #include "AddMod.h"
 #include "FolderMod.h"
 
-System::Void Project1::AddMod::butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e)
-{
-    FolderMod^ butFolder = gcnew FolderMod();
-    butFolder->ModName = textName->Text;
-    panelFolders->Controls->Add(butFolder);
-    return System::Void();
-}
-
 System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::EventArgs^ e)
 {
     String^ stringConection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
@@ -17,13 +9,13 @@ System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::Eve
     {
         connection->Open();
         
-        String^ query = "INSERT INTO InfoMod (ModName, ModDict, GameName) VALUES(? , ? , ?)";
+        String^ query = "INSERT INTO InfoMod (ModName, ModDict, GameName) VALUES(@n , @d , @g)";
 
         OleDbCommand^ commandInsert = gcnew OleDbCommand(query, connection);
 
-        commandInsert->Parameters->AddWithValue("?", textName->Text);
-        commandInsert->Parameters->AddWithValue("?", textDict->Text);
-        commandInsert->Parameters->AddWithValue("?", nameGame);
+        commandInsert->Parameters->AddWithValue("@n", textName->Text);
+        commandInsert->Parameters->AddWithValue("@d", textDict->Text);
+        commandInsert->Parameters->AddWithValue("@g", nameGame);
         commandInsert->ExecuteNonQuery();
         connection->Close();
         // Создание новой папки для сохранения изображений
@@ -51,7 +43,6 @@ System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::Eve
         {
             Console::WriteLine("Изображение в PictureBox2 отсутствует.");
         }
-
         butAddGameMod->Enabled = true;
         butDel->Enabled = true;
         MenuStripPrew->Enabled = false;
@@ -59,13 +50,15 @@ System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::Eve
     catch (Exception^ e)
     {
         int hr = Marshal::GetHRForException(e);
-        if (hr == -2147467259) // Код ошибки для дублирования данных
+        if (hr == -2147467259) // Код ошибки - дублирования данных
         {
             System::Windows::Forms::MessageBox::Show("Ошибка: Имя мода уже зарезервировано, используйте другое имя");
+            return System::Void();
         }
         else
         {
             System::Windows::Forms::MessageBox::Show(e->Message);
+            return System::Void();
         }
     }
     delete butSave;
@@ -120,5 +113,10 @@ System::Void Project1::AddMod::butDel_Click(System::Object^ sender, System::Even
             connection->Close();
         }
     }
+    return System::Void();
+}
+
+System::Void Project1::AddMod::butStart_Click(System::Object^ sender, System::EventArgs^ e)
+{
     return System::Void();
 }

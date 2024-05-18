@@ -23,12 +23,8 @@ namespace Project1 {
 			//
 			//TODO: добавьте код конструктора
 			//
-			this->textName->ReadOnly = true;
+			butSave->Visible = false;
 			butDel->Visible = false;
-			if (folderDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-			{
-				PathFolder = folderDialog->SelectedPath;
-			}
 		}
 
 	protected:
@@ -50,6 +46,11 @@ namespace Project1 {
 	private: System::Windows::Forms::FolderBrowserDialog^ folderDialog;
 	private: System::Windows::Forms::TextBox^ textName;
 	private: System::Windows::Forms::Button^ butSave;
+	private: System::Windows::Forms::Button^ butPathChange;
+	private: System::Windows::Forms::Button^ butCopyFolder;
+	private: System::Windows::Forms::Button^ butNo;
+
+
 
 	protected:
 
@@ -75,6 +76,9 @@ namespace Project1 {
 			this->butDel = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->butSave = (gcnew System::Windows::Forms::Button());
+			this->butPathChange = (gcnew System::Windows::Forms::Button());
+			this->butCopyFolder = (gcnew System::Windows::Forms::Button());
+			this->butNo = (gcnew System::Windows::Forms::Button());
 			this->folderDialog = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->textName = (gcnew System::Windows::Forms::TextBox());
 			this->flowLayoutPanel1->SuspendLayout();
@@ -105,10 +109,13 @@ namespace Project1 {
 			this->flowLayoutPanel1->Controls->Add(this->butChangeName);
 			this->flowLayoutPanel1->Controls->Add(this->butDel);
 			this->flowLayoutPanel1->Controls->Add(this->butSave);
+			this->flowLayoutPanel1->Controls->Add(this->butPathChange);
+			this->flowLayoutPanel1->Controls->Add(this->butCopyFolder);
+			this->flowLayoutPanel1->Controls->Add(this->butNo);
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 33);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 36);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(349, 26);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(349, 61);
 			this->flowLayoutPanel1->TabIndex = 5;
 			// 
 			// butSave
@@ -120,6 +127,34 @@ namespace Project1 {
 			this->butSave->Text = L"Сохранить";
 			this->butSave->UseVisualStyleBackColor = true;
 			this->butSave->Click += gcnew System::EventHandler(this, &FolderMod::butSave_Click);
+			// 
+			// butPathChange
+			// 
+			this->butPathChange->Location = System::Drawing::Point(3, 32);
+			this->butPathChange->Name = L"butPathChange";
+			this->butPathChange->Size = System::Drawing::Size(130, 23);
+			this->butPathChange->TabIndex = 5;
+			this->butPathChange->Text = L"Указать путь копирования";
+			this->butPathChange->UseVisualStyleBackColor = true;
+			this->butPathChange->Click += gcnew System::EventHandler(this, &FolderMod::butPathChange_Click);
+			// 
+			// butCopyFolder
+			// 
+			this->butCopyFolder->Location = System::Drawing::Point(139, 32);
+			this->butCopyFolder->Name = L"butCopyFolder";
+			this->butCopyFolder->Size = System::Drawing::Size(126, 23);
+			this->butCopyFolder->TabIndex = 6;
+			this->butCopyFolder->Text = L"Скопировать папку";
+			this->butCopyFolder->UseVisualStyleBackColor = true;
+			// 
+			// butNo
+			// 
+			this->butNo->Location = System::Drawing::Point(271, 32);
+			this->butNo->Name = L"butNo";
+			this->butNo->Size = System::Drawing::Size(75, 21);
+			this->butNo->TabIndex = 7;
+			this->butNo->Text = L"Отмена";
+			this->butNo->UseVisualStyleBackColor = true;
 			// 
 			// textName
 			// 
@@ -140,7 +175,7 @@ namespace Project1 {
 			this->Controls->Add(this->textName);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Name = L"FolderMod";
-			this->Size = System::Drawing::Size(349, 59);
+			this->Size = System::Drawing::Size(349, 97);
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -148,12 +183,51 @@ namespace Project1 {
 		}
 #pragma endregion
 		public: String^ ModName = "";
+			  String^ GameName = "";
+		String^ PathFCopy = "";
 		String^ PathFolder = "";
 		bool StatusChange = false;
 
 private: System::Void butChangeName_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->textName->ReadOnly = false;
+	if (textName->ReadOnly)
+	{
+		this->textName->ReadOnly = false;
+	}
+	else
+	{
+		this->textName->ReadOnly = true;
+	}
+	
 }
+
+	   void CopyDirectory(String^ sourceDirName, String^ destDirName)
+	   {
+		   // Получаем содержимое исходной папки
+		   array<String^>^ files = Directory::GetFiles(sourceDirName);
+		   array<String^>^ dirs = Directory::GetDirectories(sourceDirName);
+
+		   // Если папка назначения не существует, создаем ее
+		   if (!Directory::Exists(destDirName))
+		   {
+			   Directory::CreateDirectory(destDirName);
+		   }
+
+		   // Копируем файлы
+		   for each (String ^ file in files)
+		   {
+			   String^ fileName = Path::GetFileName(file);
+			   String^ destFile = Path::Combine(destDirName, fileName);
+			   File::Copy(file, destFile);
+		   }
+
+		   // Рекурсивно копируем подпапки
+		   for each (String ^ subdir in dirs)
+		   {
+			   String^ dirName = Path::GetFileName(subdir);
+			   String^ destSubDir = Path::Combine(destDirName, dirName);
+			   CopyDirectory(subdir, destSubDir);
+		   }
+	   }
 
 private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Строка подключения к базе данных Access
@@ -211,6 +285,19 @@ private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Ошибка при выполнении запроса: " + ex->Message, "Ошибка");
 	}
 	this->textName->ReadOnly = true;
+}
+
+private: System::Void butPathChange_Click(System::Object^ sender, System::EventArgs^ e) {
+	// Показываем диалоговое окно и проверяем результат
+	if (folderDialog->ShowDialog() == DialogResult::OK)
+	{
+		// Получаем выбранный путь
+		PathFolder = folderDialog->SelectedPath;
+	}
+	else
+	{
+		MessageBox::Show("Выбор пути отменен");
+	}
 }
 };
 }

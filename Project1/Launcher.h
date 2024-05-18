@@ -4,6 +4,9 @@
 #include <cliext/list>
 #include "IconGame.h"
 #include "IconMod.h"
+#include <string>
+#include <filesystem>
+
 namespace Project1 {
 
 	using namespace System;
@@ -35,6 +38,8 @@ namespace Project1 {
 			controlPanel->Anchor = static_cast<AnchorStyles>(AnchorStyles::None);
 			controlPanel->clickbutImageMinus += gcnew EventHandler(this, &Launcher::click_butImageMinus);
 			controlPanel->clickbutImagePlus += gcnew EventHandler(this, &Launcher::click_butImagePlus);
+			controlPanel->clickbutPlay += gcnew EventHandler(this, &Launcher::click_butPlay);
+			controlPanel->clickbutStop += gcnew EventHandler(this, &Launcher::click_butStop);
 			panelManegement->Controls->Add(controlPanel, 1, 0);
 			//
 			// MenuStripImage
@@ -53,6 +58,10 @@ namespace Project1 {
 			// Загрузка игр
 			//
 			LoadGame();
+			//
+			// Запись музыки
+			//
+			soundPlayer = gcnew SoundPlayer(fileAudio[targetPlay % fileAudio->Length]);
 			
 		}
 
@@ -67,6 +76,7 @@ namespace Project1 {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::FlowLayoutPanel^ panelGame;
 	protected:
 	protected:
@@ -510,7 +520,6 @@ namespace Project1 {
 		bool StatusChange = false; 
 		bool StatusDel;
 		String^ OldName;
-
 		void DeleteDirectory(String^ targetDir) {
 			// Удаляем все файлы в папке
 			cli::array<String^>^ files = Directory::GetFiles(targetDir);
@@ -527,7 +536,10 @@ namespace Project1 {
 			// Удаляем саму папку
 			Directory::Delete(targetDir);
 		}
-
+		int targetPlay = 0;
+		// Получаем список всех файлов в указанной директории
+		cli::array<String^>^ fileAudio = Directory::GetFiles("Music");
+		SoundPlayer^ soundPlayer;
 IconGame^ SearchGame(String^ name)
 {
 	IconGame^ gameChange = nullptr;
@@ -774,6 +786,53 @@ void LoadGame()
 		// Вывод сообщения об ошибке в виде окна сообщения
 		MessageBox::Show("Ошибка(LoadGame) при выполнении запроса: " + ex->Message, "Ошибка");
 	}
+	connection->Close();
+}
+
+void LoadMod()
+{
+	// Строка подключения к базе данных Access
+	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
+
+	// Создание объекта для подключения к базе данных
+	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
+	try
+	{
+		// Открытие соединения
+		connection->Open();
+
+		// SQL запрос для извлечения данных из таблицы InfoGame
+		String^ query = "SELECT ModName FROM InfoMod WHERE GameName = ?";
+
+		// Создание команды для выполнения SQL запроса
+		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
+
+		// Параметры для подстановки в запрос
+		command->Parameters->Add(gcnew OleDbParameter("@param1", textName->Text));
+
+		// Создание объекта для чтения данных из базы
+		OleDbDataReader^ reader = command->ExecuteReader();
+
+		// Перебор результатов запроса
+		while (reader->Read())
+		{
+			String^ pathGame = "Game\\"+ textName->Text + "\\" + reader->GetString(0);
+
+			CopyFile(pathGame + "\\icon.gif", pathGame + "\\iconOld.gif");
+			CopyFile(pathGame + "\\prew.gif", pathGame + "\\prewOld.gif");
+			IconMod^ game = gcnew IconMod();
+			game->Icon->Image = Image::FromFile(pathGame + "\\iconOld.gif"); // Название игры
+			game->NameMod->Text = reader->GetString(0);
+			game->gameName = textName->Text;
+			panelGameMod->Controls->Add(game);
+		}
+		connection->Close();
+	}
+	catch (Exception^ ex) {
+
+		// Вывод сообщения об ошибке в виде окна сообщения
+		MessageBox::Show("Ошибка(LoadMod) при выполнении запроса: " + ex->Message, "Ошибка");
+	}
 }
 
 void LoadModifyGame()
@@ -941,7 +1000,7 @@ void LoadDeleteGame()
 	}
 	catch (Exception^ ex) {
 		// Вывод сообщения об ошибке в виде окна сообщения
-		MessageBox::Show("Ошибка(DeleteMod) при выполнении запроса : " + ex->Message, "Ошибка");
+		MessageBox::Show("Ошибка(LoadDeleteGame) при выполнении запроса : " + ex->Message, "Ошибка");
 	}
 }
 
@@ -958,7 +1017,7 @@ void LoadDeleteMod()
 		connection->Open();
 
 		// SQL запрос для извлечения данных из таблицы InfoGame
-		String^ query = "SELECT Status, ModName, GameName FROM InfoMod";
+		String^ query = "SELECT Status_, ModName, GameName FROM InfoMod";
 		// Создание команды для выполнения SQL запроса
 		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
 		// Создание объекта для чтения данных из базы
@@ -972,7 +1031,7 @@ void LoadDeleteMod()
 				DeleteDirectory("Game\\" + reader->GetString(2) + "\\" + reader->GetString(1));
 			}
 		}
-		query = "DELETE FROM InfoMod WHERE Status = -1";
+		query = "DELETE FROM InfoMod WHERE Status_ = -1";
 		command = gcnew OleDbCommand(query, connection);
 		reader = command->ExecuteReader();
 
@@ -982,10 +1041,11 @@ void LoadDeleteMod()
 	}
 	catch (Exception^ ex) {
 		// Вывод сообщения об ошибке в виде окна сообщения
-		MessageBox::Show("Ошибка(DeleteMod) при выполнении запроса : " + ex->Message, "Ошибка");
+		MessageBox::Show("Ошибка(LoadDeleteMod) при выполнении запроса : " + ex->Message, "Ошибка");
 	}
 }
 
+/*
 void LoadMod(String^ gameName)
 {
 	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы\\Games.accdb;Persist Security Info=False;";
@@ -1027,10 +1087,13 @@ void LoadMod(String^ gameName)
 			connection->Close();
 	}
 }
-
+*/
 private: System::Void добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
+private: System::Void click_butPlay(System::Object^ sender, System::EventArgs^ e);
+private: System::Void click_butStop(System::Object^ sender, System::EventArgs^ e);
+
 private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_IconGame(String^ name);
 

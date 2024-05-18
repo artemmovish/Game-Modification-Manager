@@ -6,7 +6,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace System::Media;
 
 namespace Project1 {
 
@@ -18,6 +18,8 @@ namespace Project1 {
 	public:
 		event EventHandler^ clickbutImagePlus;
 		event EventHandler^ clickbutImageMinus;
+		event EventHandler^ clickbutPlay;
+		event EventHandler^ clickbutStop;
 		ControlPanel(void)
 		{
 			InitializeComponent();
@@ -36,11 +38,13 @@ namespace Project1 {
 			}
 		}
 	private: System::Windows::Forms::Button^ butImageMinus;
-	private: System::Windows::Forms::Button^ butVolMinus;
+	private: System::Windows::Forms::Button^ butStop;
+
 	private: System::Windows::Forms::Button^ butClose;
 	private: System::Windows::Forms::Button^ butMain;
 	private: System::Windows::Forms::Button^ butSet;
-	private: System::Windows::Forms::Button^ butVolPlus;
+	private: System::Windows::Forms::Button^ butPlay;
+
 	private: System::Windows::Forms::Button^ butImagePlus;
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::Windows::Forms::Timer^ up;
@@ -69,11 +73,11 @@ namespace Project1 {
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ControlPanel::typeid));
 			this->butImageMinus = (gcnew System::Windows::Forms::Button());
-			this->butVolMinus = (gcnew System::Windows::Forms::Button());
+			this->butStop = (gcnew System::Windows::Forms::Button());
 			this->butClose = (gcnew System::Windows::Forms::Button());
 			this->butMain = (gcnew System::Windows::Forms::Button());
 			this->butSet = (gcnew System::Windows::Forms::Button());
-			this->butVolPlus = (gcnew System::Windows::Forms::Button());
+			this->butPlay = (gcnew System::Windows::Forms::Button());
 			this->butImagePlus = (gcnew System::Windows::Forms::Button());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->up = (gcnew System::Windows::Forms::Timer(this->components));
@@ -90,22 +94,23 @@ namespace Project1 {
 			this->butImageMinus->Name = L"butImageMinus";
 			this->butImageMinus->Size = System::Drawing::Size(52, 52);
 			this->butImageMinus->TabIndex = 7;
-			this->toolTip1->SetToolTip(this->butImageMinus, L"Предыдущая картинка");
+			this->toolTip1->SetToolTip(this->butImageMinus, L"Предыдущий трек");
 			this->butImageMinus->UseVisualStyleBackColor = true;
 			this->butImageMinus->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ControlPanel::butImageMinus_MouseClick);
 			// 
-			// butVolMinus
+			// butStop
 			// 
-			this->butVolMinus->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butVolMinus.BackgroundImage")));
-			this->butVolMinus->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->butVolMinus->FlatAppearance->BorderSize = 0;
-			this->butVolMinus->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->butVolMinus->Location = System::Drawing::Point(61, 3);
-			this->butVolMinus->Name = L"butVolMinus";
-			this->butVolMinus->Size = System::Drawing::Size(52, 52);
-			this->butVolMinus->TabIndex = 8;
-			this->toolTip1->SetToolTip(this->butVolMinus, L"Звук -");
-			this->butVolMinus->UseVisualStyleBackColor = true;
+			this->butStop->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butStop.BackgroundImage")));
+			this->butStop->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butStop->FlatAppearance->BorderSize = 0;
+			this->butStop->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butStop->Location = System::Drawing::Point(61, 3);
+			this->butStop->Name = L"butStop";
+			this->butStop->Size = System::Drawing::Size(52, 52);
+			this->butStop->TabIndex = 8;
+			this->toolTip1->SetToolTip(this->butStop, L"пауза");
+			this->butStop->UseVisualStyleBackColor = true;
+			this->butStop->Click += gcnew System::EventHandler(this, &ControlPanel::butStop_Click);
 			// 
 			// butClose
 			// 
@@ -131,7 +136,7 @@ namespace Project1 {
 			this->butMain->Name = L"butMain";
 			this->butMain->Size = System::Drawing::Size(52, 52);
 			this->butMain->TabIndex = 10;
-			this->toolTip1->SetToolTip(this->butMain, L"развернуть");
+			this->toolTip1->SetToolTip(this->butMain, L"развернуть\\свернуть");
 			this->butMain->UseVisualStyleBackColor = true;
 			this->butMain->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ControlPanel::butMain_MouseClick);
 			// 
@@ -148,18 +153,19 @@ namespace Project1 {
 			this->toolTip1->SetToolTip(this->butSet, L"Настройки");
 			this->butSet->UseVisualStyleBackColor = true;
 			// 
-			// butVolPlus
+			// butPlay
 			// 
-			this->butVolPlus->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butVolPlus.BackgroundImage")));
-			this->butVolPlus->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->butVolPlus->FlatAppearance->BorderSize = 0;
-			this->butVolPlus->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->butVolPlus->Location = System::Drawing::Point(293, 3);
-			this->butVolPlus->Name = L"butVolPlus";
-			this->butVolPlus->Size = System::Drawing::Size(52, 52);
-			this->butVolPlus->TabIndex = 12;
-			this->toolTip1->SetToolTip(this->butVolPlus, L"Звук +");
-			this->butVolPlus->UseVisualStyleBackColor = true;
+			this->butPlay->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"butPlay.BackgroundImage")));
+			this->butPlay->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->butPlay->FlatAppearance->BorderSize = 0;
+			this->butPlay->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->butPlay->Location = System::Drawing::Point(293, 3);
+			this->butPlay->Name = L"butPlay";
+			this->butPlay->Size = System::Drawing::Size(52, 52);
+			this->butPlay->TabIndex = 12;
+			this->toolTip1->SetToolTip(this->butPlay, L"Продолжить");
+			this->butPlay->UseVisualStyleBackColor = true;
+			this->butPlay->Click += gcnew System::EventHandler(this, &ControlPanel::butPlay_Click);
 			// 
 			// butImagePlus
 			// 
@@ -171,7 +177,7 @@ namespace Project1 {
 			this->butImagePlus->Name = L"butImagePlus";
 			this->butImagePlus->Size = System::Drawing::Size(52, 52);
 			this->butImagePlus->TabIndex = 13;
-			this->toolTip1->SetToolTip(this->butImagePlus, L"Следующая картинка");
+			this->toolTip1->SetToolTip(this->butImagePlus, L"Следующий трек");
 			this->butImagePlus->UseVisualStyleBackColor = true;
 			this->butImagePlus->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &ControlPanel::butImagePlus_MouseClick);
 			// 
@@ -192,8 +198,8 @@ namespace Project1 {
 			this->Controls->Add(this->butMain);
 			this->Controls->Add(this->butSet);
 			this->Controls->Add(this->butClose);
-			this->Controls->Add(this->butVolMinus);
-			this->Controls->Add(this->butVolPlus);
+			this->Controls->Add(this->butStop);
+			this->Controls->Add(this->butPlay);
 			this->Controls->Add(this->butImagePlus);
 			this->Controls->Add(this->butImageMinus);
 			this->Name = L"ControlPanel";
@@ -214,9 +220,23 @@ namespace Project1 {
 private: System::Void down_Tick(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void butMain_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-
-
-private: System::Void butImageMinus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-private: System::Void butImagePlus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+private: System::Void butImageMinus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	clickbutImageMinus(sender, e);
+	return System::Void();
+}
+private: System::Void butImagePlus_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	clickbutImagePlus(sender, e);
+	return System::Void();
+}
+private: System::Void butStop_Click(System::Object^ sender, System::EventArgs^ e) {
+	clickbutStop(sender, e);
+	return System::Void();
+}
+private: System::Void butPlay_Click(System::Object^ sender, System::EventArgs^ e) {
+	clickbutPlay(sender, e);
+	return System::Void();
+}
 };
 }

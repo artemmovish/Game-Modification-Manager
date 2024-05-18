@@ -1,5 +1,5 @@
 #pragma once
-
+#include "FolderMod.h"
 namespace Project1 {
 
 	using namespace System;
@@ -40,35 +40,41 @@ namespace Project1 {
 	private: System::Windows::Forms::TableLayoutPanel^ PanelPrew;
 	protected:
 	public: System::Windows::Forms::PictureBox^ Prew;
-	private: System::Windows::Forms::TableLayoutPanel^ PanelDict;
+	public: System::Windows::Forms::TableLayoutPanel^ PanelDict;
 	public: System::Windows::Forms::TextBox^ textExe;
 	public: System::Windows::Forms::TextBox^ textDict;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	public: System::Windows::Forms::TextBox^ textName;
+	public: System::Windows::Forms::Button^ butStart;
 	private:
 
 
 
 
 
-	private: System::Windows::Forms::Button^ butStart;
+
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
+	public: System::Windows::Forms::Button^ butSave;
+	public: System::Windows::Forms::Button^ butAddGameMod;
+	private:
 
-	private: System::Windows::Forms::Button^ butSave;
 
 
-	private: System::Windows::Forms::Button^ butAddGameMod;
+
+
 	private: System::Windows::Forms::FlowLayoutPanel^ panelFolders;
 
 
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::PictureBox^ Icon;
+	public: System::Windows::Forms::PictureBox^ Icon;
 	private: System::Windows::Forms::OpenFileDialog^ DialogImage;
 	private: System::Windows::Forms::ContextMenuStrip^ MenuStripPrew;
 	private: System::Windows::Forms::ToolStripMenuItem^ èçìåíèòüPrewToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ èçìåíèòüIconToolStripMenuItem;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ butDel;
+	public: System::Windows::Forms::Button^ butDel;
+	private:
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::ComponentModel::IContainer^ components;
 
@@ -343,6 +349,7 @@ namespace Project1 {
 			this->butStart->Size = System::Drawing::Size(175, 35);
 			this->butStart->TabIndex = 3;
 			this->butStart->UseVisualStyleBackColor = true;
+			this->butStart->Click += gcnew System::EventHandler(this, &AddMod::butStart_Click);
 			// 
 			// butAddGameMod
 			// 
@@ -392,6 +399,7 @@ namespace Project1 {
 			// 
 			// Icon
 			// 
+			this->Icon->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Icon.Image")));
 			this->Icon->Location = System::Drawing::Point(3, 3);
 			this->Icon->Name = L"Icon";
 			this->Icon->Size = System::Drawing::Size(180, 169);
@@ -437,11 +445,19 @@ namespace Project1 {
 		public: String^ nameGame;
 				bool StatusChange = false;
 				
-private: System::Void butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	FolderMod^ butFolder = gcnew FolderMod();
+	butFolder->ModName = textName->Text;
+	butFolder->GameName = nameGame;
+	panelFolders->Controls->Add(butFolder);
+	return System::Void();
+}
 private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void èçìåíèòüPrewToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void èçìåíèòüIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
