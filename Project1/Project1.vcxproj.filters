@@ -27,13 +27,13 @@
     <ClCompile Include="AddMod.cpp">
       <Filter>Создание сборки</Filter>
     </ClCompile>
-    <ClCompile Include="FolderMod.cpp">
-      <Filter>Создание сборки\Элементы</Filter>
-    </ClCompile>
     <ClCompile Include="IconMod.cpp">
       <Filter>Главное меню\Элементы</Filter>
     </ClCompile>
     <ClCompile Include="Установщик.cpp" />
+    <ClCompile Include="FolderControl.cpp">
+      <Filter>Создание сборки\Элементы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
@@ -48,13 +48,13 @@
     <ClInclude Include="AddMod.h">
       <Filter>Создание сборки</Filter>
     </ClInclude>
-    <ClInclude Include="FolderMod.h">
-      <Filter>Создание сборки\Элементы</Filter>
-    </ClInclude>
     <ClInclude Include="IconMod.h">
       <Filter>Главное меню\Элементы</Filter>
     </ClInclude>
     <ClInclude Include="Установщик.h" />
+    <ClInclude Include="FolderControl.h">
+      <Filter>Создание сборки\Элементы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Ресурсы\Games.accdb" />

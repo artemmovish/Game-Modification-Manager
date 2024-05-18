@@ -174,6 +174,7 @@ namespace Project1 {
 			delete mod->butSave;
 			mod->butStart->Enabled = true;
 			mod->butAddGameMod->Enabled = true;
+			mod->LoadFolder();
 			mod->ShowDialog();
 		}
 		catch (Exception^ ex) {

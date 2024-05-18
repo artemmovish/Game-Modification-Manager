@@ -1,5 +1,5 @@
 #pragma once
-#include "FolderMod.h"
+#include "FolderControl.h"
 namespace Project1 {
 
 	using namespace System;
@@ -76,6 +76,8 @@ namespace Project1 {
 	private:
 
 	private: System::Windows::Forms::Button^ button1;
+
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -444,15 +446,67 @@ namespace Project1 {
 #pragma endregion
 		public: String^ nameGame;
 				bool StatusChange = false;
-				
-private: System::Void butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	FolderMod^ butFolder = gcnew FolderMod();
-	butFolder->ModName = textName->Text;
-	butFolder->GameName = nameGame;
-	panelFolders->Controls->Add(butFolder);
-	return System::Void();
-}
+				void CopyDirectory(String^ sourceDirName, String^ destDirName)
+				{
+					// Получаем содержимое исходной папки
+					array<String^>^ files = Directory::GetFiles(sourceDirName);
+					array<String^>^ dirs = Directory::GetDirectories(sourceDirName);
+
+					// Если папка назначения не существует, создаем ее
+					if (!Directory::Exists(destDirName))
+					{
+						Directory::CreateDirectory(destDirName);
+					}
+
+					// Копируем файлы
+					for each (String ^ file in files)
+					{
+						String^ fileName = Path::GetFileName(file);
+						String^ destFile = Path::Combine(destDirName, fileName);
+						File::Copy(file, destFile);
+					}
+
+					// Рекурсивно копируем подпапки
+					for each (String ^ subdir in dirs)
+					{
+						String^ dirName = Path::GetFileName(subdir);
+						String^ destSubDir = Path::Combine(destDirName, dirName);
+						CopyDirectory(subdir, destSubDir);
+					}
+				}
+
+				void LoadFolder()
+				{
+					String^ folderPath = "Game\\" + nameGame + "\\" + textName->Text;
+					try
+					{
+						// Проверяем, существует ли папка
+						if (Directory::Exists(folderPath))
+						{
+							// Получаем массив имен подкаталогов
+							array<String^>^ directories = Directory::GetDirectories(folderPath);
+
+							// Добавляем каждый подкаталог в список
+							for (int i = 0; i < directories->Length; i++)
+							{
+								FolderControl^ folder = gcnew FolderControl();
+								folder->Load(directories[i]);
+								panelFolders->Controls->Add(folder);
+							}
+						}
+						else
+						{
+							MessageBox::Show("Папка не существует: {0}", folderPath);
+						}
+					}
+					catch (Exception^ ex)
+					{
+						Console::WriteLine("Произошла ошибка: {0}", ex->Message);
+					}
+				}
+
+private: System::Void butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e);
+
 private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void изменитьPrewToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);

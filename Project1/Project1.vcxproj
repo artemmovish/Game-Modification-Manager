@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -133,7 +133,7 @@
   <ItemGroup>
     <ClCompile Include="AddMod.cpp" />
     <ClCompile Include="ControlPanel.cpp" />
-    <ClCompile Include="FolderMod.cpp" />
+    <ClCompile Include="FolderControl.cpp" />
     <ClCompile Include="IconGame.cpp" />
     <ClCompile Include="IconMod.cpp" />
     <ClCompile Include="Launcher.cpp" />
@@ -146,7 +146,7 @@
     <ClInclude Include="ControlPanel.h">
       <FileType>CppControl</FileType>
     </ClInclude>
-    <ClInclude Include="FolderMod.h">
+    <ClInclude Include="FolderControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="IconGame.h">
@@ -169,8 +169,8 @@
     <EmbeddedResource Include="ControlPanel.resx">
       <DependentUpon>ControlPanel.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FolderMod.resx">
-      <DependentUpon>FolderMod.h</DependentUpon>
+    <EmbeddedResource Include="FolderControl.resx">
+      <DependentUpon>FolderControl.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IconGame.resx">
       <DependentUpon>IconGame.h</DependentUpon>

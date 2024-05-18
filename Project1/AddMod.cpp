@@ -1,5 +1,12 @@
 #include "AddMod.h"
-#include "FolderMod.h"
+
+System::Void Project1::AddMod::butAddGameMod_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    FolderControl^ fold = gcnew FolderControl();
+    fold->path = "game\\" + nameGame + "\\" + textName->Text;
+    panelFolders->Controls->Add(fold);
+    return System::Void();
+}
 
 System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::EventArgs^ e)
 {
