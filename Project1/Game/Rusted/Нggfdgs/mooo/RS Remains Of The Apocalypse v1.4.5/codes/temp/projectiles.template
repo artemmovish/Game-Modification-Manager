@@ -1,0 +1,196 @@
+[template_NewProjectile]
+directDamage:0
+life:1
+speed:0
+explodeEffect: none
+explodeOnEndOfLife: true
+
+[projectile_pmNew]
+@copyFromSection: template_NewProjectile
+@define accuracy: 3
+spawnUnit: pm_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_mp5New]
+@copyFromSection: template_NewProjectile
+@define accuracy: 5
+spawnUnit: mp5_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_vityazNew]
+@copyFromSection: template_NewProjectile
+@define accuracy: 3
+spawnUnit: mp5_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_toz34New]
+@copyFromSection: template_NewProjectile
+@define accuracy: 6
+spawnUnit: toz34_projectile*10(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_saigaNew]
+@copyFromSection: template_NewProjectile
+@define accuracy: 8
+spawnUnit: toz34_projectile*6(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_svt40New]
+@copyFromSection: template_NewProjectile
+@define accuracy: 1
+spawnUnit: svt40_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_ak47New]
+@copyFromSection: template_NewProjectile
+@define accuracy: 3
+spawnUnit: ak47_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_lr300New]
+@copyFromSection: template_NewProjectile
+@define accuracy: 2
+spawnUnit: lr300_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+[projectile_m98bNew]
+@copyFromSection: template_NewProjectile
+@define accuracy: 1
+spawnUnit: m98b_projectile(offsetRandomDir=${accuracy}, skipIfOverlapping=false, spawnChance=1)
+
+
+
+[template_projectile]
+ignoreParentShootDamageMultiplier: true
+speed: 16
+drawSize: 0.5
+areaRadius: 11
+areaDamageNoFalloff: true
+areaHitAirAndLandAtSameTime: true
+targetGround: true
+explodeEffect: CUSTOM:dirty
+instant: false
+image: ROOT:/images/effects/mermi.png
+lightSize: 0.5
+lightColor: #faff89
+lightCastOnGround: true
+trailEffect: CUSTOM:trail
+trailEffectRate: 0.6
+delayedStartTimer: 0s
+retargetingInFlight: true
+retargetingInFlightSearchLead: 0
+retargetingInFlightSearchDelay: 5
+retargetingInFlightSearchRange: 15
+disableLeadTargeting: true
+tags: bullet
+
+[projectile_pm]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 7
+life: 200
+areaDamage: 20
+targetGroundSpread: 20
+shieldDamageMultiplier: 1
+shieldDefectionMultiplier: 0.9
+[projectile_pm2]
+@copyFromSection: projectile_pm
+areaDamage: 25
+targetGroundSpread: 15
+
+
+[projectile_shotgun]
+directDamage:0
+life:5
+speed:1
+explodeOnEndOfLife: true
+spawnProjectilesOnExplode:toz*10(offsetRandomDir=9, spawnChance=1)
+explodeEffect: none
+[projectile_toz]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 2
+life: 200
+areaDamage: 14
+targetGround: true
+targetGroundSpread: 70
+mutatorX_ifUnitWithTags: mutant
+mutatorX_areaDamageMultiplier: 2
+shieldDamageMultiplier: 0.86
+shieldDefectionMultiplier: 0.9
+tags:none
+speedSpread:2
+drawSize:0.3
+
+[projectile_svt40]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 18
+life: 200
+areaDamage: 37
+targetGroundSpread: 12
+shieldDamageMultiplier: 1.3
+shieldDefectionMultiplier: 0.35
+[projectile_svt40Advanced]
+@copyFromSection: projectile_svt40
+areaDamage: 47
+targetGroundSpread: 7
+
+[projectile_mp5]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 15
+life: 200
+areaDamage: 20
+targetGround: true
+targetGroundSpread: 25
+shieldDamageMultiplier: 1.5
+shieldDefectionMultiplier: 0.9
+[projectile_mp5Advanced]
+@copyFromSection: projectile_mp5
+areaDamage: 30
+targetGroundSpread: 15
+
+[projectile_ak47]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 18
+life: 200
+areaDamage: 30
+targetGroundSpread: 20
+shieldDamageMultiplier: 1
+shieldDefectionMultiplier: 0.7
+[projectile_ak47Advanced]
+@copyFromSection: projectile_ak47
+areaDamage: 35
+targetGroundSpread: 12
+
+[projectile_lr300]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 15
+life: 200
+areaDamage: 45
+targetGroundSpread: 20
+shieldDamageMultiplier: 1.5
+shieldDefectionMultiplier: 0.5
+[projectile_lr300Advanced]
+@copyFromSection: projectile_lr300
+areaDamage: 50
+targetGroundSpread: 7
+
+[projectile_m98b]
+@copyFromSection: template_projectile
+armourIgnoreAmount: 35
+life: 200
+areaDamage: 50
+targetGroundSpread: 15
+shieldDamageMultiplier: 2
+shieldDefectionMultiplier: 0.1
+[projectile_m98bAdvanced]
+@copyFromSection: projectile_m98b
+areaDamage: 60
+targetGroundSpread: 4
+
+
+[projectile_arrow]
+life: 60
+explodeOnEndOfLife: true
+instant: false
+speed: 9
+targetSpeed: 10
+areaRadius: 25
+areaDamage: 35
+targetGround: true
+targetGroundSpread: 11
+explodeEffect: smoke
+initialUnguidedSpeedHeight: 1.2
+gravity:0.11
+image: ROOT:/images/effects/arrow.png
+drawSize: 0.9

@@ -16,13 +16,14 @@ System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::Eve
     {
         connection->Open();
         
-        String^ query = "INSERT INTO InfoMod (ModName, ModDict, GameName) VALUES(@n , @d , @g)";
+        String^ query = "INSERT INTO InfoMod (ModName, ModDict, GameName, ModPathExe) VALUES(@n , @d , @g, @p)";
 
         OleDbCommand^ commandInsert = gcnew OleDbCommand(query, connection);
 
         commandInsert->Parameters->AddWithValue("@n", textName->Text);
         commandInsert->Parameters->AddWithValue("@d", textDict->Text);
         commandInsert->Parameters->AddWithValue("@g", nameGame);
+        commandInsert->Parameters->AddWithValue("@p", textExe->Text);
         commandInsert->ExecuteNonQuery();
         connection->Close();
         // Создание новой папки для сохранения изображений
@@ -101,7 +102,7 @@ System::Void Project1::AddMod::butDel_Click(System::Object^ sender, System::Even
         connection->Open();
 
         // Формируем SQL запрос на удаление записи
-        command->CommandText = "UPDATE InfoMod SET Status = 1 WHERE ModName = ?";
+        command->CommandText = "UPDATE InfoMod SET Status_ = -1 WHERE ModName = ?";
         command->Parameters->AddWithValue("?", textName->Text);
 
         // Выполняем команду
@@ -110,7 +111,7 @@ System::Void Project1::AddMod::butDel_Click(System::Object^ sender, System::Even
     catch (Exception^ ex)
     {
         // Обработка ошибок, например, вывод на консоль или в лог
-        Console::WriteLine("Error: " + ex->Message);
+        MessageBox::Show("Error: " + ex->Message);
     }
     finally
     {
@@ -120,10 +121,43 @@ System::Void Project1::AddMod::butDel_Click(System::Object^ sender, System::Even
             connection->Close();
         }
     }
+    Application::Restart();
     return System::Void();
 }
 
 System::Void Project1::AddMod::butStart_Click(System::Object^ sender, System::EventArgs^ e)
 {
+    try
+    {
+        MessageBox::Show("Подождите запуск приложения");
+        for each (Control ^ control in this->panelFolders->Controls)
+        {
+            if (FolderControl^ folderControl = dynamic_cast<FolderControl^>(control))
+            {
+                Directory::Delete(folderControl->pathCopy, true);
+                Directory::CreateDirectory(folderControl->pathCopy);
+                CopyDirectory(folderControl->path, folderControl->pathCopy);
+            }
+        }
+    
+        System::Diagnostics::Process^ process1 = gcnew Process();
+        process1->StartInfo->FileName = textExe->Text;
+        process1->StartInfo->WorkingDirectory = Path::GetDirectoryName(textExe->Text);
+        process1->Start();
+    }
+    catch (Exception^ ex)
+    {
+        MessageBox::Show("Ошибка при старте:" + ex->Message);
+    }
+
+    return System::Void();
+}
+
+System::Void Project1::AddMod::textExe_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (DialogExe->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+    {
+        textExe->Text = DialogExe->FileName;
+    }
     return System::Void();
 }

@@ -76,6 +76,7 @@ namespace Project1 {
 	private:
 
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::OpenFileDialog^ DialogExe;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -118,6 +119,7 @@ namespace Project1 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Icon = (gcnew System::Windows::Forms::PictureBox());
 			this->DialogImage = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->DialogExe = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->PanelPrew->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Prew))->BeginInit();
 			this->MenuStripPrew->SuspendLayout();
@@ -222,6 +224,7 @@ namespace Project1 {
 			this->textExe->Size = System::Drawing::Size(535, 49);
 			this->textExe->TabIndex = 1;
 			this->textExe->Text = L"ПУТЬ К .EXE";
+			this->textExe->Click += gcnew System::EventHandler(this, &AddMod::textExe_Click);
 			// 
 			// textDict
 			// 
@@ -413,6 +416,10 @@ namespace Project1 {
 			// 
 			this->DialogImage->Filter = L"\"Изображения (*.jpg; *.png; *.gif)|*.jpg;*.png;*.gif|Все файлы (*.*)|*.*\";";
 			// 
+			// DialogExe
+			// 
+			this->DialogExe->Filter = L"\"Исполняемые файлы и ярлыки (*.exe; *.lnk)|*.exe;*.lnk|Все файлы (*.*)|*.*\";";
+			// 
 			// AddMod
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -446,11 +453,12 @@ namespace Project1 {
 #pragma endregion
 		public: String^ nameGame;
 				bool StatusChange = false;
+
 				void CopyDirectory(String^ sourceDirName, String^ destDirName)
 				{
 					// Получаем содержимое исходной папки
-					array<String^>^ files = Directory::GetFiles(sourceDirName);
-					array<String^>^ dirs = Directory::GetDirectories(sourceDirName);
+					cli::array<String^>^ files = Directory::GetFiles(sourceDirName);
+					cli::array<String^>^ dirs = Directory::GetDirectories(sourceDirName);
 
 					// Если папка назначения не существует, создаем ее
 					if (!Directory::Exists(destDirName))
@@ -484,7 +492,7 @@ namespace Project1 {
 						if (Directory::Exists(folderPath))
 						{
 							// Получаем массив имен подкаталогов
-							array<String^>^ directories = Directory::GetDirectories(folderPath);
+							cli::array<String^>^ directories = Directory::GetDirectories(folderPath);
 
 							// Добавляем каждый подкаталог в список
 							for (int i = 0; i < directories->Length; i++)
@@ -513,5 +521,7 @@ private: System::Void изменитьPrewToolStripMenuItem_Click(System::Object^ sender
 private: System::Void изменитьIconToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void textExe_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

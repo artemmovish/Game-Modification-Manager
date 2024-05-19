@@ -90,13 +90,14 @@ namespace Project1 {
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(366, 123);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(355, 88);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// name
 			// 
 			this->name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->name->ForeColor = System::Drawing::Color::Silver;
 			this->name->Location = System::Drawing::Point(3, 0);
 			this->name->Name = L"name";
 			this->name->Size = System::Drawing::Size(360, 23);
@@ -108,8 +109,9 @@ namespace Project1 {
 			this->nameChange->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->nameChange->Location = System::Drawing::Point(3, 26);
+			this->nameChange->MaxLength = 25;
 			this->nameChange->Name = L"nameChange";
-			this->nameChange->Size = System::Drawing::Size(360, 30);
+			this->nameChange->Size = System::Drawing::Size(348, 30);
 			this->nameChange->TabIndex = 1;
 			this->nameChange->Visible = false;
 			// 
@@ -171,7 +173,7 @@ namespace Project1 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Name = L"FolderControl";
-			this->Size = System::Drawing::Size(366, 123);
+			this->Size = System::Drawing::Size(355, 88);
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->flowLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
@@ -229,12 +231,14 @@ namespace Project1 {
 			  {
 				  path = n;
 				  String^ pathFile = path + "\\pathCopy.txt";
+				  
 				  if (File::Exists(pathFile))
 				  {
 					  // Создаем StreamReader для чтения файла
 					  StreamReader^ reader = gcnew StreamReader(pathFile);
 					  // Читаем все содержимое файла
 					  pathCopy = reader->ReadToEnd();
+					  pathCopy = pathCopy->Substring(0, pathCopy->Length - 2);
 					  // Закрываем StreamReader
 					  reader->Close();
 

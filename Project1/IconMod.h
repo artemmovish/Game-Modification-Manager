@@ -40,14 +40,7 @@ namespace Project1 {
 	public: System::Windows::Forms::PictureBox^ Icon;
 	public: System::Windows::Forms::TextBox^ NameMod;
 
-
-
-
-
 	protected:
-
-
-
 
 	private:
 		/// <summary>
@@ -140,8 +133,8 @@ namespace Project1 {
 		mod->textName->Text = NameMod->Text;
 		try
 		{
-			mod->Prew->Image = Image::FromFile("Game\\" + gameName + "\\" + NameMod->Text + "\\prewOld.gif");
-			mod->Icon->Image = Image::FromFile("Game\\" + gameName + "\\" + NameMod->Text + "\\iconOld.gif");
+			mod->Prew->ImageLocation = ("Game\\" + gameName + "\\" + NameMod->Text + "\\prewOld.gif");
+			mod->Icon->ImageLocation = ("Game\\" + gameName + "\\" + NameMod->Text + "\\iconOld.gif");
 		}
 		catch (Exception^ ex)
 		{
@@ -175,6 +168,7 @@ namespace Project1 {
 			mod->butStart->Enabled = true;
 			mod->butAddGameMod->Enabled = true;
 			mod->LoadFolder();
+			mod->butDel->Enabled = true;
 			mod->ShowDialog();
 		}
 		catch (Exception^ ex) {

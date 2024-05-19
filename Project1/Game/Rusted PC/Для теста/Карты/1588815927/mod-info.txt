@@ -1,0 +1,7 @@
+[mod]
+title: EK - Palindrome v1.2 [By Videogames]
+description: A 200x200 industrial themed duel map with a mix of roads, narrow infantry pathways, bridges, and water landings.
+
+tags: map, maps, skirmish, duel
+
+thumbnail: EK_Palindrome_map.png

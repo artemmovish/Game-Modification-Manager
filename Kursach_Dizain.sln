@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kursach_Dizain", "Project1\Project1.vcxproj", "{590CF375-1552-4E4C-9F67-47A3015BDFA1}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{10C58521-9F14-4974-9717-6E149D90968C}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C2180961-A627-4DA5-9E2B-A87033EA8BA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{590CF375-1552-4E4C-9F67-47A3015BDFA1}.Release|x64.Build.0 = Release|x64
 		{590CF375-1552-4E4C-9F67-47A3015BDFA1}.Release|x86.ActiveCfg = Release|Win32
 		{590CF375-1552-4E4C-9F67-47A3015BDFA1}.Release|x86.Build.0 = Release|Win32
-		{10C58521-9F14-4974-9717-6E149D90968C}.Debug|x64.ActiveCfg = Debug
-		{10C58521-9F14-4974-9717-6E149D90968C}.Debug|x86.ActiveCfg = Debug
-		{10C58521-9F14-4974-9717-6E149D90968C}.Release|x64.ActiveCfg = Release
-		{10C58521-9F14-4974-9717-6E149D90968C}.Release|x86.ActiveCfg = Release
+		{C2180961-A627-4DA5-9E2B-A87033EA8BA5}.Debug|x64.ActiveCfg = Debug
+		{C2180961-A627-4DA5-9E2B-A87033EA8BA5}.Debug|x86.ActiveCfg = Debug
+		{C2180961-A627-4DA5-9E2B-A87033EA8BA5}.Release|x64.ActiveCfg = Release
+		{C2180961-A627-4DA5-9E2B-A87033EA8BA5}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -520,22 +520,6 @@ namespace Project1 {
 		bool StatusChange = false; 
 		bool StatusDel;
 		String^ OldName;
-		void DeleteDirectory(String^ targetDir) {
-			// Удаляем все файлы в папке
-			cli::array<String^>^ files = Directory::GetFiles(targetDir);
-			for each (String ^ file in files) {
-				File::Delete(file);
-			}
-
-			// Удаляем все подпапки в папке
-			cli::array<String^>^ subDirs = Directory::GetDirectories(targetDir);
-			for each (String ^ subDir in subDirs) {
-				DeleteDirectory(subDir); // Рекурсивный вызов для удаления подпапок и их содержимого
-			}
-
-			// Удаляем саму папку
-			Directory::Delete(targetDir);
-		}
 		int targetPlay = 0;
 		// Получаем список всех файлов в указанной директории
 		cli::array<String^>^ fileAudio = Directory::GetFiles("Music");
@@ -713,10 +697,7 @@ System::Void SaveData()
 	{
 		String^ folderPath = "Game\\" + textName->Text;
 		// Создание папки, если она не существует
-		if (!Directory::Exists(folderPath))
-		{
-			Directory::CreateDirectory(folderPath);
-		}
+		Directory::CreateDirectory(folderPath);
 
 		// Генерация уникального имени файла на основе временной метки
 		String^ fileName = folderPath + "\\" + "prew.gif";
@@ -821,7 +802,7 @@ void LoadMod()
 			CopyFile(pathGame + "\\icon.gif", pathGame + "\\iconOld.gif");
 			CopyFile(pathGame + "\\prew.gif", pathGame + "\\prewOld.gif");
 			IconMod^ game = gcnew IconMod();
-			game->Icon->Image = Image::FromFile(pathGame + "\\iconOld.gif"); // Название игры
+			game->Icon->ImageLocation = (pathGame + "\\iconOld.gif"); // Название игры
 			game->NameMod->Text = reader->GetString(0);
 			game->gameName = textName->Text;
 			panelGameMod->Controls->Add(game);
@@ -987,7 +968,7 @@ void LoadDeleteGame()
 		{
 			if (reader->GetInt32(0) == -1)
 			{
-				DeleteDirectory("Game\\" + reader->GetString(1));
+				Directory::Delete("Game\\" + reader->GetString(1), true);
 			}
 		}
 		query = "DELETE FROM InfoGame WHERE Status_ = -1";
@@ -1011,7 +992,7 @@ void LoadDeleteMod()
 
 	// Создание объекта для подключения к базе данных
 	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
-
+	
 	try {
 		// Открытие соединения
 		connection->Open();
@@ -1028,7 +1009,7 @@ void LoadDeleteMod()
 		{
 			if (reader->GetInt32(0) == -1)
 			{
-				DeleteDirectory("Game\\" + reader->GetString(2) + "\\" + reader->GetString(1));
+				Directory::Delete("Game\\" + reader->GetString(2) + "\\" + reader->GetString(1), true);
 			}
 		}
 		query = "DELETE FROM InfoMod WHERE Status_ = -1";
@@ -1045,49 +1026,6 @@ void LoadDeleteMod()
 	}
 }
 
-/*
-void LoadMod(String^ gameName)
-{
-	String^ connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Ресурсы\\Games.accdb;Persist Security Info=False;";
-
-	OleDbConnection^ connection = gcnew OleDbConnection(connectionString);
-
-	try {
-		connection->Open();
-
-		String^ query = "SELECT ModName FROM InfoMod WHERE GameName = ?";
-		OleDbCommand^ command = gcnew OleDbCommand(query, connection);
-		command->Parameters->AddWithValue("?", gameName); // Параметризованный запрос
-
-		OleDbDataReader^ reader = command->ExecuteReader();
-
-		while (reader->Read())
-		{
-			IconMod^ mod = gcnew IconMod();
-			String^ modName = reader->GetString(0);
-			String^ iconPath = "Game\\" + gameName + "\\" + modName + "\\icon.gif";
-			if (File::Exists(iconPath)) // Проверка существования файла
-			{
-				mod->LoadInfo(gameName, modName, Image::FromFile(iconPath));
-				panelGameMod->Controls->Add(mod);
-			}
-			else
-			{
-				MessageBox::Show("Не удалось найти изображение для мода " + modName, "Ошибка");
-			}
-		}
-
-		reader->Close();
-	}
-	catch (OleDbException^ ex) {
-		MessageBox::Show("Ошибка при выполнении запроса: " + ex->Message, "Ошибка");
-	}
-	finally {
-		if (connection->State == ConnectionState::Open)
-			connection->Close();
-	}
-}
-*/
 private: System::Void добавитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImageMinus(System::Object^ sender, System::EventArgs^ e);
 private: System::Void click_butImagePlus(System::Object^ sender, System::EventArgs^ e);
@@ -1098,7 +1036,56 @@ private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs
 private: System::Void click_IconGame(String^ name);
 
 private: System::Void butChange_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e)
+{
+
+	if (StatusChange && OldName != "Шаблон")
+	{
+		this->Text = "Launcher";
+
+		MenuStripPrew->Enabled = false;
+
+		StatusChange = false;
+		textName->ReadOnly = true;
+		textName->ForeColor = Drawing::Color::Silver;
+
+		textDict->ReadOnly = true;
+		textDict->ForeColor = Drawing::Color::Silver;
+
+		textExe->ReadOnly = true;
+		textExe->ForeColor = Drawing::Color::Silver;
+
+		if (textName->Text == "Шаблон")
+		{
+			MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
+		}
+		else if (textName->Text == "" || textName->Text->Substring(0, 1) == " ")
+		{
+			MessageBox::Show("Нельзя задать пустое имя", "Сообщение");
+		}
+		else
+		{
+			UpdateData();
+			Application::Restart();
+		}
+	}
+	else
+	{
+		if (textName->Text == "Шаблон")
+		{
+			MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
+		}
+		else if (textName->Text == "" || textName->Text->Substring(0, 1) == " ")
+		{
+			MessageBox::Show("Неверный формат имени");
+		}
+		else if (OldName == "Шаблон")
+		{
+			SaveData();
+		}
+	}
+	return System::Void();
+}
 private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ e);
 

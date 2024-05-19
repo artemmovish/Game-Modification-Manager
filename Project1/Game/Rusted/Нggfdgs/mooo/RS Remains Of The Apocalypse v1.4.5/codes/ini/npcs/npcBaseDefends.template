@@ -1,0 +1,80 @@
+[action_leaveZone]
+pos: 99
+text: Leave The Zone
+price: 0
+isVisible:if self.tags(includes="temporary")
+autoTrigger: if self.timeAlive(laterThanSeconds=1560)
+#requireConditional: if rnd(0, 1000) < 15
+addWaypoint_type: attackMove
+addWaypoint_prepend: false
+addWaypoint_target_mapMustBeReachable: true
+addWaypoint_target_randomUnit_tagged: zoneExit
+addWaypoint_target_randomUnit_team: any
+debugMessage: A Stalker is leaving the Zone
+
+[hiddenAction_leftZone]
+autoTrigger: if self.numberOfUnitsInNeutralTeam(withTag="zoneExit", withinRange=70) >= 1
+requireConditional: if self.tags(includes="temporary")
+deleteSelf: true
+debugMessage: A Stalker left the Zone
+
+[resource_patrolCooldown]
+hidden: true
+
+[hiddenAction_autoTrigger]
+autoTrigger: if not self.isMoving()
+addResources: patrolCooldown: 0.5
+
+[hiddenAction_banditPatrolling]
+autoTrigger: if self.numberOfUnitsInNeutralTeam(withTag="banditOutpost", withinRange=500) >= 1
+requireConditional: if self.tags(includes="banditDefender") and not self.hasActiveWaypoint() and self.resource.patrolCooldown >= 30
+addWaypoint_type: attackMove
+addWaypoint_prepend: false
+addWaypoint_triggerActionIfFailed: banditPatrolling
+addWaypoint_position_randomOffsetFromSelf: 120, 120
+addWaypoint_target_mapMustBeReachable: true
+clearAllWaypoints: true
+addWaypoint_maxTime: 30s
+alsoTriggerAction: voiceMove
+setResourcesWithLogic: patrolCooldown: 0
+
+[hiddenAction_marauderPatrolling]
+autoTrigger: if self.numberOfUnitsInNeutralTeam(withTag="marauderBase", withinRange=500) >= 1 
+requireConditional: if self.tags(includes="marauderDefender") and not self.hasActiveWaypoint() and self.resource.patrolCooldown >= 30
+addWaypoint_type: attackMove
+addWaypoint_prepend: false
+addWaypoint_triggerActionIfFailed: marauderPatrolling
+addWaypoint_position_randomOffsetFromSelf: 120, 120
+addWaypoint_target_mapMustBeReachable: true
+clearAllWaypoints: true
+addWaypoint_maxTime: 30s
+alsoTriggerAction: voiceMove
+setResourcesWithLogic: patrolCooldown: 0
+
+[hiddenAction_ifBanditReturnToAnyBase]
+autoTrigger: if self.numberOfUnitsInNeutralTeam(withTag="banditOutpost", withinRange=500) <= 0 
+requireConditional: if self.tags(includes="banditDefender") and not self.hasActiveWaypoint(type="attackMove") and self.resource.patrolCooldown >= 30 and not self.isAttacking()
+
+addWaypoint_type: attackMove
+addWaypoint_prepend: false
+addWaypoint_target_mapMustBeReachable: true
+addWaypoint_target_randomUnit_tagged: banditOutpost
+addWaypoint_target_randomUnit_team: any
+clearAllWaypoints: true
+
+alsoTriggerAction: voiceMove
+setResourcesWithLogic: patrolCooldown: 0
+
+[hiddenAction_ifMarauderReturnToAnyBase]
+autoTrigger: if self.numberOfUnitsInNeutralTeam(withTag="marauderBase", withinRange=500) <= 0 
+requireConditional: if self.tags(includes="marauderDefender") and not self.hasActiveWaypoint(type="attackMove") and self.resource.patrolCooldown >= 30 and not self.isAttacking()
+
+addWaypoint_type: attackMove
+addWaypoint_prepend: false
+addWaypoint_target_mapMustBeReachable: true
+addWaypoint_target_randomUnit_tagged: marauderBase
+addWaypoint_target_randomUnit_team: any
+clearAllWaypoints: true
+
+alsoTriggerAction: voiceMove
+setResourcesWithLogic: patrolCooldown: 0

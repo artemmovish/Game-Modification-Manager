@@ -1,0 +1,22 @@
+
+[hiddenAction_KilledAUnit]
+autoTriggerOnEvent: killedAnyUnit
+alsoTriggerAction: KilledZombie, KilledChimera, KilledBandit, KilledBandit2
+#If this doesn't work, reverse the order of the actions in alsoTriggerAction
+addResources: setFlag=0
+
+[hiddenAction_KilledZombie]
+requireConditional: if eventSource.tags(includes="zombie")
+addResources: zombieKillCount=1, reputation:0.05, unsetFlag=0
+
+[hiddenAction_KilledChimera]
+requireConditional: if eventSource.tags(includes="chimera")
+addResources: chimeraKillCount=1, reputation: 0.3,  unsetFlag=0
+
+[hiddenAction_KilledBandit]
+requireConditional: if eventSource.tags(includes="bandit")
+addResources: banditKillCount=1, reputation: 0.15, unsetFlag=0
+
+[hiddenAction_KilledBandit2]
+requireConditional: if eventSource.tags(includes="killa")
+addResources: killaKillCount=1, reputation:0.8, unsetFlag=0

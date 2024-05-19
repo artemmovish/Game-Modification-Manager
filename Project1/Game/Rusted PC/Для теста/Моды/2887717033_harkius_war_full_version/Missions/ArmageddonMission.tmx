@@ -1,0 +1,4836 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<map height="100" infinite="0" nextlayerid="9" nextobjectid="2839" orientation="orthogonal" renderorder="right-down" tiledversion="1.4.3" tileheight="20" tilewidth="20" version="1.4" width="200">
+     
+    <tileset columns="7" firstgid="1" name="Mountain" tilecount="35" tileheight="20" tilewidth="20">
+          
+        <image height="100" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/mountain.png" trans="008a76" width="140"/>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="small-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="small-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="small-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="21">
+               
+            <properties>
+                    
+                <property name="large-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="22">
+               
+            <properties>
+                    
+                <property name="large-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="28">
+               
+            <properties>
+                    
+                <property name="large-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="29">
+               
+            <properties>
+                    
+                <property name="large-rock" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="8" firstgid="36" name="Snow" tilecount="80" tileheight="20" tilewidth="20">
+          
+        <image height="200" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/snow.png" trans="008a76" width="160"/>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="tree" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="tree" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="55">
+               
+            <properties>
+                    
+                <property name="tree" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="79">
+               
+            <properties>
+                    
+                <property name="tree" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="5" firstgid="116" name="Ice" tilecount="10" tileheight="20" tilewidth="20">
+          
+        <image height="40" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/ice.png" trans="008a76" width="100"/>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset firstgid="126" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/Long Grass.tsx"/>
+     
+    <tileset firstgid="176" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/Dirt.tsx"/>
+     
+    <tileset columns="3" firstgid="186" name="Shallow Water" tilecount="6" tileheight="20" tilewidth="20">
+          
+        <image height="40" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/shallowwater.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="1" firstgid="192" name="Deep Water" tilecount="1" tileheight="20" tilewidth="20">
+          
+        <image height="20" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/deepwater.png" trans="008a76" width="20"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset firstgid="193" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain Mountain - Hill.tsx"/>
+     
+    <tileset firstgid="214" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain Snow - Flat.tsx"/>
+     
+    <tileset columns="3" firstgid="235" name="Ice ShallowWater - Ridge" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/ice2shallowwater_ridge.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="256" name="ShallowWater Water - Flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/shallowwater2water_flat.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="277" name="LongGrass ShallowWater - Ridge" tilecount="30" tileheight="20" tilewidth="20">
+          
+        <image height="200" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/longgrass2shallowwater_ridge.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="16">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="17">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="21">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="22">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="23">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="24">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="25">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="26">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="27">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="28">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="29">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset firstgid="307" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/LongGrass Dirt - Flat.tsx"/>
+     
+    <tileset columns="3" firstgid="328" name="misc" tilecount="18" tileheight="20" tilewidth="20">
+          
+        <image height="120" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/bitmaps/misc.png" width="79"/>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="res_pool" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="team" value="none"/>
+                    
+                <property name="unit" value="tree"/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="team" value="none"/>
+                    
+                <property name="type" value="1.0"/>
+                    
+                <property name="unit" value="tree"/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="team" value="none"/>
+                    
+                <property name="type" value="1.1"/>
+                    
+                <property name="unit" value="tree"/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="team" value="none"/>
+                    
+                <property name="type" value="1.2"/>
+                    
+                <property name="unit" value="tree"/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="team" value="none"/>
+                    
+                <property name="type" value="1.3"/>
+                    
+                <property name="unit" value="tree"/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="team" value="none"/>
+                    
+                <property name="type" value="1.4"/>
+                    
+                <property name="unit" value="tree"/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="346" name="Ice Ice - Flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/ice2ice_flat.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="367" name="Ice ShallowWater - Broken" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/ice2shallowwater_broken.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset firstgid="388" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Dirt ShalowWater - Ridge.tsx"/>
+     
+    <tileset columns="3" firstgid="409" name="Mountain ShallowWater - Ridge" tilecount="15" tileheight="20" tilewidth="20">
+          
+        <image height="100" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2shallowwater_ridge.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="424" name="Sand ShallowWater - Ridge" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/sand2shallowwater_ridge.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="16">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="17">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset firstgid="445" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/units.tsx"/>
+     
+    <tileset columns="3" firstgid="706" name="LongGrass ShallowWater - Flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/longgrass2shallowwater_flat.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="16">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="17">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="cliff-soft" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset firstgid="727" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain LongGrass - Flat.tsx"/>
+     
+    <tileset firstgid="748" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain Sand - Flat.tsx"/>
+     
+    <tileset firstgid="769" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/Sand.tsx"/>
+     
+    <tileset firstgid="811" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain ShallowWater - Flat.tsx"/>
+     
+    <tileset columns="3" firstgid="832" name="Mountain Mountain - Ridge" tilecount="15" tileheight="20" tilewidth="20">
+          
+        <image height="100" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2mountain_ridge.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="847" name="LongGrass LongGrass - Ridge" tilecount="30" tileheight="20" tilewidth="20">
+          
+        <image height="200" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/longgrass2longgrass_ridge.png" trans="008a76" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="16">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="17">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="21">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="22">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="23">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="24">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="25">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="26">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="27">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="28">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="29">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="9" firstgid="877" name="Space" tilecount="63" tileheight="20" tilewidth="20">
+          
+        <properties>
+               
+            <property name="embedded_png" value="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')"/>
+              
+        </properties>
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/units/AstroWar/Space.png" width="180"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="16">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="17">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="21">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="22">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="23">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="24">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="25">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="26">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="27">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="28">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="57">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="60">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="940" name="mountain2lava_flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2lava_flat.png" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="12">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="15">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="16">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="17">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="18">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="961" name="mountain2stone_ridge" tilecount="15" tileheight="20" tilewidth="20">
+          
+        <image height="100" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2stone_ridge.png" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="976" name="mountain2stone_flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2stone_flat.png" width="60"/>
+         
+    </tileset>
+     
+    <tileset columns="6" firstgid="997" name="stone" tilecount="36" tileheight="20" tilewidth="20">
+          
+        <image height="120" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/stone.png" width="120"/>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="1033" name="stone2stone_ridge" tilecount="15" tileheight="20" tilewidth="20">
+          
+        <image height="100" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/stone2stone_ridge.png" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="1048" name="stone2lava_ridge" tilecount="15" tileheight="20" tilewidth="20">
+          
+        <image height="100" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/stone2lava_ridge.png" width="60"/>
+          
+        <tile id="0">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="1">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="2">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="3">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="4">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="7">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="8">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="10">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="11">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="8" firstgid="1063" name="BaseTileset" tilecount="72" tileheight="20" tilewidth="20">
+          
+        <properties>
+               
+            <property name="embedded_png" value="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"/>
+              
+        </properties>
+          
+        <image height="180" source="BaseTileset.png" width="160"/>
+          
+        <tile id="5">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="6">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="9">
+               
+            <properties>
+                    
+                <property name="water" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="13">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="14">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="19">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="20">
+               
+            <properties>
+                    
+                <property name="lava-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="21">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="22">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="23">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="29">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="30">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="31">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="37">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="38">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="39">
+               
+            <properties>
+                    
+                <property name="large-cliff" value=""/>
+                   
+            </properties>
+              
+        </tile>
+          
+        <tile id="43">
+               
+            <properties>
+                    
+                <property name="water-bridge" value=""/>
+                   
+            </properties>
+              
+        </tile>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="1135" name="mountain2shallowwater_flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2shallowwater_flat.png" width="60"/>
+         
+    </tileset>
+     
+    <tileset columns="3" firstgid="1156" name="sand2shallowwater_flat" tilecount="21" tileheight="20" tilewidth="20">
+          
+        <image height="140" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/sand2shallowwater_flat.png" width="60"/>
+         
+    </tileset>
+     
+    <layer height="100" id="1" name="Ground" width="200">
+          
+        <data compression="gzip" encoding="base64">
+   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
+  </data>
+         
+    </layer>
+     
+    <layer height="100" id="2" name="Items" width="200">
+          
+        <data compression="gzip" encoding="base64">
+   H4sIAAAAAAAACu3aSwrDIBQF0GR3/bf7X02FDssdJJD4OwecR3ia59VlAQAAAAAAAAB6dVmX5VrGba39JdCee1kXjzKe1gf8eZV18S7jY30A7KIPh0wf3i972/H04Vnr9Wdvo6bW68/eRk3qDwAAoD+tZ4FQU+tZINQkCwQAAAD2kktDJpeGTC4NAADwI1+DTL4GmXwNAAAAAAAAxuU9CTPZWu/ekzCTrfXuPQkzUe/H0o9Cph+FzP8ZAACAWmSakMk0IZNpAtSnl4dMLw+ZXh4AAPojB4JMDgSZHAgAAAAAgDO514TMvSZk7jUBAACAs42UZ480F9owUp490lxow0h59khzAQDa5LwKmfMqZM6rAAAAAAAAQE3evMztC9h1mFiAOAEA
+  </data>
+         
+    </layer>
+     
+ 
+    <objectgroup id="4" name="Triggers">
+          
+        <object height="200" id="1543" name="map_info" width="200" x="99.675" y="25.1665">
+               
+            <properties>
+                    
+                <property name="fog" value="map"/>
+                    
+                <property name="introText">Hrukim spreads corruption, demands chaos.
+Hrukim spites the creator and younger siblings.
+Shatter the bodies of these guardians, and let
+them anguish as their journey halts for a
+billion years.
+Mission objectives:
+-Corrupt.
+-Destroy.</property>
+                    
+                <property name="type" value="mission"/>
+                    
+                <property name="winCondition" value="mainBuilings"/>
+                   
+            </properties>
+              
+        </object>
+          
+        <object height="154" id="1544" name="team_1_info" type="team_info" width="173" x="597.927" y="18.8335">
+               
+            <properties>
+                    
+                <property name="allyGroup" value="1"/>
+                    
+                <property name="credits" value="0"/>
+                    
+                <property name="team" value="1"/>
+                   
+            </properties>
+              
+        </object>
+          
+        <object height="154" id="1545" name="team_0_info" type="team_info" width="173" x="388.927" y="20.8335">
+               
+            <properties>
+                    
+                <property name="allyGroup" value="0"/>
+                    
+                <property name="credits" value="2000"/>
+                    
+                <property name="team" value="0"/>
+                   
+            </properties>
+              
+        </object>
+          
+        <object height="154" id="1546" name="team_2_info" type="team_info" width="173" x="823.742" y="19.0005">
+               
+            <properties>
+                    
+                <property name="allyGroup" value="1"/>
+                    
+                <property name="credits" value="0"/>
+                    
+                <property name="team" value="2"/>
+                   
+            </properties>
+              
+        </object>
+         
+    </objectgroup>
+    
+    <objectgroup name="UnitObjects">
+        <object height="20" name="AMHQ (t:0)" rotation="90.0" width="20" x="820.0" y="1740.0">
+            <properties>
+                <property name="unit" value="AMHQ"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="AMHQ (t:0)" rotation="90.0" width="20" x="1020.0" y="300.0">
+            <properties>
+                <property name="unit" value="AMHQ"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift (t:0)" rotation="-90.0" width="20" x="1920.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Rift"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift (t:0)" rotation="-90.0" width="20" x="1940.0" y="1020.0">
+            <properties>
+                <property name="unit" value="A_Rift"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift (t:0)" rotation="-90.0" width="20" x="1920.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Rift"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift2 (t:0)" rotation="-90.0" width="20" x="900.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Rift2"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift2 (t:0)" rotation="-90.0" width="20" x="720.0" y="1780.0">
+            <properties>
+                <property name="unit" value="A_Rift2"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift2 (t:0)" rotation="-90.0" width="20" x="1120.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Rift2"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift2 (t:0)" rotation="-90.0" width="20" x="940.0" y="220.0">
+            <properties>
+                <property name="unit" value="A_Rift2"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="520.0" y="1000.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="320.0" y="1140.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="260.0" y="800.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="660.0" y="840.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift3 (t:0)" rotation="-90.0" width="20" x="600.0" y="1160.0">
+            <properties>
+                <property name="unit" value="A_Rift3"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift3 (t:0)" rotation="-90.0" width="20" x="420.0" y="960.0">
+            <properties>
+                <property name="unit" value="A_Rift3"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift3 (t:0)" rotation="-90.0" width="20" x="180.0" y="980.0">
+            <properties>
+                <property name="unit" value="A_Rift3"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Rift3 (t:0)" rotation="-90.0" width="20" x="500.0" y="740.0">
+            <properties>
+                <property name="unit" value="A_Rift3"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="45" name="ArmaHQ (t:0)" rotation="-90.0" width="45" x="638.0" y="938.0">
+            <properties>
+                <property name="unit" value="ArmaHQ"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Binding (t:0)" rotation="-90.0" width="20" x="860.0" y="1860.0">
+            <properties>
+                <property name="unit" value="A_Binding"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Binding (t:0)" rotation="-90.0" width="20" x="720.0" y="1640.0">
+            <properties>
+                <property name="unit" value="A_Binding"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Binding (t:0)" rotation="-90.0" width="20" x="860.0" y="1600.0">
+            <properties>
+                <property name="unit" value="A_Binding"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Binding (t:0)" rotation="-90.0" width="20" x="960.0" y="400.0">
+            <properties>
+                <property name="unit" value="A_Binding"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Binding (t:0)" rotation="-90.0" width="20" x="1080.0" y="220.0">
+            <properties>
+                <property name="unit" value="A_Binding"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Binding (t:0)" rotation="-90.0" width="20" x="940.0" y="60.0">
+            <properties>
+                <property name="unit" value="A_Binding"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Equine (t:0)" rotation="90.0" width="20" x="1960.0" y="1800.0">
+            <properties>
+                <property name="unit" value="A_Equine"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Equine (t:0)" rotation="90.0" width="20" x="2040.0" y="1020.0">
+            <properties>
+                <property name="unit" value="A_Equine"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Equine (t:0)" rotation="90.0" width="20" x="1980.0" y="120.0">
+            <properties>
+                <property name="unit" value="A_Equine"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Equine (t:0)" rotation="90.0" width="20" x="1960.0" y="880.0">
+            <properties>
+                <property name="unit" value="A_Equine"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Lifter (t:0)" rotation="90.0" width="20" x="300.0" y="900.0">
+            <properties>
+                <property name="unit" value="A_Lifter"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Lifter (t:0)" rotation="84.303" width="20" x="302.53677" y="1048.9471">
+            <properties>
+                <property name="unit" value="A_Lifter"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Lifter (t:0)" rotation="90.0" width="20" x="300.0" y="960.0">
+            <properties>
+                <property name="unit" value="A_Lifter"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Lifter (t:0)" rotation="90.0" width="20" x="300.3377" y="1000.7149">
+            <properties>
+                <property name="unit" value="A_Lifter"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="1898.0" y="1578.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="1898.0" y="1738.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="1898.0" y="1098.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="1898.0" y="918.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="2018.0" y="938.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="1938.0" y="378.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Pod (t:0)" rotation="90.0" width="25" x="1938.0" y="218.0">
+            <properties>
+                <property name="unit" value="A_Pod"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_ChaosBomber (t:0)" rotation="90.0" width="25" x="1278.0" y="338.0">
+            <properties>
+                <property name="unit" value="A_ChaosBomber"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_ChaosBomber (t:0)" rotation="90.0" width="25" x="1198.0" y="1658.0">
+            <properties>
+                <property name="unit" value="A_ChaosBomber"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="60" name="A_Station (t:0)" rotation="90.0" width="60" x="500.0" y="860.0">
+            <properties>
+                <property name="unit" value="A_Station"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Spectre (t:0)" rotation="90.0" width="20" x="1080.0" y="760.0">
+            <properties>
+                <property name="unit" value="A_Spectre"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Spectre (t:0)" rotation="90.0" width="20" x="1220.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Spectre"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Spectre (t:0)" rotation="90.0" width="20" x="1080.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Spectre"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Stamp (t:0)" rotation="90.0" width="20" x="420.0" y="1020.0">
+            <properties>
+                <property name="unit" value="A_Stamp"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_MegaSlug (t:0)" rotation="102.33909" width="30" x="274.92194" y="890.1033">
+            <properties>
+                <property name="unit" value="A_MegaSlug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_MegaSlug (t:0)" rotation="104.14152" width="30" x="275.628" y="949.53827">
+            <properties>
+                <property name="unit" value="A_MegaSlug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_MegaSlug (t:0)" rotation="65.66997" width="30" x="276.5252" y="1003.1192">
+            <properties>
+                <property name="unit" value="A_MegaSlug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_MegaSlug (t:0)" rotation="39.495987" width="30" x="286.76157" y="1045.0017">
+            <properties>
+                <property name="unit" value="A_MegaSlug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_MegaSlug (t:0)" rotation="90.0" width="30" x="1535.0" y="1675.0">
+            <properties>
+                <property name="unit" value="A_MegaSlug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_MegaSlug (t:0)" rotation="90.0" width="30" x="1555.0" y="335.0">
+            <properties>
+                <property name="unit" value="A_MegaSlug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Builder2 (t:0)" rotation="90.0" width="20" x="1060.0" y="420.0">
+            <properties>
+                <property name="unit" value="A_Builder2"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Builder2 (t:0)" rotation="90.0" width="20" x="820.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Builder2"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Sludge (t:0)" rotation="90.0" width="20" x="1720.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_Sludge"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Sludge (t:0)" rotation="90.0" width="20" x="1760.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_Sludge"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Sludge (t:0)" rotation="90.0" width="20" x="1760.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Sludge"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Sludge (t:0)" rotation="90.0" width="20" x="1800.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Sludge"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="720.0" y="1540.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="720.0" y="1560.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="740.0" y="1580.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="940.0" y="1540.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="960.0" y="1640.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="960.0" y="1780.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="760.0" y="1860.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="800.0" y="1600.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="820.0" y="1620.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="880.0" y="1800.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="880.0" y="300.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="940.0" y="280.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1100.0" y="80.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1120.0" y="180.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1060.0" y="100.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1060.0" y="120.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1080.0" y="120.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1080.0" y="140.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1140.0" y="440.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1140.0" y="460.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="1160.0" y="460.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="880.0" y="480.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="500.0" y="1120.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="500.0" y="1100.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="520.0" y="1100.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="540.0" y="1100.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="560.0" y="1080.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="580.0" y="1080.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="660.0" y="1040.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="700.0" y="1120.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="640.0" y="780.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="640.0" y="760.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="640.0" y="740.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Biped (t:0)" rotation="90.0" width="20" x="600.0" y="720.0">
+            <properties>
+                <property name="unit" value="A_Biped"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1400.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1400.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1400.0" y="1640.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1300.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1300.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1280.0" y="1640.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1280.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1260.0" y="1680.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1660.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1400.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1400.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1420.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1440.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1480.0" y="300.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1480.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1500.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1580.0" y="300.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1600.0" y="300.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1600.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1620.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1640.0" y="340.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1680.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1680.0" y="360.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Slug (t:0)" rotation="90.0" width="20" x="1720.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_Slug"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Builder (t:0)" rotation="90.0" width="20" x="1980.0" y="260.0">
+            <properties>
+                <property name="unit" value="A_Builder"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_Builder (t:0)" rotation="90.0" width="20" x="2000.0" y="980.0">
+            <properties>
+                <property name="unit" value="A_Builder"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1778.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1718.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1658.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1538.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1478.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1418.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1358.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1298.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1238.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1178.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1118.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="1058.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="998.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="938.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="878.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="818.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="758.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="698.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="638.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="578.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="518.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="458.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="398.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="278.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1818.0" y="218.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="698.0" y="1438.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="758.0" y="1438.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="818.0" y="1438.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="878.0" y="1438.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="938.0" y="1438.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="758.0" y="598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="818.0" y="598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="878.0" y="598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="938.0" y="598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="998.0" y="598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="A_Avian (t:0)" rotation="90.0" width="25" x="1058.0" y="598.0">
+            <properties>
+                <property name="unit" value="A_Avian"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_ExtractGun (t:1)" rotation="-90.0" width="20" x="2780.0" y="1340.0">
+            <properties>
+                <property name="unit" value="Ori_ExtractGun"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_ExtractGun (t:1)" rotation="-90.0" width="20" x="2780.0" y="460.0">
+            <properties>
+                <property name="unit" value="Ori_ExtractGun"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_ExtractGun (t:1)" rotation="-90.0" width="20" x="3700.0" y="1520.0">
+            <properties>
+                <property name="unit" value="Ori_ExtractGun"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_ExtractGun (t:1)" rotation="-90.0" width="20" x="3700.0" y="280.0">
+            <properties>
+                <property name="unit" value="Ori_ExtractGun"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_ExtractOC (t:1)" rotation="-90.0" width="20" x="3700.0" y="600.0">
+            <properties>
+                <property name="unit" value="Ori_ExtractOC"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_ExtractOC (t:1)" rotation="-90.0" width="20" x="3700.0" y="1220.0">
+            <properties>
+                <property name="unit" value="Ori_ExtractOC"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="40" name="Ori_AntiOrbit (t:1)" rotation="-90.0" width="40" x="3630.0" y="1550.0">
+            <properties>
+                <property name="unit" value="Ori_AntiOrbit"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="40" name="Ori_AntiOrbit (t:1)" rotation="-90.0" width="40" x="3610.0" y="1350.0">
+            <properties>
+                <property name="unit" value="Ori_AntiOrbit"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="40" name="Ori_AntiOrbit (t:1)" rotation="-90.0" width="40" x="3610.0" y="1190.0">
+            <properties>
+                <property name="unit" value="Ori_AntiOrbit"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="40" name="Ori_AntiOrbit (t:1)" rotation="-90.0" width="40" x="3610.0" y="570.0">
+            <properties>
+                <property name="unit" value="Ori_AntiOrbit"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="40" name="Ori_AntiOrbit (t:1)" rotation="-90.0" width="40" x="3610.0" y="410.0">
+            <properties>
+                <property name="unit" value="Ori_AntiOrbit"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="40" name="Ori_AntiOrbit (t:1)" rotation="-90.0" width="40" x="3630.0" y="290.0">
+            <properties>
+                <property name="unit" value="Ori_AntiOrbit"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Teleporter (t:1)" rotation="-90.0" width="35" x="3803.0" y="423.0">
+            <properties>
+                <property name="unit" value="Ori_Teleporter"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Teleporter (t:1)" rotation="-90.0" width="35" x="3843.0" y="1383.0">
+            <properties>
+                <property name="unit" value="Ori_Teleporter"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Teleporter (t:1)" rotation="-90.0" width="35" x="3923.0" y="1383.0">
+            <properties>
+                <property name="unit" value="Ori_Teleporter"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Teleporter (t:1)" rotation="-90.0" width="35" x="3883.0" y="423.0">
+            <properties>
+                <property name="unit" value="Ori_Teleporter"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Armoury2 (t:1)" rotation="-90.0" width="35" x="2863.0" y="1363.0">
+            <properties>
+                <property name="unit" value="Ori_Armoury2"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Armoury2 (t:1)" rotation="-90.0" width="35" x="2843.0" y="463.0">
+            <properties>
+                <property name="unit" value="Ori_Armoury2"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Armoury2 (t:1)" rotation="-90.0" width="35" x="3663.0" y="463.0">
+            <properties>
+                <property name="unit" value="Ori_Armoury2"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Armoury2 (t:1)" rotation="-90.0" width="35" x="3683.0" y="363.0">
+            <properties>
+                <property name="unit" value="Ori_Armoury2"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Armoury2 (t:1)" rotation="-90.0" width="35" x="3643.0" y="1263.0">
+            <properties>
+                <property name="unit" value="Ori_Armoury2"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Armoury2 (t:1)" rotation="-90.0" width="35" x="3683.0" y="1423.0">
+            <properties>
+                <property name="unit" value="Ori_Armoury2"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="70" name="Ori_Port (t:1)" rotation="-90.0" width="70" x="3785.0" y="1025.0">
+            <properties>
+                <property name="unit" value="Ori_Port"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="70" name="Ori_Port (t:1)" rotation="-90.0" width="70" x="3785.0" y="945.0">
+            <properties>
+                <property name="unit" value="Ori_Port"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="70" name="Ori_Port (t:1)" rotation="-90.0" width="70" x="3785.0" y="865.0">
+            <properties>
+                <property name="unit" value="Ori_Port"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="70" name="Ori_Port (t:1)" rotation="-90.0" width="70" x="3785.0" y="785.0">
+            <properties>
+                <property name="unit" value="Ori_Port"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="A_Calamity (t:0)" rotation="-90.0" width="35" x="373.0" y="773.0">
+            <properties>
+                <property name="unit" value="A_Calamity"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="35" name="A_Calamity (t:0)" rotation="-90.0" width="35" x="453.0" y="1213.0">
+            <properties>
+                <property name="unit" value="A_Calamity"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Rapture (t:1)" rotation="-90.0" width="35" x="3813.0" y="1513.0">
+            <properties>
+                <property name="unit" value="Ori_Rapture"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_Rapture (t:1)" rotation="-90.0" width="35" x="3813.0" y="533.0">
+            <properties>
+                <property name="unit" value="Ori_Rapture"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Turret (t:1)" rotation="-90.0" width="20" x="3450.0" y="1350.0">
+            <properties>
+                <property name="unit" value="Ori_Turret"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Turret (t:1)" rotation="-90.0" width="20" x="3450.0" y="450.0">
+            <properties>
+                <property name="unit" value="Ori_Turret"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="1740.0" y="1660.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="1700.0" y="940.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="A_BindingAN (t:0)" rotation="-90.0" width="20" x="1820.0" y="320.0">
+            <properties>
+                <property name="unit" value="A_BindingAN"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="20" name="OEF (t:1)" rotation="90.0" width="20" x="3640.0" y="940.0">
+            <properties>
+                <property name="unit" value="OEF"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="1120.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="1080.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="1040.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="1000.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="960.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="920.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="880.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="840.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="800.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAG (t:1)" rotation="90.0" width="20" x="3140.0" y="760.0">
+            <properties>
+                <property name="unit" value="Ori_PodAG"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="1120.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="1080.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="1040.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="1000.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="960.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="920.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="880.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="840.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="800.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="3240.0" y="760.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="25" name="Ori_HeavyBomber (t:1)" rotation="90.0" width="25" x="3538.0" y="1638.0">
+            <properties>
+                <property name="unit" value="Ori_HeavyBomber"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="25" name="Ori_Thunderbolt (t:1)" rotation="90.0" width="25" x="3498.0" y="258.0">
+            <properties>
+                <property name="unit" value="Ori_Thunderbolt"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="25" name="Ori_Thunderbolt (t:1)" rotation="90.0" width="25" x="3558.0" y="258.0">
+            <properties>
+                <property name="unit" value="Ori_Thunderbolt"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="60" name="Ori_Monastery (t:1)" rotation="90.0" width="60" x="3480.0" y="920.0">
+            <properties>
+                <property name="unit" value="Ori_Monastery"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="70" name="Ori_Dropship_Land (t:1)" rotation="90.0" width="70" x="3595.0" y="675.0">
+            <properties>
+                <property name="unit" value="Ori_Dropship_Land"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Warhammer_Heal (t:1)" rotation="90.0" width="20" x="3780.0" y="700.0">
+            <properties>
+                <property name="unit" value="Ori_Warhammer_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3120.0" y="1380.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3120.0" y="1360.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3120.0" y="1340.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3120.0" y="1320.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3120.0" y="1300.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3100.0" y="500.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3100.0" y="480.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3100.0" y="460.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3100.0" y="440.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3060.0" y="480.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Scout_Heal (t:1)" rotation="90.0" width="20" x="3060.0" y="460.0">
+            <properties>
+                <property name="unit" value="Ori_Scout_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Pollaxe_Heal (t:1)" rotation="90.0" width="20" x="3520.0" y="1480.0">
+            <properties>
+                <property name="unit" value="Ori_Pollaxe_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="30" name="Ori_Mobile (t:1)" rotation="90.0" width="30" x="3855.0" y="1295.0">
+            <properties>
+                <property name="unit" value="Ori_Mobile"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Pollaxe_Heal (t:1)" rotation="90.0" width="20" x="3520.0" y="1220.0">
+            <properties>
+                <property name="unit" value="Ori_Pollaxe_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_Staff_Heal (t:1)" rotation="90.0" width="20" x="3520.0" y="1360.0">
+            <properties>
+                <property name="unit" value="Ori_Staff_Heal"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="50" name="A_Titan (t:0)" rotation="90.0" width="50" x="745.0" y="945.0">
+            <properties>
+                <property name="unit" value="A_Titan"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="30" name="A_ChaosBuilder (t:0)" rotation="90.0" width="30" x="855.0" y="935.0">
+            <properties>
+                <property name="unit" value="A_ChaosBuilder"/>
+                <property name="team" value="0"/>
+            </properties>
+        </object>
+        <object height="25" name="Ori_HeavyBomber (t:1)" rotation="90.0" width="25" x="3178.0" y="618.0">
+            <properties>
+                <property name="unit" value="Ori_HeavyBomber"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2920.0" y="1380.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2880.0" y="1380.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2840.0" y="1380.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2800.0" y="1380.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2760.0" y="1380.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2740.0" y="540.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2780.0" y="540.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2820.0" y="540.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2860.0" y="540.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="20" name="Ori_PodAA (t:1)" rotation="90.0" width="20" x="2900.0" y="540.0">
+            <properties>
+                <property name="unit" value="Ori_PodAA"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_barracks (t:1)" rotation="-90.0" width="35" x="3723.0" y="423.0">
+            <properties>
+                <property name="unit" value="Ori_barracks"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+        <object height="35" name="Ori_barracks (t:1)" rotation="-90.0" width="35" x="3763.0" y="1383.0">
+            <properties>
+                <property name="unit" value="Ori_barracks"/>
+                <property name="team" value="1"/>
+            </properties>
+        </object>
+    </objectgroup>
+</map>

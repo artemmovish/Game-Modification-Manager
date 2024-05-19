@@ -1,0 +1,1065 @@
+
+[hiddenAction_defineEncumbrance]
+setResourcesWithLogic: ${defineEncumbrance} / (self.resource.encumbranceReduction)
+
+#FOODS
+
+[template_item]
+isVisible: if memory.inventory == true
+iconExtraColor: #FFFFFF
+displayType: infoOnly
+allowMultipleInQueue: false
+canPlayerCancel:true
+alwaysSinglePress: false
+buildSpeed: 1s
+displayRemainingStockpile: true
+whenBuilding_cannotMove: true
+
+
+[template_yesuse]
+displayType: infoOnly
+allowMultipleInQueue: false
+canPlayerCancel: true
+alwaysSinglePress: false
+buildSpeed: 1s
+displayRemainingStockpile: true
+whenBuilding_cannotMove: true
+iconImage: ROOT:/images/items/${resourceName}.png
+iconExtraImage: ROOT:/images/items/${resourceName}.png
+iconExtraColor: #FFFFFF
+isVisible: if self.hasResources(${resourceName}=1) and memory.inventory == true
+price: ${resourceName}: 1
+
+[action_food]
+@copyFromSection: template_food, template_yesuse
+@define resourceName=food
+pos: 0.2
+addResources: hunger: 40, thirst: 20, toxic: 1, bloodR: 35
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/canned.ogg:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_snack]
+@copyFromSection: template_snack, template_yesuse
+@define resourceName=snacks
+pos: 0.21
+addResources: hunger: 15, toxic: 4, bloodR: 5
+buildSpeed: 2s
+addActionCooldownTime: 3s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_meat]
+@copyFromSection: template_meat, template_yesuse
+@define resourceName=meat
+pos: 0.22
+addResources: hunger: 35, thirst: -10, toxic: 4, bloodR: 45
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/meat.ogg:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_crackers]
+@copyFromSection: template_crackers, template_yesuse
+@define resourceName=crackers
+pos: 0.23
+addResources: hunger: 20, thirst: -7, toxic: 2, bloodR: 10
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/crackers.ogg:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_cannedTuna]
+@copyFromSection: template_cannedTuna, template_yesuse
+@define resourceName=cannedTuna
+pos: 0.24
+addResources: hunger: 35, thirst: 15, toxic: -2, bloodR: 15
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/canned.ogg:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_mre]
+@copyFromSection: template_mre, template_yesuse
+@define resourceName=mre
+pos: 0.25
+addResources: hunger: 60, thirst: 55, toxic: -4, bloodR: 55
+buildSpeed: 8s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/mre.ogg:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_bread]
+@copyFromSection: template_bread, template_yesuse
+@define resourceName=bread
+pos: 0.26
+addResources: hunger: 20, thirst: -5, toxic: 3, bloodR: 8
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/mre.ogg:1
+isGuiBlinking: if self.resource.hunger < 35
+
+[action_cigarettes]
+@copyFromSection: template_cigarettes, template_yesuse
+@define resourceName=cigarettes
+pos: 0.27
+addResources: thirst:-5, radiation: -15
+buildSpeed: 8s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/cigarette.ogg:2
+isGuiBlinking: if self.resource.radiation > 25
+
+#DRINKS,
+
+[action_water]
+@copyFromSection: template_water, template_yesuse
+@define resourceName=water
+pos: 0.3
+addResources: thirst: 45, toxic: -5, radiation:-5
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/water.ogg:1
+isGuiBlinking: if self.resource.thirst < 35
+
+[action_fruitJuice]
+@copyFromSection: template_fruitJuice, template_yesuse
+@define resourceName=fruitJuice
+pos: 0.31
+addResources: hunger: 5, thirst: 20, toxic: 3, bloodR: 15
+buildSpeed: 4.5s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/juice.ogg:1
+isGuiBlinking: if self.resource.thirst < 35
+
+[action_vodka]
+@copyFromSection: template_vodka, template_yesuse
+@define resourceName=vodka
+pos: 0.32
+addResources: hunger: 15, thirst: 20, toxic: 2, radiation: -20
+buildSpeed: 3s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/vodka.ogg:1
+isGuiBlinking: if self.resource.radiation > 25
+
+[action_soda]
+@copyFromSection: template_soda, template_yesuse
+@define resourceName=soda
+pos: 0.33
+addResources: hunger: 5, thirst: 15, bloodR: 20
+buildSpeed: 3s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/soda.ogg:1
+isGuiBlinking: if self.resource.thirst < 35
+
+[action_taintedWater]
+@copyFromSection: template_dirtyWaters, template_yesuse
+@define resourceName=taintedWater
+pos: 0.34
+addResources: thirst: 30, toxic: 25, poison: 50
+buildSpeed: 7s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/water.ogg:1
+#isGuiBlinking: if self.isStupid()
+
+#MEDICAL
+
+[action_rags]
+@copyFromSection: template_rags, template_yesuse
+@define resourceName=rags
+pos: 0.4
+addResources: bandageBleedRed: 20, armHealing:7
+buildSpeed: 4s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/rags.ogg:1
+isGuiBlinking: if self.resource.bleeding > 1
+alsoTriggerAction: stopBleed, healScratch
+whenBuilding_cannotMove: false
+
+[action_bandage]
+@copyFromSection: template_bandage, template_yesuse
+@define resourceName=bandage
+pos: 0.41
+addResources: bandageBleedRed: 35, armHealing:10, legHealing:5
+buildSpeed: 4s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/bandage.ogg:1
+isGuiBlinking: if self.resource.bleeding > 1
+alsoTriggerAction: stopBleed, healScratch
+whenBuilding_cannotMove: false
+
+[action_gauze]
+@copyFromSection: template_gauze, template_yesuse
+@define resourceName=gauze
+pos: 0.42
+addResources: healing: 5, toxic: -10, bandageBleedRed: 45, headHealing:5
+buildSpeed: 4.5s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/gauze.ogg:2
+isGuiBlinking: if self.resource.bleeding > 1
+alsoTriggerAction: stopBleed, healScratch
+whenBuilding_cannotMove: false
+
+[action_tweezer]
+@copyFromSection: template_tweezer, template_yesuse
+@define resourceName=tweezer
+pos: 0.43
+buildSpeed: 3s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav
+addResources: tweezer: 1
+alsoTriggerAction: removeAllBullets
+isGuiBlinking: if self.hasResources(lodgedBullet=1)
+
+[action_needle]
+@copyFromSection: template_needle, template_yesuse
+@define resourceName=needle
+pos: 0.44
+buildSpeed: 3s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav
+addResources: needle: 1
+alsoTriggerAction: stitchAllLacerations
+isGuiBlinking: if self.hasResources(laceration=1)
+
+[action_medickit]
+@copyFromSection: template_medickit, template_yesuse
+@define resourceName=medkit
+pos: 0.45
+addResources: healing:30, hp: 10, toxic: -30, radiation: -30, bloodR: 3, bandageBleedRed: 65, torsoHealing:50, armHealing:20, legHealing:20
+buildSpeed: 10s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/medkitGrizzly.ogg:0.7
+isGuiBlinking: if self.hp < 125
+alsoTriggerAction: stopBleed, stopPain, healAllScratchs, removeAllBullets, stitchAllLacerations
+
+[action_radkit]
+@copyFromSection: template_radkits, template_yesuse
+@define resourceName=radkit
+pos: 0.46
+addResources: radiation: -75, toxic: 1, torsoHealing:10
+buildSpeed: 3s
+addActionCooldownTime: 5s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/npckit.wav:1
+isGuiBlinking: if self.hasResources(radiation=50)
+
+[action_ai2medkit]
+@copyFromSection: template_ai2medkit, template_yesuse
+@define resourceName=medkitAi2
+pos: 0.47
+addResources: healing:20, toxic: -20, radiation: -20, headHealing:5, torsoHealing:10, armHealing:10, legHealing:10
+buildSpeed: 4.5s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/medkitAi2.ogg:1
+isGuiBlinking: if self.hp < 125
+alsoTriggerAction: stopPain
+whenBuilding_cannotMove: false
+
+[action_carmedkit]
+@copyFromSection: template_carMedkit, template_yesuse
+@define resourceName=medkitCar
+pos: 0.48
+addResources: healing:20, hp: 40, toxic: -10, bloodR: 5, bandageBleedRed: 55, headHealing:15, torsoHealing:35, armHealing:5
+buildSpeed: 8s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/medkitCar.ogg:1
+isGuiBlinking: if self.hp < 125
+alsoTriggerAction: stopBleed, stopPain, healAllScratchs, stitchAllLacerations
+
+[action_grizzlyMedkit]
+@copyFromSection: template_grizzlyMedkit, template_yesuse
+@define resourceName=medkitGrizzly
+pos: 0.49
+addResources: healing:30, hp: 100, toxic: -75, radiation: -75, bloodR: 100, bandageBleedRed: 100, headHealing:35, torsoHealing:60, armHealing:45, legHealing:45
+buildSpeed: 13s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/medkitGrizzly.ogg:1
+isGuiBlinking: if self.resource.bleeding > 1
+alsoTriggerAction: stopBleed, stopPain, healAllScratchs, removeAllBullets, stitchAllLacerations
+
+[action_ifak]
+@copyFromSection: template_ifak, template_yesuse
+@define resourceName=medkitIfak
+pos: 0.5
+addResources: healing:15, hp: 40, bandageBleedRed: 15, torsoHealing:15, armHealing:15
+buildSpeed: 5s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/medkitIfak.ogg:1
+isGuiBlinking: if self.hp < 125
+alsoTriggerAction: stopBleed, stopPain, healScratch
+whenBuilding_cannotMove: false
+
+[action_antidote]
+@copyFromSection: template_antidote, template_yesuse
+@define resourceName=antidote
+pos: 0.51
+addResources: toxic: -50, bloodR: 3, headHealing:3, legHealing:8
+buildSpeed: 4s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav:1
+isGuiBlinking: if self.resource.toxic > 50
+resourceAmount: poison
+resourceAmount_setValue: 0
+
+[action_bloodBag]
+@copyFromSection: template_bloodBag, template_yesuse
+@define resourceName=bloodBag
+pos: 0.52
+addResources: hp:25, bloodR: 55
+buildSpeed: 12s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/bloodBag.ogg:1
+isGuiBlinking: if self.resource.blood < 55
+
+[action_antibacterialSolution]
+@copyFromSection: template_antibacterialsolution, template_yesuse
+@define resourceName=antisolution
+pos: 0.53
+buildSpeed: 4s
+addResources: bandageBleedRed:15, armHealing:5, legHealing:5
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/npckit.ogg:0.7
+alsoTriggerAction: stopPain
+
+[action_painkillers]
+@copyFromSection: template_painkillers, template_yesuse
+@define resourceName=painkillers
+pos: 0.54
+buildSpeed: 4s
+addResources: headHealing:5
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/painkillers.ogg:1
+isGuiBlinking: if self.hasResources(pain=1)
+alsoTriggerAction: stopPain
+
+[action_antiraddrug]
+@copyFromSection: template_antiraddrug, template_yesuse
+@define resourceName=antiraddrug
+pos: 0.55
+addResources: radProt: 280, headHealing:10
+buildSpeed: 4s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/drug.ogg:0.7
+
+[action_drug]
+@copyFromSection: template_drug, template_yesuse
+@define resourceName=drug
+pos: 0.56
+addResources: toxic: -20, torsoHealing:3
+buildSpeed: 4s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/drug.ogg:0.7
+isGuiBlinking: if self.resource.toxic > 50
+
+
+
+[action_bulletproofplate]
+@copyFromSection: template_bulletproofplate, template_yesuse
+@define resourceName=bulletproofplate
+pos: 0.57
+addResources: shield:300
+buildSpeed: 3s
+addActionCooldownTime: 2s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav:0.7
+
+[action_materialPackage]
+@copyFromSection: template_materialPackage, template_yesuse
+@define resourceName=materialPackage
+pos: 0.591
+buildSpeed: 1.2s
+addActionCooldownTime: 0
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav:1
+spawnUnits="""
+wood(spawnChance= 0.2, offsetRandomX=20, offsetRandomY=20),
+wood(spawnChance= 0.15, offsetRandomX=20, offsetRandomY=20),
+plank(spawnChance= 0.1, offsetRandomX=20, offsetRandomY=20),
+scrap(spawnChance= 0.3, offsetRandomX=20, offsetRandomY=20),
+scrap(spawnChance= 0.2, offsetRandomX=20, offsetRandomY=20),
+scrap(spawnChance= 0.1, offsetRandomX=20, offsetRandomY=20),
+cloth(spawnChance= 0.3, offsetRandomX=20, offsetRandomY=20),
+cloth(spawnChance= 0.2, offsetRandomX=20, offsetRandomY=20),
+cloth(spawnChance= 0.1, offsetRandomX=20, offsetRandomY=20),
+screws(spawnChance= 0.1, offsetRandomX=20, offsetRandomY=20),
+screws(spawnChance= 0.05, offsetRandomX=20, offsetRandomY=20),
+nails(spawnChance= 0.1, offsetRandomX=20, offsetRandomY=20),
+nails(spawnChance= 0.05, offsetRandomX=20, offsetRandomY=20),
+castMetal(spawnChance= 0.1, offsetRandomX=20, offsetRandomY=20),
+castMetal(spawnChance= 0.05, offsetRandomX=20, offsetRandomY=20),
+screwdriver(spawnChance= 0.085, offsetRandomX=20, offsetRandomY=20),
+radio(spawnChance= 0.01, offsetRandomX=20, offsetRandomY=20),
+blowtorch(spawnChance= 0.055, offsetRandomX=20, offsetRandomY=20),
+saw(spawnChance= 0.01, offsetRandomX=20, offsetRandomY=20),
+highTechFabric(spawnChance= 0.001, offsetRandomX=20, offsetRandomY=20),
+leather(spawnChance= 0.01, offsetRandomX=20, offsetRandomY=20)
+"""
+
+[action_placeGenerator]
+@copyFromSection: template_generator, template_yesuse
+@define resourceName=generator
+pos: 0.592
+buildSpeed: 3s
+#guiBuildUnit: generator_placed
+spawnUnits: generator_placed(offsetY=15)
+
+#EQUIPABLES
+
+[action_emrNightVision]
+isVisible:"""
+if self.hasResources(${resourceName}=1) and 
+memory.inventory == true and 
+not self.tags(includes="emrNvOpened") """
+@copyFromSection: template_emrNightVision, template_yesuse
+@define resourceName=emrNightVision
+pos: 0.571
+addResources: ${resourceName}: 1
+buildSpeed: 1.5s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/flash1.ogg:0.6
+playSoundAtUnit: ROOT:/soundFx/interface/nvStart.ogg:0.6
+temporarilyAddTags: emrNvOpened, nv
+
+[action_emrNightVision2]
+isVisible:"""
+if self.hasResources(${resourceName}=1) and 
+memory.inventory == true and 
+self.tags(includes="emrNvOpened") """
+@copyFromSection: action_emrNightVision, template_yesuse
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/flash2.ogg:0.6
+playSoundAtUnit: ROOT:/soundFx/interface/nvOff.ogg:0.6
+temporarilyRemoveTags: emrNvOpened, nv
+temporarilyAddTags: IGNORE
+isGuiBlinking: true
+
+[action_rubyNightVision]
+isVisible:"""
+if self.hasResources(${resourceName}=1) and 
+memory.inventory == true and 
+not self.tags(includes="rubyNvOpened") """
+@copyFromSection: template_rubyNightVision, template_yesuse
+@define resourceName=rubyNightVision
+pos: 0.572
+addResources: ${resourceName}: 1
+buildSpeed: 1.5s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/flash1.ogg:0.6
+playSoundAtUnit: ROOT:/soundFx/interface/nvStart.ogg:0.6
+temporarilyAddTags: rubyNvOpened, nv
+
+[action_rubyNightVision2]
+isVisible:"""
+if self.hasResources(${resourceName}=1) and 
+memory.inventory == true and 
+self.tags(includes="rubyNvOpened") """
+@copyFromSection: action_rubyNightVision, template_yesuse
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/flash2.ogg:0.6
+playSoundAtUnit: ROOT:/soundFx/interface/nvOff.ogg:0.6
+temporarilyRemoveTags: rubyNvOpened, nv
+temporarilyAddTags: IGNORE
+isGuiBlinking: true
+
+[action_spphNightVision]
+isVisible:"""
+if self.hasResources(${resourceName}=1) and 
+memory.inventory == true and 
+not self.tags(includes="spphNvOpened") """
+@copyFromSection: template_spphNightVision, template_yesuse
+@define resourceName=spphNightVision
+pos: 0.573
+addResources: ${resourceName}: 1
+buildSpeed: 2s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/flash1.ogg:0.6
+playSoundAtUnit: ROOT:/soundFx/interface/nvStart.ogg:0.6
+temporarilyAddTags: spphNvOpened, nv
+
+[action_spphNightVision2]
+isVisible:"""
+if self.hasResources(${resourceName}=1) and 
+memory.inventory == true and 
+self.tags(includes="spphNvOpened") """
+@copyFromSection: action_spphNightVision, template_yesuse
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/flash2.ogg:0.6
+playSoundAtUnit: ROOT:/soundFx/interface/nvOff.ogg:0.6
+temporarilyRemoveTags: spphNvOpened, nv
+temporarilyAddTags: IGNORE
+isGuiBlinking: true
+
+[action_headlamp]
+isVisible: if self.hasResources(${resourceName}=1) and memory.inventory == true and self.tags(includes="lightClose")
+@copyFromSection: template_headlamp, template_yesuse
+@define resourceName=headlamp
+pos: 0.58
+addResources: headlamp: 1
+buildSpeed: 1s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav:1
+playSoundAtUnit: ROOT:/soundFx/itemUsage/flash1.ogg:0.6
+temporarilyAddTags: lightOpen
+temporarilyRemoveTags: lightClose
+attachments_addNewUnits: headlampLight
+attachments_onlyOnSlots:1
+
+[action_headlampClose]
+isVisible: if self.hasResources(${resourceName}=1) and memory.inventory == true and self.tags(includes="lightOpen")
+@copyFromSection: template_headlamp, template_yesuse
+@define resourceName=headlamp
+pos: 0.59
+addResources: headlamp: 1
+buildSpeed: 1s
+addActionCooldownTime: 1s
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemuse.wav:1
+playSoundAtUnit: ROOT:/soundFx/itemUsage/flash2.ogg:0.6
+temporarilyAddTags: lightClose
+temporarilyRemoveTags: lightOpen
+attachments_deleteNumUnits: 1
+attachments_onlyOnSlots:1
+
+[attachment_1]
+x:0
+y:0
+isUnselectable: true
+canBeAttackedAndDamaged: false
+#idleDir: 90
+lockRotation: true
+
+############ CLOTHING ###############
+
+[template_clothing]
+whenBuilding_cannotMove: true
+pos: 0.6
+displayType: infoOnly
+buildSpeed: 3s
+iconImage: ROOT:/images/items/${resourceName}.png
+iconExtraImage: ROOT:/images/items/${resourceName}.png
+iconExtraColor: #FFFFFFFF
+convertTo_keepCurrentTags: true
+convertTo_keepCurrentFields: maxHp, armour, moveSpeed, maxEnergy, maxShield
+allowMultipleInQueue: false
+canPlayerCancel: false
+displayRemainingStockpile: true
+temporarilyAddTags: equipedArmor, ${cloFaction}
+convertTo: ${resourceName}_actor
+price: ${resourceName}:1
+isVisible: if self.hasResources(${resourceName}=1) and memory.inventory == true
+isLocked: if self.tags(includes="equipedArmor")
+isLockedMessage: Unequip your clothing first.
+
+[action_leatherJacket]
+@copyFromSection: template_leatherJacket, template_clothing
+@define resourceName:leatherJacket
+@define cloFaction:stalker
+setUnitStats: armour+=8
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/clothing.ogg:0.8
+addResources: bagWeight: 15, headArmor:1, torsoArmor:3, armArmor:2, legArmor:2,${resourceName}:1
+alsoTriggerAction: disguiseAsStalker
+
+[action_banditJacket]
+@copyFromSection: template_banditJacket, template_clothing
+@define resourceName:banditJacket
+@define cloFaction:bandit
+setUnitStats: armour+=10
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/clothing.ogg:0.8
+addResources: bagWeight:15,headArmor:1,torsoArmor:4,armArmor:3,legArmor:3,${resourceName}:1
+alsoTriggerAction: disguiseAsBandit
+
+[action_trenchcoat]
+@copyFromSection: template_trenchcoat, template_clothing
+@define resourceName:trenchcoat
+@define cloFaction:survivor
+setUnitStats: armour+=14
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/clothing.ogg:0.8
+addResources: bagWeight:20,headArmor:2,torsoArmor:4,armArmor:4,legArmor:4,${resourceName}:1
+
+[action_sunriseSuit]
+@copyFromSection: template_sunriseSuit, template_clothing
+@define resourceName:sunriseSuit
+@define cloFaction:stalker
+setUnitStats: armour+=35
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/clothingHeavy.ogg:0.8
+addResources: bagWeight:35,headArmor:5,torsoArmor:15,armArmor:7,legArmor:8,${resourceName}:1
+alsoTriggerAction: disguiseAsStalker
+
+[action_sunsetSuit]
+@copyFromSection: template_sunsetSuit, template_clothing
+@define resourceName:sunsetSuit
+@define cloFaction:bandit
+setUnitStats: armour+=30
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/clothingHeavy.ogg:0.8
+addResources: bagWeight:35,headArmor:5,torsoArmor:15,armArmor:5,legArmor:5,${resourceName}:1
+alsoTriggerAction: disguiseAsBandit
+
+[action_exoskeletom]
+@copyFromSection: template_exoskeleton, template_clothing
+@define resourceName:exoskeleton
+@define cloFaction:none
+setUnitStats: armour+=70
+playSoundToPlayerOnQueue: ROOT:/soundFx/itemUsage/clothingExo.ogg:0.8
+addResources: bagWeight:115,headArmor:20,torsoArmor:30,armArmor:10,legArmor:20,${resourceName}:1
+
+#======== Materials ========
+
+[template_nouse]
+pos: 0.7
+displayType: infoOnly
+allowMultipleInQueue: false
+canPlayerCancel: false
+alwaysSinglePress: true
+buildSpeed: 0s
+displayRemainingStockpile: true
+iconExtraColor: #FFFFFF
+isActive: false
+isVisible: if self.hasResources(${resourceName}=1) and memory.inventory == true
+iconExtraImage: ROOT:/images/items/${resourceName}.png
+iconImage: ROOT:/images/items/${resourceName}.png
+price: ${resourceName}:1
+
+[action_recorder]
+text: ???
+@define resourceName=recorder
+@copyFromSection: template_nouse
+
+[template_craftT]
+playSoundToPlayerOnQueue:ROOT:/soundFx/magazineReload.ogg:0.7
+isVisible: if memory.inventory == true
+iconExtraColor: #FFFFFF
+displayType: infoOnly
+allowMultipleInQueue: false
+canPlayerCancel: true
+alwaysSinglePress: false
+buildSpeed: 6s
+displayRemainingStockpile: true
+pos: 0.59
+
+[action_pmMagEmtpy]
+@copyFromSection: template_craftT
+addResources: pmMag: 1, 9x18: -10
+price: pmMagEmpty: 1
+isLocked: if self.resource(type="9x18") < 9
+isLockedMessage: You do not have required bullets
+text: PM Mag.x
+description: -Empty PM magazine
+isVisible: if self.hasResources(pmMagEmpty=1) and memory.inventory == true
+iconImage: ROOT:images/items/pmMagEmpty.png
+iconExtraImage: ${section.iconImage}
+
+[action_glockMag]
+@define resourceName=PmMag
+@copyFromSection: template_glockMag, template_nouse
+
+[action_mp5Mag]
+@define resourceName=mp5Mag
+@copyFromSection: template_mp5Mag, template_nouse
+
+[action_mp5MagEmpty]
+@copyFromSection: template_craftT
+addResources: mp5Mag: 1, 9x19: -30
+price: mp5MagEmpty: 1
+isLocked: if self.resource(type="9x19") < 29
+isLockedMessage: You do not have required bullets
+text: MP5 Mag.×
+description: -Empty MP5 magazine, you should refill this in crafting panel
+isVisible: if self.hasResources(mp5MagEmpty=1) and memory.inventory == true
+iconImage: ROOT:images/items/mp5MagEmpty.png
+iconExtraImage: ${section.iconImage}
+
+[action_akMag]
+@define resourceName=ak47Mag
+@copyFromSection: template_akMag, template_nouse
+
+[action_akMagEmpty]
+@copyFromSection: template_craftT
+addResources: ak47Mag: 1, 545x39: -30
+price: ak47MagEmpty: 1
+isLocked: if self.resource(type="545x39") < 29
+isLockedMessage: You do not have required bullets
+text: AK47 Mag.×
+description: -Empty AK magazine, you should refill this in crafting panel
+isVisible: if self.hasResources(ak47MagEmpty=1) and memory.inventory == true
+iconImage: ROOT:images/items/ak47MagEmpty.png
+iconExtraImage: ${section.iconImage}
+
+[action_m4Mag]
+@define resourceName=lr300Mag
+@copyFromSection: template_m4Mag, template_nouse
+
+[action_m4MagEmpty]
+@copyFromSection: template_craftT
+addResources: lr300Mag: 1, 556x45: -30
+price: lr300MagEmpty: 1
+isLocked: if self.resource(type="556x45") < 29
+isLockedMessage: You do not have required bullets
+text: LR-300 Mag.×
+description: -Empty LR-300 magazine, you should refill this in crafting panel
+isVisible: if self.hasResources(lr300MagEmpty=1) and memory.inventory == true
+iconImage: ROOT:images/items/lr300MagEmpty.png
+iconExtraImage: ${section.iconImage}
+
+[action_detector]
+pos:2
+isVisible: if self.resource(type='detector', greaterThan=0.1) and self.hasFlag(id=2)
+iconImage: ROOT:/images/items/detector.png
+iconExtraImage: ${section.iconImage}
+text: Detector
+price: detector:1
+addResources: detector:1
+isActive: true
+displayRemainingStockpile: true
+buildSpeed: 2s
+allowMultipleInQueue: false
+canPlayerCancel: false
+isLocked: if not self.globalTeamTags(includes="stalker")
+isLockedMessage: You do not know how to use this
+alsoTriggerAction: detectorOpen
+
+[hiddenAction_detectorOpen]
+temporarilyAddTags: gotDetector
+requireConditional: if not self.tags(includes='gotDetector')
+showMessageToPlayer: Opened the artifact detector
+playSoundAtUnit: ROOT:/soundFx/message.wav:0.5
+
+
+
+[action_arrows]
+@define resourceName=arrow
+@copyFromSection: template_nouse
+
+[action_9x18]
+@define resourceName=9x18
+@copyFromSection: template_9x18, template_nouse
+
+[action_9x19]
+@define resourceName=9x19
+@copyFromSection: template_9x19, template_nouse
+
+[action_12x70]
+@define resourceName=12x70
+@copyFromSection: template_12x70, template_nouse
+
+[action_554x39]
+@define resourceName=545x39
+@copyFromSection: template_545x39, template_nouse
+
+[action_556x45]
+@define resourceName=556x45
+@copyFromSection: template_556x45, template_nouse
+
+[action_762x54]
+@define resourceName=762x54
+@copyFromSection: template_762x54, template_nouse
+
+[action_wood]
+@define resourceName=wood
+@copyFromSection: template_nouse, template_wood
+
+[action_plank]
+@define resourceName=plank
+@copyFromSection: template_plank, template_nouse
+
+[action_ductTape]
+@define resourceName=ductTape
+@copyFromSection: template_ductTape, template_nouse
+
+[action_clothh]
+@define resourceName=cloth
+@copyFromSection: template_cloth, template_nouse
+
+[action_plastic]
+@define resourceName=plastic
+@copyFromSection: template_plastic, template_nouse
+
+
+[action_scrap]
+@define resourceName=scrap
+@copyFromSection: template_scrap, template_nouse
+
+[action_metalSheet]
+@define resourceName=metalSheet
+@copyFromSection: template_metalSheet, template_nouse
+
+[action_gunParts]
+@define resourceName=gunParts
+@copyFromSection: template_gunParts, template_nouse
+
+[action_tentacle]
+@define resourceName=tentacle
+@copyFromSection: template_tentacle, template_nouse
+
+[action_burerHeart]
+@define resourceName=heart
+@copyFromSection: template_heart, template_nouse
+
+[action_leather]
+@define resourceName=leather
+@copyFromSection: template_leather, template_nouse
+
+[action_carapace]
+@define resourceName=carapace
+@copyFromSection: template_carapace, template_nouse
+
+[action_engine]
+@define resourceName=carBattery
+@copyFromSection: template_engine, template_nouse
+
+[action_screws]
+@define resourceName=screws
+@copyFromSection: template_screws, template_nouse
+
+[action_nails]
+@define resourceName=nails
+@copyFromSection: template_nails, template_nouse
+
+[action_blowtorch]
+@define resourceName=blowtorch
+@copyFromSection: template_blowtorch, template_nouse
+
+[action_saw]
+@define resourceName=saw
+@copyFromSection: template_saw, template_nouse
+
+[action_oldTech]
+@define resourceName=oldTech
+@copyFromSection: template_oldTech, template_nouse
+
+[action_fuelCanister]
+@define resourceName=fuelCanister
+@copyFromSection: template_fuelCanister, template_nouse
+
+[action_oldBalaclava]
+@define resourceName=oldBalaclava
+@copyFromSection: template_oldBalaclava, template_nouse
+
+[action_oldSportJacket]
+@define resourceName=oldSportJacket
+@copyFromSection: template_oldSportJacket, template_nouse
+
+[action_dirtyJacket]
+@define resourceName=dirtyLeatherJacket
+@copyFromSection: template_dirtyLeatherJacket, template_nouse
+
+[action_dirtyShirt]
+@define resourceName=dirtyShirt
+@copyFromSection: template_dirtyShirt, template_nouse
+
+[action_dirtyPants]
+@define resourceName=dirtyPants
+@copyFromSection: template_dirtyPants, template_nouse
+
+[action_oldVest]
+@define resourceName=oldVest
+@copyFromSection: template_oldVest, template_nouse
+
+[action_usedGasmask]
+@define resourceName=usedGasmask
+@copyFromSection: template_usedGasmask, template_nouse
+
+[action_shabbyBanditOutfit]
+@define resourceName=shabbyBanditOutfit
+@copyFromSection: template_shabbyBanditOutfit, template_nouse
+
+[action_shabbySweater]
+@define resourceName=shabbySweater
+@copyFromSection: template_shabbySweater, template_nouse
+
+[action_highTechFabric]
+@define resourceName=highTechFabric
+@copyFromSection: template_highTechFabric, template_nouse
+
+[action_screwdriver]
+@define resourceName=screwdriver
+@copyFromSection: template_screwdriver, template_nouse
+
+[action_hammer]
+@define resourceName=hammer
+@copyFromSection: template_hammer, template_nouse
+
+[action_castMetal]
+@define resourceName=castMetal
+@copyFromSection: template_castMetal, template_nouse
+
+[action_brokenGlock]
+@define resourceName=brokenPm
+@copyFromSection: template_brokenGlock, template_nouse
+
+[action_brokenMp5]
+@define resourceName=brokenMp5
+@copyFromSection: template_brokenMp5, template_nouse
+
+[action_brokenAk47]
+@define resourceName=brokenAk47
+@copyFromSection: template_brokenAk47, template_nouse
+
+[action_brokenM4]
+@define resourceName=brokenLr300
+@copyFromSection: template_brokenM4, template_nouse
+
+[action_brokenToz34]
+@define resourceName=brokenToz34
+@copyFromSection: template_brokenToz34, template_nouse
+
+[action_brokenSvt40]
+@define resourceName=brokenSvt40
+@copyFromSection: template_brokenSvt40, template_nouse
+
+[action_guitar]
+@define resourceName=guitar
+@copyFromSection: template_guitar, template_nouse
+
+[action_sewingCloth]
+@define resourceName=sewingCloth
+@copyFromSection: template_sewingCloth, template_nouse
+
+[action_picture]
+@define resourceName=picture
+@copyFromSection: template_picture, template_nouse
+
+[action_note]
+@define resourceName=note
+@copyFromSection: template_note, template_nouse
+
+[action_syringe]
+@define resourceName=syringe
+@copyFromSection: template_syringe, template_nouse
+
+[action_wheat]
+@define resourceName=wheat
+@copyFromSection: template_wheat, template_nouse
+
+[action_rawMeat]
+@define resourceName=rawMeat
+@copyFromSection: template_rawMeat, template_nouse
+
+[action_book]
+@define resourceName=book
+@copyFromSection: template_book, template_nouse
+
+[action_radio]
+@define resourceName=radio
+@copyFromSection: template_radio, template_nouse
+
+[action_pumpJackParts]
+@define resourceName=pumpJackParts
+@copyFromSection: template_pumpJackParts, template_nouse
+
+[action_turretParts]
+@define resourceName=turretParts
+@copyFromSection: template_turretParts, template_nouse
+
+[action_money]
+@define resourceName=money
+@copyFromSection: template_money, template_nouse
+
+[action_itemKeyArmyPrep]
+@define resourceName=keyArmyPrep
+@copyFromSection: template_keyArmyPrep, template_nouse
+
+[action_itemKeyPoliceStation]
+@define resourceName=keyPoliceStation
+@copyFromSection: template_keyPoliceStation, template_nouse
+
+[action_itemKeyFossolGas]
+@define resourceName=keyFossolGas
+@copyFromSection: template_keyFossolGas, template_nouse
+
+[action_itemKeyExormor]
+@define resourceName=keyExormor
+@copyFromSection: template_keyExormor, template_nouse
+
+
+[action_itemKeyX1]
+@define resourceName=keyX1
+@copyFromSection: template_keyX1, template_nouse
+
+[action_itemKeyX2]
+@define resourceName=keyX2
+@copyFromSection: template_keyX2, template_nouse
+
+[action_itemKeyX3]
+@define resourceName=keyX3
+@copyFromSection: template_keyX3, template_nouse
+
+
+########### LOGIC ###########
+
+[hiddenAction_stopPain]
+resourceAmount: pain
+resourceAmount_setValue: 0
+
+[hiddenAction_stopBleed]
+resourceAmount: bleeding
+resourceAmount_setValue: 0
+
+[hiddenAction_healScratch]
+addResources: scratch:-1
+
+[hiddenAction_removeBullet]
+addResources: lodgedBullet:-1, laceration: 1
+
+[hiddenAction_stitchLaceration]
+addResources: laceration:-1, scratch: 1
+
+[hiddenAction_healAllScratchs]
+resourceAmount: scratch
+resourceAmount_setValue: 0
+
+[hiddenAction_removeAllBullets]
+resourceAmount: lodgedBullet
+resourceAmount_setValue: 0
+
+[hiddenAction_stitchAllLacerations]
+resourceAmount: laceration
+resourceAmount_setValue: 0
+
+[hiddenAction_stopPoison]
+resourceAmount: poison
+resourceAmount_setValue: 0
+
+[hiddenAction_bandageBleedRed]
+resourceAmount: bleeding
+resourceAmount_setValue: 0
+autoTrigger: if self.hasResources(bandageBleedRed=1)
+addResources: bandageBleedRed:-0.15
+
+[hiddenAction_removeBandageBleedRed]
+resourceAmount: bandageBleedRed
+resourceAmount_setValue: 0
+autoTriggerOnEvent: tookDamage
+requireConditional: if self.hasResources(bandageBleedRed=1)
+
+
+
+
+[hiddenAction_disguiseAsStalker]
+alsoTriggerAction: disguiseAsStalkerSuccess, disguiseAsStalkerFailure
+
+[hiddenAction_disguiseAsBandit]
+alsoTriggerAction: disguiseAsBanditSuccess, disguiseAsBanditFailure
+
+[template_disguiseSuccess]
+requireConditional:"""
+if self.numberOfUnitsInAllTeams(withTag="npc", withinRange=450) <= 0 
+or self.numberOfUnitsInNeutralTeam(withTag="npc", withinRange=450) <= 0 """
+[template_disguiseFailure]
+requireConditional:"""
+if self.numberOfUnitsInAllTeams(withTag="npc", withinRange=450) >= 1 
+or self.numberOfUnitsInNeutralTeam(withTag="npc", withinRange=450) >= 1 """
+
+
+[hiddenAction_disguiseAsStalkerSuccess]
+@copyFromSection: template_disguiseSuccess
+temporarilyAddTags: stalker
+showMessageToPlayer:You are disguised as Stalker.
+
+[hiddenAction_disguiseAsStalkerFailure]
+@copyFromSection: template_disguiseFailure
+showMessageToPlayer:You've seen changing your outfit. Everyone remembers you.
+
+
+[hiddenAction_disguiseAsBanditSuccess]
+@copyFromSection: template_disguiseSuccess
+temporarilyAddTags: bandit
+showMessageToPlayer:You are disguised as Bandit.
+
+[hiddenAction_disguiseAsBanditFailure]
+@copyFromSection: template_disguiseFailure
+showMessageToPlayer:You've seen changing your outfit. Everyone remembers you.
+

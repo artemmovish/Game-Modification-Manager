@@ -1,0 +1,419 @@
+
+#### Buildings
+
+
+[template_building]
+isVisible: if memory.crafting == true
+pos:3
+isLockedAltMessage: You do not know how to build this
+
+[canBuild_essential]
+@copyFromSection: template_building
+name: campfire, workbench, advancedWorkbench, repairStation, woodenChest
+pos: 3
+
+[canBuild_basic]
+@copyFromSection: template_building
+name: tower, wallBasic, floor
+pos: 3.1
+isLockedAlt:if self.globalTeamTags(includes="cantBuildBasic")
+
+[canBuild_intermediate]
+@copyFromSection: template_building
+name: woodenTower, wall
+pos: 3.2
+isLockedAlt:if self.globalTeamTags(includes="cantBuildIntermediate")
+
+[canBuild_advanced]
+@copyFromSection: template_building
+name: metalTower, metalWall
+pos: 3.3
+isLockedAlt:if self.globalTeamTags(includes="cantBuildAdvanced")
+
+[canBuild_nailTurret]
+@copyFromSection: template_building
+name: pumpJack, turretDetector, turretAttacker
+pos: 3.4
+isLockedAlt:if self.globalTeamTags(includes="cantBuildAdvanced")
+
+
+#### Craftings
+
+[template_crafting]
+isVisible: if memory.crafting == true and self.resource.crafting >= ${requiredLevel}
+displayType: infoOnly
+iconImage: ROOT:/images/items/${image}.png
+iconExtraImage: ROOT:/images/items/${image}.png
+iconExtraColor: #FFFFFF
+allowMultipleInQueue: true
+canPlayerCancel: true
+alwaysSinglePress: false
+buildSpeed: ${delay}
+playSoundToPlayerOnQueue:"""
+ROOT:/soundFx/crafting/${craftingSound}1.ogg:0.9,
+ROOT:/soundFx/crafting/${craftingSound}2.ogg:0.9,
+ROOT:/soundFx/crafting/${craftingSound}3.ogg:0.9
+"""
+price: ${intredigents}
+addResources: ${result}, craftingXp:${xp}
+isLocked: if self.resource.crafting <= ${requiredLevel}
+isLockedMessage: Crafting skill level required: ${requiredLevel}
+
+[template_craftingViaTable]
+@copyFromSection: template_crafting
+isVisible: if memory.crafting == true and self.numberOfUnitsInAllTeams(withTag="${requiredTable}", withinRange=100) == 1
+
+
+[comment_templateForNonTableCraftings]
+@copyFromSection: template_crafting
+pos: 2
+#Position that will be displayed from 2 to 3
+@define image:rags
+#Image file that will be selected
+@define requiredLevel: 0
+#Required crafting level
+@define intredigents
+#Resources that will be taken
+@define result:
+#Resources that will be given
+@define xp:
+#Xp that will be given
+@define delay:
+#Crafting speed
+@define craftingSound:cloth
+#Crafting sound (cloth, metal)
+
+
+[comment_craft]
+@copyFromSection: template_, template_crafting
+pos: 2
+@define image:
+@define requiredLevel:
+@define intredigents:
+@define result:
+@define xp:
+@define delay:
+@define craftingSound:cloth
+
+[comment_craftTB]
+@copyFromSection: template_, template_craftingViaTable
+pos: 2
+@define image:
+@define requiredLevel:
+@define requiredTable:
+@define intredigents:
+@define result:
+@define xp:
+@define delay:
+@define craftingSound:cloth
+
+
+
+#nonTable
+
+[action_craftRags]
+@copyFromSection: template_crafting, template_craftBandage
+pos: 2
+@define image:rags
+@define requiredLevel:0
+@define intredigents: cloth:2
+@define result:rags:1
+@define xp:0.25
+@define delay:2.5s
+@define craftingSound:cloth
+
+#viaTable
+
+[action_craftTBbat]
+@copyFromSection: template_craftBat, template_craftingViaTable
+pos: 2.1
+@define image:bat
+@define requiredLevel:1
+@define requiredTable:workbench
+@define intredigents:plank:2, ductTape:1
+@define result:bat:1
+@define xp:1.5
+@define delay:6s
+@define craftingSound:cloth
+
+[action_craftTBaxe]
+@copyFromSection: template_craftAxe, template_craftingViaTable
+pos: 2.11
+@define image:axe
+@define requiredLevel:1
+@define requiredTable:workbench
+@define intredigents:plank:2, scrap:5, ductTape:3
+@define result:axe:1
+@define xp:2.5
+@define delay:15s
+@define craftingSound:metal
+
+[action_craftTBHammer]
+@copyFromSection: template_craftHammer, template_craftingViaTable
+pos: 2.12
+@define image:hammer
+@define requiredLevel:1
+@define requiredTable:workbench
+@define intredigents:plank:2, castMetal:1, ductTape:2, nails:1
+@define result:hammer:1
+@define xp:2.5
+@define delay:8s
+@define craftingSound:cloth
+
+[action_craftTBBow]
+@copyFromSection: template_craftBow, template_craftingViaTable
+pos: 2.13
+@define image:bow
+@define requiredLevel:1
+@define requiredTable:workbench
+@define intredigents:plank:3, cloth:2, ductTape:2
+@define result:bow:1
+@define xp:2
+@define delay:10s
+@define craftingSound:cloth
+
+[action_craftTBArrows]
+@copyFromSection: template_craftArrow, template_craftingViaTable
+pos: 2.14
+@define image:arrow
+@define requiredLevel:1
+@define requiredTable:workbench
+@define intredigents:plank:1, scrap:1, ductTape:1
+@define result:arrow:5
+@define xp:0.35
+@define delay:3.5s
+@define craftingSound:cloth
+
+[action_craftTBplank]
+@copyFromSection: template_sawPlank, template_craftingViaTable
+pos: 2.15
+@define image:plank
+@define requiredLevel:0
+@define requiredTable:workbench
+@define intredigents:wood:1
+@define result:plank:4
+@define xp:0.5
+@define delay:3s
+@define craftingSound:metal
+
+[action_craftTBnails]
+@copyFromSection: template_craftNails, template_craftingViaTable
+pos: 2.16
+@define image:nails
+@define requiredLevel:1
+@define requiredTable:advancedWorkbench
+@define intredigents:scrap:2
+@define result:nails:1
+@define xp:0.1
+@define delay:8s
+@define craftingSound:metal
+
+[action_craftTBsewingCloth]
+@copyFromSection: template_craftSewingCloth, template_craftingViaTable
+pos: 2.17
+@define image:sewingCloth
+@define requiredLevel:2
+@define requiredTable:advancedWorkbench
+@define intredigents:cloth:3, leather:1
+@define result:sewingCloth:1
+@define xp:1
+@define delay:7s
+@define craftingSound:cloth
+
+[action_craftTBmetalSheet]
+@copyFromSection: template_makeMetalSheet, template_craftingViaTable
+pos: 2.18
+@define image:metalSheet
+@define requiredLevel:3
+@define requiredTable:advancedWorkbench
+@define intredigents:castMetal:2
+@define result:metalSheet:1
+@define xp:2
+@define delay:10s
+@define craftingSound:metal
+
+
+[action_craftTBcookMeat]
+@copyFromSection: template_cookMeat, template_craftingViaTable
+pos: 2.2
+@define image:meat
+@define requiredLevel:0
+@define requiredTable:campfire
+@define intredigents:rawMeat:1, wood:1
+@define result:meat:1
+@define xp:0.5
+@define delay:8s
+@define craftingSound:cloth
+
+[action_craftTBcleanWater]
+@copyFromSection: template_cleanWater, template_craftingViaTable
+pos: 2.21
+@define image:water
+@define requiredLevel:0
+@define requiredTable:campfire
+@define intredigents:taintedWater:1, drug:1, wood:1
+@define result:water:1
+@define xp:0.7
+@define delay:10s
+@define craftingSound:cloth
+
+
+
+[action_craftTBantidote]
+@copyFromSection: template_craftAntidote, template_craftingViaTable
+pos: 2.3
+@define image:antidote
+@define requiredLevel:2
+@define requiredTable:advancedWorkbench
+@define intredigents:plastic:2, water:1, drug:1
+@define result:antidote:1
+@define xp:2
+@define delay:7s
+@define craftingSound:cloth
+
+[action_craftTBradkit]
+@copyFromSection: template_craftRadkit, template_craftingViaTable
+pos: 2.31
+@define image:radkit
+@define requiredLevel:2
+@define requiredTable:advancedWorkbench
+@define intredigents:plastic:2, syringe:2, drug:2, water:1
+@define result:radkit:1
+@define xp:4
+@define delay:8s
+@define craftingSound:cloth
+
+[action_craftTBai2med]
+@copyFromSection: template_craftAI2MEDKIT, template_craftingViaTable
+pos: 2.32
+@define image:medkitAi2
+@define requiredLevel:3
+@define requiredTable:advancedWorkbench
+@define intredigents:plastic:6, syringe:3, drug:1, antidote:1
+@define result:medkitAi2:1
+@define xp:4
+@define delay:10s
+@define craftingSound:cloth
+
+[action_craftTBIfak]
+@copyFromSection: template_craftifakMedkit, template_craftingViaTable
+pos: 2.33
+@define image:medkitIfak
+@define requiredLevel:5
+@define requiredTable:advancedWorkbench
+@define intredigents:sewingCloth:2,syringe:1, antisolution:1, antidote:1, gauze:1
+@define result:medkitIfak:1
+@define xp:5.5
+@define delay:13s
+@define craftingSound:cloth
+
+[action_craftTBmedkit]
+@copyFromSection: template_craftMedkit, template_craftingViaTable
+pos: 2.34
+@define image:medkit
+@define requiredLevel:5
+@define requiredTable:advancedWorkbench
+@define intredigents:plastic:6, radkit:1, syringe:2, antidote:2, gauze:3
+@define result:medkit:1
+@define xp:6
+@define delay:18s
+@define craftingSound:cloth
+
+[action_craftTBgrizzly]
+@copyFromSection: template_makeGrizzlyMedkit, template_craftingViaTable
+pos: 2.35
+@define image:medkitGrizzly
+@define requiredLevel:7
+@define requiredTable:advancedWorkbench
+@define intredigents:sewingCloth:5, bloodBag:1, syringe:3, gauze:3, antidote:2
+@define result:medkitGrizzly:1
+@define xp:15
+@define delay:25s
+@define craftingSound:cloth
+
+
+
+[action_craftTBleatherJacket]
+@copyFromSection: template_craftLeatherJacket, template_craftingViaTable
+pos: 2.4
+@define image:leatherJacket
+@define requiredLevel:2
+@define requiredTable:advancedWorkbench
+@define intredigents:cloth:10, leather:5, needle:1
+@define result:leatherJacket:1
+@define xp:4
+@define delay:15s
+@define craftingSound:cloth
+
+
+[action_craftTBpm]
+@copyFromSection: template_repairpm, template_craftingViaTable
+pos: 2.5
+@define image:pm
+@define requiredLevel:2
+@define requiredTable:repairStation
+@define intredigents:brokenPm:1, gunParts:5, screws:5, ductTape:2
+@define result:pm:1
+@define xp:6
+@define delay:10s
+@define craftingSound:metal
+
+[action_craftTBtos34]
+@copyFromSection: template_repairtoz34, template_craftingViaTable
+pos: 2.51
+@define image:toz34
+@define requiredLevel:3
+@define requiredTable:repairStation
+@define intredigents:brokenToz34:1, gunParts:7, plank:4, ductTape:3
+@define result:toz34:1
+@define xp:10
+@define delay:15s
+@define craftingSound:metal
+
+[action_craftTBSvt40]
+@copyFromSection: template_repairsvt40, template_craftingViaTable
+pos: 2.52
+@define image:svt40
+@define requiredLevel:4
+@define requiredTable:repairStation
+@define intredigents:brokenSvt40:1,gunParts:10, plank:5, screws:5, ductTape:2
+@define result:svt40:1
+@define xp:15
+@define delay:20s
+@define craftingSound:metal
+
+[action_craftTBmp5]
+@copyFromSection: template_repairmp5, template_craftingViaTable
+pos: 2.53
+@define image:mp5
+@define requiredLevel:4
+@define requiredTable:repairStation
+@define intredigents:brokenMp5:1, gunParts:10, castMetal:1, screws:4, ductTape:2
+@define result:mp5:1
+@define xp:25
+@define delay:20s
+@define craftingSound:metal
+
+[action_craftTBak47]
+@copyFromSection: template_repairak47, template_craftingViaTable
+pos: 2.54
+@define image:ak47
+@define requiredLevel:6
+@define requiredTable:repairStation
+@define intredigents:brokenAk47:1, gunParts:15, castMetal:2, screws:5, ductTape:2
+@define result:ak47:1
+@define xp:45
+@define delay:30s
+@define craftingSound:metal
+
+[action_craftTBlr300]
+@copyFromSection: template_repairlr300, template_craftingViaTable
+pos: 2.55
+@define image:lr300
+@define requiredLevel:8
+@define requiredTable:repairStation
+@define intredigents:brokenLr300:1, gunParts:20, castMetal:3, screws:5, ductTape:2
+@define result:lr300:1
+@define xp:65
+@define delay:40s
+@define craftingSound:metal

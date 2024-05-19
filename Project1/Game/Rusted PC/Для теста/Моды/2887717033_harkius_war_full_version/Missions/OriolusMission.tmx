@@ -1,0 +1,3396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="180" height="160" tilewidth="20" tileheight="20" infinite="0" nextlayerid="10" nextobjectid="2259">
+ <tileset firstgid="1" name="Mountain" tilewidth="20" tileheight="20" tilecount="7" columns="7">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/mountain.png" trans="008a76" width="140" height="100"/>
+  <tile id="7">
+   <properties>
+    <property name="small-rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="small-rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="small-rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="large-rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="large-rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="large-rock" value=""/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="large-rock" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="31" name="Snow" tilewidth="20" tileheight="20" tilecount="4" columns="8">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/snow.png" trans="008a76" width="160" height="200"/>
+  <tile id="14">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="55">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+  <tile id="79">
+   <properties>
+    <property name="tree" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="111" name="Ice" tilewidth="20" tileheight="20" tilecount="1" columns="5">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/ice.png" trans="008a76" width="100" height="40"/>
+  <tile id="9">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="121" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/Long Grass.tsx"/>
+ <tileset firstgid="121" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/Dirt.tsx"/>
+ <tileset firstgid="121" name="Shallow Water" tilewidth="20" tileheight="20" tilecount="1" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/shallowwater.png" trans="008a76" width="60" height="40"/>
+  <tile id="0">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="122" name="Deep Water" tilewidth="20" tileheight="20" tilecount="1" columns="1">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/deepwater.png" trans="008a76" width="20" height="20"/>
+  <tile id="0">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="123" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain Mountain - Hill.tsx"/>
+ <tileset firstgid="123" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain Snow - Flat.tsx"/>
+ <tileset firstgid="123" name="Ice ShallowWater - Ridge" tilewidth="20" tileheight="20" tilecount="12" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/ice2shallowwater_ridge.png" trans="008a76" width="60" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="144" name="ShallowWater Water - Flat" tilewidth="20" tileheight="20" tilecount="12" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/shallowwater2water_flat.png" trans="008a76" width="60" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="165" name="LongGrass ShallowWater - Ridge" tilewidth="20" tileheight="20" tilecount="30" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/longgrass2shallowwater_ridge.png" trans="008a76" width="60" height="200"/>
+  <tile id="0">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="195" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/LongGrass Dirt - Flat.tsx"/>
+ <tileset firstgid="195" name="misc" tilewidth="20" tileheight="20" tilecount="7" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/bitmaps/misc.png" width="79" height="120"/>
+  <tile id="4">
+   <properties>
+    <property name="res_pool" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="team" value="none"/>
+    <property name="unit" value="tree"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="team" value="none"/>
+    <property name="type" value="1.0"/>
+    <property name="unit" value="tree"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="team" value="none"/>
+    <property name="type" value="1.1"/>
+    <property name="unit" value="tree"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="team" value="none"/>
+    <property name="type" value="1.2"/>
+    <property name="unit" value="tree"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="team" value="none"/>
+    <property name="type" value="1.3"/>
+    <property name="unit" value="tree"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="team" value="none"/>
+    <property name="type" value="1.4"/>
+    <property name="unit" value="tree"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="210" name="Ice Ice - Flat" tilewidth="20" tileheight="20" tilecount="12" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/ice2ice_flat.png" trans="008a76" width="60" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="231" name="Ice ShallowWater - Broken" tilewidth="20" tileheight="20" tilecount="12" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/ice2shallowwater_broken.png" trans="008a76" width="60" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="252" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Dirt ShalowWater - Ridge.tsx"/>
+ <tileset firstgid="252" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain ShallowWater - Ridge.tsx"/>
+ <tileset firstgid="252" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Sand ShallowWater - Ridge.tsx"/>
+ <tileset firstgid="252" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/units.tsx"/>
+ <tileset firstgid="252" name="LongGrass ShallowWater - Flat" tilewidth="20" tileheight="20" tilecount="18" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/longgrass2shallowwater_flat.png" trans="008a76" width="60" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="cliff-soft" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="273" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain LongGrass - Flat.tsx"/>
+ <tileset firstgid="273" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain Sand - Flat.tsx"/>
+ <tileset firstgid="273" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/Sand.tsx"/>
+ <tileset firstgid="273" source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/Mountain ShallowWater - Flat.tsx"/>
+ <tileset firstgid="273" name="Mountain Mountain - Ridge" tilewidth="20" tileheight="20" tilecount="15" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2mountain_ridge.png" trans="008a76" width="60" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="288" name="LongGrass LongGrass - Ridge" tilewidth="20" tileheight="20" tilecount="30" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/longgrass2longgrass_ridge.png" trans="008a76" width="60" height="200"/>
+  <tile id="0">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="318" name="Space" tilewidth="20" tileheight="20" tilecount="31" columns="9">
+  <properties>
+   <property name="embedded_png" value="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')"/>
+  </properties>
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/units/AstroWar/Space.png" width="180" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="379" name="mountain2lava_flat" tilewidth="20" tileheight="20" tilecount="21" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2lava_flat.png" width="60" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="400" name="mountain2stone_ridge" tilewidth="20" tileheight="20" tilecount="12" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2stone_ridge.png" width="60" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="415" name="mountain2stone_flat" tilewidth="20" tileheight="20" tilecount="0" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/mountain2stone_flat.png" width="60" height="140"/>
+ </tileset>
+ <tileset firstgid="415" name="stone" tilewidth="20" tileheight="20" tilecount="0" columns="6">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/terrain/bitmaps/stone.png" width="120" height="120"/>
+ </tileset>
+ <tileset firstgid="415" name="stone2stone_ridge" tilewidth="20" tileheight="20" tilecount="12" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/stone2stone_ridge.png" width="60" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="large-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="430" name="stone2lava_ridge" tilewidth="20" tileheight="20" tilecount="14" columns="3">
+  <image source="../../../../Program Files (x86)/Steam/steamapps/common/Rusted Warfare/mods/maps/ridges/bitmaps/stone2lava_ridge.png" width="60" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="lava-cliff" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="Ground" width="180" height="160">
+  <data encoding="base64" compression="gzip">
+   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
+  </data>
+ </layer>
+ <layer id="2" name="Items" width="180" height="160">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3dywrCQAwF0P7/b9W+f8qAa6mV6ujtOXD3gYRhyCZdBwAAAAAAcA195VYZWhcCJxgrU2VuXQicYKmsla11IQA/yB+WJP6wJPGHBQAAANhnx00SO26S2HEDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAhr5yqwytC4EDns3tWJkq89crgn1H53aprJXt86XBYeaWJOYWAAB4lX06SezTSWK/AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALncj8qgjw9p96Ou2te0Pr4r7X7UVfua1sd/dfZ7qq+0dNX3lEzeUwAAAAAAAAAAAAAAAAAAAADIdgeeknE/AMIBAA==
+  </data>
+ </layer>
+ <objectgroup id="4" name="Triggers">
+  <object id="1543" name="map_info" x="45.2998" y="41.1665" width="200" height="200">
+   <properties>
+    <property name="fog" value="map"/>
+    <property name="introText">In our endless wandering, we have detected lost
+equipment of Oriolus origin.
+Our kin must purge the den of Vice Jaws and 
+recover our sacred crafts, before they are 
+damaged.
+
+Mission objectives:
+-Recover the Oriolus vehicles.
+-Exterminate the Krovnorks.</property>
+    <property name="type" value="mission"/>
+    <property name="winCondition" value="mainBuilings"/>
+   </properties>
+  </object>
+  <object id="1544" name="team_1_info" type="team_info" x="598.552" y="38.8335" width="173" height="154">
+   <properties>
+    <property name="allyGroup" value="1"/>
+    <property name="credits" value="0"/>
+    <property name="team" value="1"/>
+   </properties>
+  </object>
+  <object id="1545" name="team_0_info" type="team_info" x="389.552" y="40.8335" width="173" height="154">
+   <properties>
+    <property name="allyGroup" value="0"/>
+    <property name="credits" value="2000"/>
+    <property name="team" value="0"/>
+   </properties>
+  </object>
+  <object id="1546" name="team_2_info" type="team_info" x="824.367" y="39.0005" width="173" height="154">
+   <properties>
+    <property name="allyGroup" value="1"/>
+    <property name="credits" value="0"/>
+    <property name="team" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="UnitObjects">
+  <object id="1927" name="Ori_Scout (t:0)" x="480" y="880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Scout"/>
+   </properties>
+  </object>
+  <object id="1928" name="Ori_Scout (t:0)" x="560" y="940" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Scout"/>
+   </properties>
+  </object>
+  <object id="1929" name="Ori_Scout (t:0)" x="480" y="1120" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Scout"/>
+   </properties>
+  </object>
+  <object id="1930" name="Ori_Scout (t:0)" x="640" y="1000" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Scout"/>
+   </properties>
+  </object>
+  <object id="1931" name="Ori_Scout (t:0)" x="560" y="1060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Scout"/>
+   </properties>
+  </object>
+  <object id="1932" name="Ori_Pollaxe_Land (t:0)" x="380" y="880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Pollaxe_Land"/>
+   </properties>
+  </object>
+  <object id="1933" name="Ori_Pollaxe_Land (t:0)" x="300" y="880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Pollaxe_Land"/>
+   </properties>
+  </object>
+  <object id="1934" name="Ori_Pollaxe_Land (t:0)" x="380" y="1120" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Pollaxe_Land"/>
+   </properties>
+  </object>
+  <object id="1935" name="Ori_Pollaxe_Land (t:0)" x="300" y="1120" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Pollaxe_Land"/>
+   </properties>
+  </object>
+  <object id="1936" name="Ori_Staff_Land (t:0)" x="380" y="1000" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Staff_Land"/>
+   </properties>
+  </object>
+  <object id="1937" name="Ori_Smith (t:0)" x="380" y="1060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Smith"/>
+   </properties>
+  </object>
+  <object id="1938" name="Ori_Smith (t:0)" x="380" y="940" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Smith"/>
+   </properties>
+  </object>
+  <object id="1939" name="Ori_Smith (t:0)" x="300" y="940" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Smith"/>
+   </properties>
+  </object>
+  <object id="1940" name="Ori_Smith (t:0)" x="300" y="1060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Smith"/>
+   </properties>
+  </object>
+  <object id="1941" name="Ori_Mobile (t:0)" x="295" y="995" width="30" height="30" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Mobile"/>
+   </properties>
+  </object>
+  <object id="1942" name="Ori_Thunderbolt (t:-1)" x="3039" y="279" width="25" height="25" rotation="90">
+   <properties>
+    <property name="team" value="-1"/>
+    <property name="unit" value="Ori_Thunderbolt"/>
+   </properties>
+  </object>
+  <object id="1943" name="Ori_Tank (t:-1)" x="2635" y="1795" width="30" height="30" rotation="90">
+   <properties>
+    <property name="team" value="-1"/>
+    <property name="unit" value="Ori_Tank"/>
+   </properties>
+  </object>
+  <object id="1944" name="Ori_MegaPod (t:-1)" x="3355" y="3075" width="30" height="30" rotation="90">
+   <properties>
+    <property name="team" value="-1"/>
+    <property name="unit" value="Ori_MegaPod"/>
+   </properties>
+  </object>
+  <object id="1945" name="Ori_Monastery (t:0)" x="460" y="980" width="60" height="60" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Monastery"/>
+   </properties>
+  </object>
+  <object id="1946" name="Ori_Drone (t:0)" x="560" y="1120" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1947" name="Ori_Drone (t:0)" x="640" y="1120" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1948" name="Ori_Drone (t:0)" x="640" y="1060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1949" name="Ori_Drone (t:0)" x="640" y="940" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1950" name="Ori_Drone (t:0)" x="560" y="880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1951" name="Ori_Drone (t:0)" x="640" y="880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1952" name="Ori_Drone (t:0)" x="720" y="940" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1953" name="Ori_Drone (t:0)" x="720" y="1000" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1954" name="Ori_Drone (t:0)" x="720" y="1060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1955" name="Ori_Drone (t:0)" x="780" y="1000" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_Drone"/>
+   </properties>
+  </object>
+  <object id="1956" name="SKE (t:1)" x="560" y="2740" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="SKE"/>
+   </properties>
+  </object>
+  <object id="1957" name="Krovnork Veteran Artillary (t:1)" x="560" y="2800" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Artillary"/>
+   </properties>
+  </object>
+  <object id="1958" name="Krovnork Veteran Artillary (t:1)" x="560" y="2680" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Artillary"/>
+   </properties>
+  </object>
+  <object id="1959" name="Krovnork Veteran Elite (t:1)" x="500" y="2800" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Elite"/>
+   </properties>
+  </object>
+  <object id="1960" name="Krovnork Veteran Elite (t:1)" x="500" y="2740" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Elite"/>
+   </properties>
+  </object>
+  <object id="1961" name="Krovnork Veteran Elite (t:1)" x="500" y="2680" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Elite"/>
+   </properties>
+  </object>
+  <object id="1962" name="Krovnork Mechanic (t:1)" x="620" y="2800" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Mechanic"/>
+   </properties>
+  </object>
+  <object id="1963" name="Krovnork Mechanic (t:1)" x="620" y="2740" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Mechanic"/>
+   </properties>
+  </object>
+  <object id="1964" name="Krovnork Mechanic (t:1)" x="620" y="2680" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Mechanic"/>
+   </properties>
+  </object>
+  <object id="1965" name="ArmouredAmalgamate (t:1)" x="439.342" y="2738.63" width="25" height="25" rotation="88.2124">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="ArmouredAmalgamate"/>
+   </properties>
+  </object>
+  <object id="1966" name="Krovnork Veteran Defender (t:1)" x="680.59" y="2739.41" width="20" height="20" rotation="88.2124">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Defender"/>
+   </properties>
+  </object>
+  <object id="1967" name="Krovnork Veteran Defender (t:1)" x="380.233" y="2739.77" width="20" height="20" rotation="89.2935">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Defender"/>
+   </properties>
+  </object>
+  <object id="1968" name="Krovnork Veteran Gunner (t:1)" x="680.141" y="2799.86" width="20" height="20" rotation="89.3177">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="1969" name="Krovnork Veteran Gunner (t:1)" x="679.925" y="2679.92" width="20" height="20" rotation="89.6347">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="1970" name="Krovnork Veteran Gunner (t:1)" x="380" y="2680" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="1971" name="Krovnork Veteran Gunner (t:1)" x="380" y="2800" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="1972" name="HMission_BlockB (t:1)" x="510" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1973" name="HMission_BlockB (t:1)" x="550" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1974" name="HMission_BlockB (t:1)" x="590" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1975" name="HMission_BlockB (t:1)" x="630" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1976" name="HMission_BlockB (t:1)" x="670" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1977" name="HMission_BlockB (t:1)" x="710" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1978" name="HMission_BlockB (t:1)" x="750" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1979" name="HMission_BlockB (t:1)" x="750" y="2810" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1980" name="HMission_BlockB (t:1)" x="750" y="2770" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1981" name="HMission_BlockB (t:1)" x="750" y="2730" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1982" name="HMission_BlockB (t:1)" x="750" y="2690" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1983" name="HMission_BlockB (t:1)" x="750" y="2650" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1984" name="HMission_BlockB (t:1)" x="750" y="2610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1985" name="HMission_BlockB (t:1)" x="750" y="2570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1986" name="HMission_BlockB (t:1)" x="750" y="2530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1987" name="HMission_BlockB (t:1)" x="750" y="2490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1988" name="HMission_BlockB (t:1)" x="750" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1989" name="HMission_BlockB (t:1)" x="710" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1990" name="HMission_BlockB (t:1)" x="670" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1991" name="HMission_BlockB (t:1)" x="630" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1992" name="HMission_BlockB (t:1)" x="590" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1993" name="HMission_BlockB (t:1)" x="550" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1994" name="HMission_BlockB (t:1)" x="510" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1995" name="HMission_BlockB (t:1)" x="470" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1996" name="HMission_BlockB (t:1)" x="430" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1997" name="HMission_BlockB (t:1)" x="390" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1998" name="HMission_BlockB (t:1)" x="350" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="1999" name="HMission_BlockB (t:1)" x="310" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2000" name="HMission_BlockB (t:1)" x="270" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2001" name="HMission_BlockB (t:1)" x="230" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2002" name="HMission_BlockB (t:1)" x="190" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2003" name="HMission_BlockB (t:1)" x="150" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2004" name="HMission_BlockB (t:1)" x="110" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2005" name="HMission_BlockB (t:1)" x="70" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2006" name="HMission_BlockB (t:1)" x="470" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2007" name="HMission_BlockB (t:1)" x="430" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2008" name="HMission_BlockB (t:1)" x="390" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2009" name="HMission_BlockB (t:1)" x="350" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2010" name="HMission_BlockB (t:1)" x="310" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2011" name="HMission_BlockB (t:1)" x="270" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2012" name="HMission_BlockB (t:1)" x="230" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2013" name="HMission_BlockB (t:1)" x="190" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2014" name="HMission_BlockB (t:1)" x="150" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2015" name="HMission_BlockB (t:1)" x="110" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2016" name="HMission_BlockB (t:1)" x="90" y="2810" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2017" name="HMission_BlockB (t:1)" x="70" y="2770" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2018" name="HMission_BlockB (t:1)" x="70" y="2730" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2019" name="HMission_BlockB (t:1)" x="70" y="2690" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2020" name="HMission_BlockB (t:1)" x="70" y="2650" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2021" name="HMission_BlockB (t:1)" x="50" y="2610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2022" name="HMission_BlockB (t:1)" x="50" y="2570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2023" name="HMission_BlockB (t:1)" x="50" y="2530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2024" name="HMission_BlockB (t:1)" x="50" y="2490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2025" name="HMission_BlockB (t:1)" x="1250" y="3170" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2026" name="HMission_BlockB (t:1)" x="1250" y="3130" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2027" name="HMission_BlockB (t:1)" x="1290" y="3110" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2028" name="HMission_BlockB (t:1)" x="1410" y="2410" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2029" name="HMission_BlockB (t:1)" x="1410" y="2450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2030" name="HMission_BlockB (t:1)" x="1430" y="2490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2031" name="HMission_BlockA (t:1)" x="1070" y="1310" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2032" name="HMission_BlockA (t:1)" x="1110" y="1310" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2033" name="HMission_BlockA (t:1)" x="1150" y="1310" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2034" name="HMission_BlockA (t:1)" x="1190" y="1310" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2035" name="HMission_BlockA (t:1)" x="1230" y="1310" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2036" name="HMission_BlockA (t:1)" x="1290" y="1270" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2037" name="HMission_BlockA (t:1)" x="1230" y="1350" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2038" name="HMission_BlockA (t:1)" x="1270" y="1370" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2039" name="HMission_BlockA (t:1)" x="1310" y="1370" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2040" name="HMission_BlockA (t:1)" x="1330" y="1330" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2041" name="HMission_BlockA (t:1)" x="1370" y="1330" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2042" name="HMission_BlockA (t:1)" x="1410" y="1330" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2043" name="HMission_BlockA (t:1)" x="1450" y="1330" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2044" name="HMission_BlockA (t:1)" x="1490" y="1330" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2045" name="HMission_BlockA (t:1)" x="1570" y="1290" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2046" name="HMission_BlockA (t:1)" x="1610" y="1390" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2047" name="HMission_BlockA (t:1)" x="1570" y="1410" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2048" name="HMission_BlockA (t:1)" x="1530" y="1430" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2049" name="HMission_BlockA (t:1)" x="1490" y="1450" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2050" name="HMission_BlockA (t:1)" x="1450" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2051" name="HMission_BlockA (t:1)" x="1410" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2052" name="HMission_BlockA (t:1)" x="1370" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2053" name="HMission_BlockA (t:1)" x="1330" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2054" name="HMission_BlockA (t:1)" x="1290" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2055" name="HMission_BlockA (t:1)" x="1250" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2056" name="HMission_BlockA (t:1)" x="1210" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2057" name="HMission_BlockA (t:1)" x="1170" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2058" name="HMission_BlockA (t:1)" x="2910" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2059" name="HMission_BlockA (t:1)" x="2950" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2060" name="HMission_BlockA (t:1)" x="2990" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2061" name="HMission_BlockA (t:1)" x="3030" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2062" name="HMission_BlockA (t:1)" x="3070" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2063" name="HMission_BlockA (t:1)" x="3110" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2064" name="HMission_BlockA (t:1)" x="3150" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2065" name="HMission_BlockA (t:1)" x="3190" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2066" name="HMission_BlockA (t:1)" x="3230" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2067" name="HMission_BlockA (t:1)" x="3270" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2068" name="HMission_BlockA (t:1)" x="3310" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2069" name="HMission_BlockA (t:1)" x="3350" y="750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2070" name="HMission_BlockA (t:1)" x="3350" y="710" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2071" name="HMission_BlockA (t:1)" x="3390" y="710" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2072" name="HMission_BlockA (t:1)" x="3430" y="710" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2073" name="HMission_BlockA (t:1)" x="3430" y="670" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2074" name="HMission_BlockA (t:1)" x="3470" y="670" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2075" name="HMission_BlockA (t:1)" x="3510" y="670" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2076" name="HMission_BlockA (t:1)" x="3570" y="630" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2077" name="HMission_BlockA (t:1)" x="3530" y="630" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2078" name="HMission_BlockA (t:1)" x="3490" y="630" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockA"/>
+   </properties>
+  </object>
+  <object id="2079" name="Krovnork Bunker (t:1)" x="2879" y="359" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker"/>
+   </properties>
+  </object>
+  <object id="2080" name="K_DrillT1 (t:1)" x="3340" y="180" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillT1"/>
+   </properties>
+  </object>
+  <object id="2081" name="K_DrillT1 (t:1)" x="3220" y="420" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillT1"/>
+   </properties>
+  </object>
+  <object id="2082" name="K_DrillT1 (t:1)" x="2720" y="260" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillT1"/>
+   </properties>
+  </object>
+  <object id="2083" name="K_CannonTurret (t:1)" x="2590" y="350" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2084" name="K_CannonTurret (t:1)" x="2550" y="250" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2085" name="K_CannonTurret (t:1)" x="2610" y="150" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2086" name="K_CannonTurret (t:1)" x="2850" y="170" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2087" name="K_CannonTurret (t:1)" x="3090" y="550" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2088" name="K_CannonTurret (t:1)" x="3170" y="170" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2089" name="K_CannonTurret (t:1)" x="3350" y="470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2090" name="K_CannonTurret (t:1)" x="2830" y="490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_CannonTurret"/>
+   </properties>
+  </object>
+  <object id="2091" name="K_QuadCannon (t:1)" x="2830" y="270" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2092" name="K_TwinLaser (t:1)" x="3150" y="310" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2093" name="K_BeamerTurret (t:1)" x="3030" y="190" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2094" name="K_BeamerTurret (t:1)" x="3030" y="370" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2095" name="K_BeamerTurret (t:1)" x="2950" y="290" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2096" name="K_BeamerTurret (t:1)" x="3130" y="270" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2097" name="GateCtrlA (t:1)" x="3105" y="995" width="50" height="50" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="GateCtrlA"/>
+   </properties>
+  </object>
+  <object id="2098" name="Krovnork Factory (t:1)" x="3045" y="85" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory"/>
+   </properties>
+  </object>
+  <object id="2099" name="Krovnork Launch Pit (t:1)" x="3025" y="765" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Launch Pit"/>
+   </properties>
+  </object>
+  <object id="2100" name="Krovnork_antiNukeLauncher (t:1)" x="394" y="2594" width="35" height="35" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork_antiNukeLauncher"/>
+   </properties>
+  </object>
+  <object id="2101" name="KHQ (t:1)" x="679" y="2479" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="KHQ"/>
+   </properties>
+  </object>
+  <object id="2102" name="KHQ (t:1)" x="199" y="2639" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="KHQ"/>
+   </properties>
+  </object>
+  <object id="2103" name="KHQ (t:1)" x="2779" y="2619" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="KHQ"/>
+   </properties>
+  </object>
+  <object id="2104" name="K_DrillOD (t:1)" x="1840" y="2620" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillOD"/>
+   </properties>
+  </object>
+  <object id="2105" name="K_DrillAR (t:1)" x="520" y="2640" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillAR"/>
+   </properties>
+  </object>
+  <object id="2106" name="K_DrillOD (t:1)" x="2480" y="2680" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillOD"/>
+   </properties>
+  </object>
+  <object id="2107" name="K_RocketTurret (t:1)" x="3030" y="2610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2108" name="K_RocketTurret (t:1)" x="3030" y="2650" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2109" name="K_RocketTurret (t:1)" x="3030" y="2570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2110" name="K_RocketTurret (t:1)" x="1850" y="2530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2111" name="Krovnork Launch Pit (t:1)" x="825" y="2465" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Launch Pit"/>
+   </properties>
+  </object>
+  <object id="2112" name="Krovnork Launch Pit (t:1)" x="1505" y="2025" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Launch Pit"/>
+   </properties>
+  </object>
+  <object id="2113" name="Krovnork Launch Pit (t:1)" x="1285" y="2185" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Launch Pit"/>
+   </properties>
+  </object>
+  <object id="2114" name="Krovnork Launch Pit (t:1)" x="2245" y="2065" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Launch Pit"/>
+   </properties>
+  </object>
+  <object id="2115" name="Ori_AntiOrbit (t:0)" x="230" y="1110" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2116" name="Ori_AntiOrbit (t:0)" x="230" y="990" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2117" name="Ori_AntiOrbit (t:0)" x="230" y="870" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2118" name="Ori_AntiOrbit (t:0)" x="470" y="1170" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2119" name="Ori_AntiOrbit (t:0)" x="470" y="810" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2120" name="Ori_AntiOrbit (t:0)" x="550" y="810" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2121" name="Ori_AntiOrbit (t:0)" x="550" y="1170" width="40" height="40" rotation="-90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_AntiOrbit"/>
+   </properties>
+  </object>
+  <object id="2122" name="Krovnork Factory T2 (t:1)" x="1765" y="2765" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2123" name="Krovnork Factory T2 (t:1)" x="1925" y="2765" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2124" name="Krovnork Factory T2 (t:1)" x="2725" y="2765" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2125" name="Krovnork Factory T2 (t:1)" x="2565" y="2745" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2126" name="K_TwinLaser (t:1)" x="2270" y="2010" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2127" name="K_TwinLaser (t:1)" x="1310" y="1690" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2128" name="K_TwinLaser (t:1)" x="1390" y="1610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2129" name="K_TwinLaser (t:1)" x="1510" y="1530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2130" name="K_TwinLaser (t:1)" x="1670" y="1570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2131" name="K_TwinLaser (t:1)" x="1290" y="1570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2132" name="K_QuadCannon (t:1)" x="1350" y="1570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2133" name="K_QuadCannon (t:1)" x="1430" y="1530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2134" name="K_QuadCannon (t:1)" x="1590" y="1490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2135" name="K_QuadCannon (t:1)" x="1650" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2136" name="K_QuadCannon (t:1)" x="1210" y="1590" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2137" name="K_DrillAR (t:1)" x="2880" y="2640" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillAR"/>
+   </properties>
+  </object>
+  <object id="2138" name="K_BeamerTurret (t:1)" x="3030" y="2530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2139" name="K_BeamerTurret (t:1)" x="3150" y="2610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2140" name="K_BeamerTurret (t:1)" x="3050" y="2770" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2141" name="K_BeamerTurret (t:1)" x="2790" y="2430" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2142" name="K_BeamerTurret (t:1)" x="2890" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2143" name="K_BeamerTurret (t:1)" x="2470" y="2890" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2144" name="K_BeamerTurret (t:1)" x="2290" y="2890" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2145" name="K_BeamerTurret (t:1)" x="2030" y="2930" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2146" name="K_BeamerTurret (t:1)" x="1810" y="2950" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2147" name="K_BeamerTurret (t:1)" x="1610" y="2950" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2148" name="K_BeamerTurret (t:1)" x="2170" y="2890" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2149" name="K_BeamerTurret (t:1)" x="1350" y="2950" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2150" name="K_BeamerTurret (t:1)" x="1390" y="2950" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2151" name="K_BeamerTurret (t:1)" x="1430" y="2950" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2152" name="K_BeamerTurret (t:1)" x="1470" y="2950" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2153" name="K_BeamerTurret (t:1)" x="790" y="2990" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2154" name="K_BeamerTurret (t:1)" x="630" y="3090" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2155" name="K_BeamerTurret (t:1)" x="250" y="3090" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2156" name="K_BeamerTurret (t:1)" x="330" y="2350" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2157" name="K_BeamerTurret (t:1)" x="650" y="2330" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2158" name="K_BeamerTurret (t:1)" x="950" y="2350" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2159" name="K_BeamerTurret (t:1)" x="1290" y="2390" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2160" name="K_BeamerTurret (t:1)" x="1310" y="2490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2161" name="K_BeamerTurret (t:1)" x="1810" y="2230" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2162" name="K_BeamerTurret (t:1)" x="1910" y="1750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2163" name="K_BeamerTurret (t:1)" x="1150" y="1590" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2164" name="K_BeamerTurret (t:1)" x="1250" y="1570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2165" name="K_BeamerTurret (t:1)" x="1470" y="1530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2166" name="K_BeamerTurret (t:1)" x="1690" y="1470" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_BeamerTurret"/>
+   </properties>
+  </object>
+  <object id="2167" name="K_RocketTurret (t:1)" x="1390" y="1550" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2168" name="K_RocketTurret (t:1)" x="1170" y="1550" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2169" name="K_RocketTurret (t:1)" x="1550" y="1490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2170" name="K_RocketTurret (t:1)" x="1550" y="1530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2171" name="K_RocketTurret (t:1)" x="1310" y="1610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2172" name="K_RocketTurret (t:1)" x="1210" y="1670" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2173" name="K_RocketTurret (t:1)" x="1510" y="1630" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2174" name="K_RocketTurret (t:1)" x="1610" y="1570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2175" name="K_RocketTurret (t:1)" x="1710" y="1530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2176" name="K_DrillOD (t:1)" x="1600" y="1700" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillOD"/>
+   </properties>
+  </object>
+  <object id="2177" name="K_DrillAR (t:1)" x="1480" y="1720" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillAR"/>
+   </properties>
+  </object>
+  <object id="2178" name="K_DrillAR (t:1)" x="1360" y="1740" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillAR"/>
+   </properties>
+  </object>
+  <object id="2179" name="Krovnork Bunker T2 (t:1)" x="1219" y="1819" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2180" name="Krovnork Bunker T2 (t:1)" x="1379" y="1819" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2181" name="Krovnork Bunker T2 (t:1)" x="1099" y="2739" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2182" name="Krovnork Bunker T2 (t:1)" x="1419" y="2739" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2183" name="Krovnork Bunker T2 (t:1)" x="1719" y="3079" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2184" name="Krovnork Bunker T2 (t:1)" x="2039" y="3079" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2185" name="K_QuadCannon (t:1)" x="3330" y="2790" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_QuadCannon"/>
+   </properties>
+  </object>
+  <object id="2186" name="K_TwinLaser (t:1)" x="3330" y="2750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2187" name="K_TwinLaser (t:1)" x="3490" y="2730" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_TwinLaser"/>
+   </properties>
+  </object>
+  <object id="2188" name="GateCtrlB (t:1)" x="3445" y="2995" width="50" height="50" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="GateCtrlB"/>
+   </properties>
+  </object>
+  <object id="2189" name="Krovnork Factory T2 (t:1)" x="325" y="2725" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2190" name="Krovnork Factory T2 (t:1)" x="485" y="2525" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2191" name="K_RocketTurret (t:1)" x="510" y="2790" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2192" name="K_RocketTurret (t:1)" x="610" y="2710" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2193" name="K_RocketTurret (t:1)" x="650" y="2590" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2194" name="K_RocketTurret (t:1)" x="230" y="2750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2195" name="K_RocketTurret (t:1)" x="310" y="2570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2196" name="K_RocketTurret (t:1)" x="390" y="2530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2197" name="Krovnork Builder (t:1)" x="2940" y="320" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Builder"/>
+   </properties>
+  </object>
+  <object id="2198" name="Krovnork Gunner (t:1)" x="2640" y="300" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2199" name="Krovnork Gunner (t:1)" x="2640" y="260" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2200" name="Krovnork Gunner (t:1)" x="2640" y="220" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2201" name="Krovnork Gunner (t:1)" x="2680" y="140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2202" name="Krovnork Gunner (t:1)" x="2720" y="140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2203" name="Krovnork Gunner (t:1)" x="2680" y="360" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2204" name="Krovnork Gunner (t:1)" x="2660" y="400" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2205" name="Krovnork Veteran Gunner (t:1)" x="2580" y="2080" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="2206" name="Krovnork Veteran Gunner (t:1)" x="2720" y="2080" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="2207" name="Krovnork Veteran Gunner (t:1)" x="1700" y="2300" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Gunner"/>
+   </properties>
+  </object>
+  <object id="2208" name="Krovnork Skilled Artillary (t:1)" x="1100" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2209" name="Krovnork Skilled Artillary (t:1)" x="1140" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2210" name="Krovnork Skilled Artillary (t:1)" x="1180" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2211" name="Krovnork Skilled Artillary (t:1)" x="1220" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2212" name="Krovnork Skilled Artillary (t:1)" x="1260" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2213" name="Krovnork Skilled Artillary (t:1)" x="1300" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2214" name="Krovnork Skilled Artillary (t:1)" x="1340" y="2060" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2215" name="Krovnork Skilled Artillary (t:1)" x="1100" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2216" name="Krovnork Skilled Artillary (t:1)" x="1140" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2217" name="Krovnork Skilled Artillary (t:1)" x="1180" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2218" name="Krovnork Skilled Artillary (t:1)" x="1220" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2219" name="Krovnork Skilled Artillary (t:1)" x="1260" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2220" name="Krovnork Skilled Artillary (t:1)" x="1300" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2221" name="Krovnork Skilled Artillary (t:1)" x="1340" y="2140" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Artillary"/>
+   </properties>
+  </object>
+  <object id="2222" name="Krovnork Gunner (t:1)" x="3320" y="2880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2223" name="Krovnork Gunner (t:1)" x="3480" y="2880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Gunner"/>
+   </properties>
+  </object>
+  <object id="2224" name="Krovnork Builder (t:1)" x="3280" y="3020" width="20" height="20" rotation="90.8046">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Builder"/>
+   </properties>
+  </object>
+  <object id="2225" name="Krovnork Builder (t:1)" x="3280.58" y="3079.97" width="20" height="20" rotation="83.1085">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Builder"/>
+   </properties>
+  </object>
+  <object id="2226" name="Krovnork Skilled Defender (t:1)" x="3440" y="2940" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Defender"/>
+   </properties>
+  </object>
+  <object id="2227" name="Krovnork Skilled Elite (t:1)" x="2640" y="1960" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Skilled Elite"/>
+   </properties>
+  </object>
+  <object id="2228" name="Krovnork Mechanic (t:1)" x="2520" y="1900" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Mechanic"/>
+   </properties>
+  </object>
+  <object id="2229" name="Krovnork Veteran Chemist (t:1)" x="3080" y="2620" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Veteran Chemist"/>
+   </properties>
+  </object>
+  <object id="2230" name="K_DrillOD (t:1)" x="2640" y="1860" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_DrillOD"/>
+   </properties>
+  </object>
+  <object id="2231" name="Krovnork Bunker T2 (t:1)" x="2759" y="1839" width="45" height="45" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Bunker T2"/>
+   </properties>
+  </object>
+  <object id="2232" name="K_RocketTurret (t:1)" x="2610" y="1750" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="K_RocketTurret"/>
+   </properties>
+  </object>
+  <object id="2233" name="Krovnork Factory T2 (t:1)" x="2545" y="1965" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2234" name="Krovnork Factory T2 (t:1)" x="2705" y="1965" width="70" height="70" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="Krovnork Factory T2"/>
+   </properties>
+  </object>
+  <object id="2235" name="MP tank armed (t:1)" x="2979" y="2639" width="25" height="25" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="MP tank armed"/>
+   </properties>
+  </object>
+  <object id="2236" name="MP tank armed (t:1)" x="2879" y="2579" width="25" height="25" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="MP tank armed"/>
+   </properties>
+  </object>
+  <object id="2237" name="MP tank armed (t:1)" x="2879" y="2719" width="25" height="25" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="MP tank armed"/>
+   </properties>
+  </object>
+  <object id="2238" name="MP tank armed (t:1)" x="2639" y="2539" width="25" height="25" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="MP tank armed"/>
+   </properties>
+  </object>
+  <object id="2239" name="MP tank armed (t:1)" x="2699" y="2659" width="25" height="25" rotation="90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="MP tank armed"/>
+   </properties>
+  </object>
+  <object id="2240" name="HMission_BlockB (t:1)" x="2330" y="2890" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2241" name="HMission_BlockB (t:1)" x="2310" y="2850" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2242" name="HMission_BlockB (t:1)" x="2310" y="2810" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2243" name="HMission_BlockB (t:1)" x="2310" y="2770" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2244" name="HMission_BlockB (t:1)" x="2310" y="2730" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2245" name="HMission_BlockB (t:1)" x="2310" y="2690" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2246" name="HMission_BlockB (t:1)" x="2290" y="2650" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2247" name="HMission_BlockB (t:1)" x="2290" y="2610" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2248" name="HMission_BlockB (t:1)" x="2290" y="2570" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2249" name="HMission_BlockB (t:1)" x="2290" y="2530" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2250" name="HMission_BlockB (t:1)" x="2290" y="2490" width="20" height="20" rotation="-90">
+   <properties>
+    <property name="team" value="1"/>
+    <property name="unit" value="HMission_BlockB"/>
+   </properties>
+  </object>
+  <object id="2251" name="Ori_Arbalast (t:0)" x="1720" y="2260" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="-1"/>
+    <property name="unit" value="Ori_Arbalast"/>
+   </properties>
+  </object>
+  <object id="2252" name="Ori_PodAG (t:0)" x="180" y="1120" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+  <object id="2253" name="Ori_PodAG (t:0)" x="180" y="1080" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+  <object id="2254" name="Ori_PodAG (t:0)" x="180" y="1040" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+  <object id="2255" name="Ori_PodAG (t:0)" x="180" y="1000" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+  <object id="2256" name="Ori_PodAG (t:0)" x="180" y="960" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+  <object id="2257" name="Ori_PodAG (t:0)" x="180" y="920" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+  <object id="2258" name="Ori_PodAG (t:0)" x="180" y="880" width="20" height="20" rotation="90">
+   <properties>
+    <property name="team" value="0"/>
+    <property name="unit" value="Ori_PodAG"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

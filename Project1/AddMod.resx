@@ -5092,7 +5092,7 @@
   <data name="Icon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA/7JJREFUeF7svQVAnNmyLUzcE0KIkxB3dwKBEIi7u7vbxN194m4TV4gBcXdX4sQd
+        vQAADr0BR/uQrQAA/7JJREFUeF7svQVAnNmyLUzcE0KIkxB3dwKBEIi7u7vbxN194m4TV4gBcXdX4sQd
         h3ZZ51+1P0gyOXPOO+/de99/7rtdmZpuur/+ZO+qVau2OjnEIQ5xiEMc4hCHOMQhDnGIQxziEIc4xCEO
         cYhDHOIQhzjEIQ5xiEMc4hCHOMQhDnGIQxziEIc4xCEOcYhDHOIQhzjEIQ5xiEMc4hCHOMQhDnGIQxzi
         EIc4xCEOcYhDHOIQhzjEIQ5xiEMc4hCHOMQhDnGIQxziEIc4xCEOcYhDHOIQhzjEIQ5xiEMc4hCHOMQh
@@ -6444,6 +6444,9 @@
   </data>
   <metadata name="DialogImage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="DialogExe.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>476, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>49</value>

@@ -1,0 +1,84 @@
+
+[hiddenAction_startingItems]
+autoTriggerOnEvent: created
+temporarilyAddTags: lightClose, bloodFlowerDequip, redStoneDequip, grawyDequip, hatDequip, pmDequip, akDequip, mpDequip, lrDequip, tozDequip, svtDequip, bowDequip, knifeDequip, macheteDequip, axeDequip, fireAxeDequip, batDequip
+addResources:"""
+reputation:100,
+armor:1, 
+hunger: 95, 
+thirst: 90, 
+radiation: 0, 
+temperature: 20, 
+blood: 100,
+mental: 100,
+toxic: 0, 
+stamina: 100, 
+maxstamina:100, 
+headHP:100, 
+armHP:100, 
+legHP:100,
+torsoHP:100,
+plank:1,
+snacks:1
+"""
+
+[hiddenAction_startingItemsMale]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="male")
+addResources: strength: 2, fitness: 1, lightfooted: -1
+
+[hiddenAction_startingItemsFemale]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="female")
+addResources: lightfooted: 1, nimble:1, fitness: 1
+
+
+[hiddenAction_startingItemsSoldier]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="skirmisher")
+addResources: strength: 2, aiming: 3
+
+[hiddenAction_startingItemsScout]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="scout")
+addResources: lightfooted: 3, aiming: 3
+
+[hiddenAction_startingItemsDancer]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="dancer")
+addResources: lightfooted: 2, nimble: 2, running: 1
+
+[hiddenAction_startingItemsHunter]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="hunter")
+addResources: knife: 15
+
+[hiddenAction_startingItemsStalker]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="stalker")
+addResources: nimble: 1
+
+[hiddenAction_startingItemsThief]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="thief")
+addResources: lightfooted: 2, blade:1
+
+[hiddenAction_startingItemsLeaderSoul]
+autoTriggerOnEvent: created
+requireConditional: if self.globalTeamTags(includes="commander")
+addResources: strength: -1, fitness: -1
+
+[hiddenAction_startingItemsDoctor]
+autoTriggerOnEvent: created
+addResources: firstaid: 4, bandage: 3, gauze: 2, drug: 1, medkit: 1, medkitCar: 1, syringe: 2, radkit: 1
+requireConditional: if self.globalTeamTags(includes="medic")
+
+[hiddenAction_startingItemsWorker]
+autoTriggerOnEvent: created
+addResources: strength: 2, crafting: 4
+requireConditional: if self.globalTeamTags(includes="worker")
+
+[hiddenAction_startingItemsTruckDriver]
+autoTriggerOnEvent: created
+addResources: strength: 1
+requireConditional: if self.globalTeamTags(includes="truckDriver")
