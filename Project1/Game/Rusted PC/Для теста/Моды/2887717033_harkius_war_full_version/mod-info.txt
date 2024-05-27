@@ -1,9 +1,0 @@
-[mod]
-title: Harkius War
-description: In the far future, six factions from accross reality meet on the battlefield.
- 
-
-tags: Maps, Units, Missions, Starting Units, Replacing Units, Total Conversion, AI, Campaign, Factions, Buildings
-thumbnail: Title.png
-
-minVersion: 1.15p9

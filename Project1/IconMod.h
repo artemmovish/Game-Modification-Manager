@@ -38,7 +38,13 @@ namespace Project1 {
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	public: System::Windows::Forms::PictureBox^ Icon;
-	public: System::Windows::Forms::TextBox^ NameMod;
+
+	private: System::Windows::Forms::Timer^ timer1;
+	public: System::Windows::Forms::Label^ NameMod;
+	private:
+
+	public:
+	private: System::ComponentModel::IContainer^ components;
 
 	protected:
 
@@ -46,7 +52,7 @@ namespace Project1 {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -55,10 +61,12 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(IconMod::typeid));
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->NameMod = (gcnew System::Windows::Forms::TextBox());
 			this->Icon = (gcnew System::Windows::Forms::PictureBox());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->NameMod = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Icon))->BeginInit();
 			this->SuspendLayout();
@@ -68,8 +76,8 @@ namespace Project1 {
 			this->tableLayoutPanel1->ColumnCount = 1;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel1->Controls->Add(this->NameMod, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->Icon, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->NameMod, 0, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -78,22 +86,6 @@ namespace Project1 {
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.75127F)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 197);
 			this->tableLayoutPanel1->TabIndex = 0;
-			// 
-			// NameMod
-			// 
-			this->NameMod->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)),
-				static_cast<System::Int32>(static_cast<System::Byte>(35)));
-			this->NameMod->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->NameMod->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->NameMod->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->NameMod->ForeColor = System::Drawing::Color::Silver;
-			this->NameMod->Location = System::Drawing::Point(3, 167);
-			this->NameMod->Name = L"NameMod";
-			this->NameMod->ReadOnly = true;
-			this->NameMod->Size = System::Drawing::Size(169, 27);
-			this->NameMod->TabIndex = 1;
-			this->NameMod->Text = L"Шаблон";
 			// 
 			// Icon
 			// 
@@ -106,6 +98,18 @@ namespace Project1 {
 			this->Icon->TabIndex = 0;
 			this->Icon->TabStop = false;
 			this->Icon->Click += gcnew System::EventHandler(this, &IconMod::Icon_Click);
+			// 
+			// NameMod
+			// 
+			this->NameMod->AutoSize = true;
+			this->NameMod->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->NameMod->ForeColor = System::Drawing::Color::Silver;
+			this->NameMod->Location = System::Drawing::Point(3, 164);
+			this->NameMod->Name = L"NameMod";
+			this->NameMod->Size = System::Drawing::Size(158, 25);
+			this->NameMod->TabIndex = 1;
+			this->NameMod->Text = L"Название моды";
 			// 
 			// IconMod
 			// 
@@ -126,8 +130,6 @@ namespace Project1 {
 #pragma endregion
 	public:
 		String^ gameName;
-
-
 	private: System::Void Icon_Click(System::Object^ sender, System::EventArgs^ e) {
 		AddMod^ mod = gcnew AddMod();
 		mod->textName->Text = NameMod->Text;

@@ -8,6 +8,7 @@ System::Void Project1::AddMod::butAddGameMod_Click(System::Object^ sender, Syste
     return System::Void();
 }
 
+// Сохранить сборку
 System::Void Project1::AddMod::butSave_Click(System::Object^ sender, System::EventArgs^ e)
 {
     String^ stringConection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;";
@@ -91,6 +92,7 @@ System::Void Project1::AddMod::изменитьIconToolStripMenuItem_Click(System::Objec
     return System::Void();
 }
 
+// Удалить сборку
 System::Void Project1::AddMod::butDel_Click(System::Object^ sender, System::EventArgs^ e)
 {
     OleDbConnection^ connection = gcnew OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "Ресурсы\\Games.accdb" + ";Persist Security Info=False;");
@@ -135,11 +137,16 @@ System::Void Project1::AddMod::butStart_Click(System::Object^ sender, System::Ev
             if (FolderControl^ folderControl = dynamic_cast<FolderControl^>(control))
             {
                 Directory::Delete(folderControl->pathCopy, true);
+            }
+        }
+        for each (Control ^ control in this->panelFolders->Controls)
+        {
+            if (FolderControl^ folderControl = dynamic_cast<FolderControl^>(control))
+            {
                 Directory::CreateDirectory(folderControl->pathCopy);
                 CopyDirectory(folderControl->path, folderControl->pathCopy);
             }
         }
-    
         System::Diagnostics::Process^ process1 = gcnew Process();
         process1->StartInfo->FileName = textExe->Text;
         process1->StartInfo->WorkingDirectory = Path::GetDirectoryName(textExe->Text);

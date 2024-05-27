@@ -1036,56 +1036,7 @@ private: System::Void butAddGame_Click(System::Object^ sender, System::EventArgs
 private: System::Void click_IconGame(String^ name);
 
 private: System::Void butChange_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e)
-{
-
-	if (StatusChange && OldName != "Шаблон")
-	{
-		this->Text = "Launcher";
-
-		MenuStripPrew->Enabled = false;
-
-		StatusChange = false;
-		textName->ReadOnly = true;
-		textName->ForeColor = Drawing::Color::Silver;
-
-		textDict->ReadOnly = true;
-		textDict->ForeColor = Drawing::Color::Silver;
-
-		textExe->ReadOnly = true;
-		textExe->ForeColor = Drawing::Color::Silver;
-
-		if (textName->Text == "Шаблон")
-		{
-			MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
-		}
-		else if (textName->Text == "" || textName->Text->Substring(0, 1) == " ")
-		{
-			MessageBox::Show("Нельзя задать пустое имя", "Сообщение");
-		}
-		else
-		{
-			UpdateData();
-			Application::Restart();
-		}
-	}
-	else
-	{
-		if (textName->Text == "Шаблон")
-		{
-			MessageBox::Show("Шаблон изменять нельзя", "Сообщение");
-		}
-		else if (textName->Text == "" || textName->Text->Substring(0, 1) == " ")
-		{
-			MessageBox::Show("Неверный формат имени");
-		}
-		else if (OldName == "Шаблон")
-		{
-			SaveData();
-		}
-	}
-	return System::Void();
-}
+private: System::Void butSave_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butDel_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void butStart_Click(System::Object^ sender, System::EventArgs^ e);
 

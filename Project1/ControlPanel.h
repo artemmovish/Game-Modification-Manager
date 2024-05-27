@@ -150,7 +150,7 @@ namespace Project1 {
 			this->butSet->Name = L"butSet";
 			this->butSet->Size = System::Drawing::Size(52, 52);
 			this->butSet->TabIndex = 11;
-			this->toolTip1->SetToolTip(this->butSet, L"Настройки");
+			this->toolTip1->SetToolTip(this->butSet, L"Справка");
 			this->butSet->UseVisualStyleBackColor = true;
 			// 
 			// butPlay

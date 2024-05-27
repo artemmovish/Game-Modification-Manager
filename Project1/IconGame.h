@@ -38,7 +38,13 @@ namespace Project1 {
 		}
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	public: System::Windows::Forms::PictureBox^ Icon;
-	public: System::Windows::Forms::TextBox^ NameGame;
+	public: System::Windows::Forms::Label^ NameGame;
+
+	public:
+	private: System::ComponentModel::IContainer^ components;
+
+	public:
+
 
 
 
@@ -53,7 +59,7 @@ namespace Project1 {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -64,8 +70,8 @@ namespace Project1 {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(IconGame::typeid));
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->NameGame = (gcnew System::Windows::Forms::TextBox());
 			this->Icon = (gcnew System::Windows::Forms::PictureBox());
+			this->NameGame = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Icon))->BeginInit();
 			this->SuspendLayout();
@@ -75,8 +81,8 @@ namespace Project1 {
 			this->tableLayoutPanel1->ColumnCount = 1;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel1->Controls->Add(this->NameGame, 0, 1);
 			this->tableLayoutPanel1->Controls->Add(this->Icon, 0, 0);
+			this->tableLayoutPanel1->Controls->Add(this->NameGame, 0, 1);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -85,22 +91,6 @@ namespace Project1 {
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.75127F)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(175, 193);
 			this->tableLayoutPanel1->TabIndex = 0;
-			// 
-			// NameGame
-			// 
-			this->NameGame->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(35)), static_cast<System::Int32>(static_cast<System::Byte>(35)),
-				static_cast<System::Int32>(static_cast<System::Byte>(35)));
-			this->NameGame->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->NameGame->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->NameGame->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->NameGame->ForeColor = System::Drawing::Color::Silver;
-			this->NameGame->Location = System::Drawing::Point(3, 163);
-			this->NameGame->Name = L"NameGame";
-			this->NameGame->ReadOnly = true;
-			this->NameGame->Size = System::Drawing::Size(169, 27);
-			this->NameGame->TabIndex = 1;
-			this->NameGame->Text = L"Шаблон";
 			// 
 			// Icon
 			// 
@@ -113,6 +103,20 @@ namespace Project1 {
 			this->Icon->TabIndex = 0;
 			this->Icon->TabStop = false;
 			this->Icon->Click += gcnew System::EventHandler(this, &IconGame::Icon_Click);
+			// 
+			// NameGame
+			// 
+			this->NameGame->AutoSize = true;
+			this->NameGame->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->NameGame->ForeColor = System::Drawing::Color::Silver;
+			this->NameGame->Location = System::Drawing::Point(3, 160);
+			this->NameGame->Name = L"NameGame";
+			this->NameGame->Size = System::Drawing::Size(83, 25);
+			this->NameGame->TabIndex = 1;
+			this->NameGame->Text = L"Шаблон";
+			this->NameGame->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->NameGame->Click += gcnew System::EventHandler(this, &IconGame::Icon_Click);
 			// 
 			// IconGame
 			// 
@@ -131,7 +135,6 @@ namespace Project1 {
 
 
 #pragma endregion
-
 		public:
 			void LoadGame(String^ name)
 			{

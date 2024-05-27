@@ -1,4 +1,0 @@
-[mod]
-title: Moji Island 2v2
-description: A small 2v2 battlefield made of 2 Moji Islands connected via a custom land bridge. Functional in 1v1v1v1 but not recommended.
-thumbnail: Moji_Island_2v2_Preview.png
