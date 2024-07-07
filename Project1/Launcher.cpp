@@ -297,6 +297,8 @@ System::Void Project1::Launcher::butAddGameMod_Click(System::Object^ sender, Sys
     {
         AddMod^ mod = gcnew AddMod();
         mod->nameGame = textName->Text;
-        mod->Show();
+        Hide();
+        mod->ShowDialog();
+        Show();
     }
 }

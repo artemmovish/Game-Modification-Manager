@@ -13,6 +13,9 @@
     <Filter Include="Создание сборки\Элементы">
       <UniqueIdentifier>{baa65c8f-724f-4275-9daf-d61d5edb2787}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Справка">
+      <UniqueIdentifier>{cc4cc430-f876-4940-8ac0-f22ecf7a2ee3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -34,6 +37,9 @@
     <ClCompile Include="FolderControl.cpp">
       <Filter>Создание сборки\Элементы</Filter>
     </ClCompile>
+    <ClCompile Include="Spravka.cpp">
+      <Filter>Справка</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Launcher.h">
@@ -54,6 +60,9 @@
     <ClInclude Include="Установщик.h" />
     <ClInclude Include="FolderControl.h">
       <Filter>Создание сборки\Элементы</Filter>
+    </ClInclude>
+    <ClInclude Include="Spravka.h">
+      <Filter>Справка</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

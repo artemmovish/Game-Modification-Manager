@@ -432,6 +432,7 @@ namespace Project1 {
 			this->Controls->Add(this->butAddGameMod);
 			this->Controls->Add(this->PanelPrew);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			//this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"AddMod";
 			this->Text = L"AddMod";

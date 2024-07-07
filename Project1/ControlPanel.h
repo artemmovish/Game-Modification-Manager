@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Spravka.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -152,6 +152,7 @@ namespace Project1 {
 			this->butSet->TabIndex = 11;
 			this->toolTip1->SetToolTip(this->butSet, L"Справка");
 			this->butSet->UseVisualStyleBackColor = true;
+			this->butSet->Click += gcnew System::EventHandler(this, &ControlPanel::butSet_Click);
 			// 
 			// butPlay
 			// 
@@ -237,6 +238,10 @@ private: System::Void butStop_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void butPlay_Click(System::Object^ sender, System::EventArgs^ e) {
 	clickbutPlay(sender, e);
 	return System::Void();
+}
+private: System::Void butSet_Click(System::Object^ sender, System::EventArgs^ e) {
+	Spravka^ form = gcnew Spravka();
+	form->Show();
 }
 };
 }
